@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <!-- ============== SEO PRIMARY ============== -->
-<title>Exilia — Faites gagner 10 à 30h/semaine à vos équipes grâce à l'IA | Cabinet IA PME Suisse romande</title>
-<meta name="description" content="Exilia accompagne les PME suisses à intégrer concrètement l'IA dans leur quotidien. Formation Claude, conseil et automatisation sans code. Audit gratuit — 5 places par mois. Genève · Lausanne · Fribourg · Sion." />
+<title>Excilia — Faites gagner 10 à 30h/semaine à vos équipes grâce à l'IA | Cabinet IA PME Suisse romande</title>
+<meta name="description" content="Excilia accompagne les PME suisses à intégrer concrètement l'IA dans leur quotidien. Formation Claude, conseil et automatisation sans code. Audit gratuit — 5 places par mois. Genève · Lausanne · Fribourg · Sion." />
 <meta name="keywords" content="cabinet IA Suisse romande, formation Claude PME, automatisation IA Genève, conseil intelligence artificielle Lausanne, agence IA Suisse, automatiser PME, Claude business, formation IA dirigeant" />
-<meta name="author" content="Maxime Robini — Exilia" />
+<meta name="author" content="Maxime Robini — Excilia" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href="https://exilia.ch/" />
 
@@ -20,13 +20,13 @@
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="fr_CH" />
 <meta property="og:url" content="https://exilia.ch/" />
-<meta property="og:site_name" content="Exilia" />
-<meta property="og:title" content="Exilia — 10 à 30h/semaine économisées grâce à l'IA, sans recruter" />
+<meta property="og:site_name" content="Excilia" />
+<meta property="og:title" content="Excilia — 10 à 30h/semaine économisées grâce à l'IA, sans recruter" />
 <meta property="og:description" content="Cabinet IA pour PME romandes. Formation Claude, conseil et automatisation. Audit gratuit 20 min — 5 places par mois." />
 <meta property="og:image" content="https://exilia.ch/og-image.jpg" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Exilia — Cabinet IA pour PME suisses" />
+<meta name="twitter:title" content="Excilia — Cabinet IA pour PME suisses" />
 <meta name="twitter:description" content="Faites gagner 10 à 30h/semaine à vos équipes grâce à Claude. Audit gratuit — 5 places/mois." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +39,7 @@
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": "Exilia",
+  "name": "Excilia",
   "description": "Cabinet IA pour PME en Suisse romande. Formation Claude, conseil stratégique et automatisation sur-mesure.",
   "url": "https://exilia.ch",
   "email": "contact@exilia.ch",
@@ -323,6 +323,339 @@
     .pill-nav { gap: 8px; padding: 6px 6px 6px 12px; }
     .scarcity { font-size: 10px; padding: 8px 14px; }
   }
+
+  /* ═══════════════════════════════════════════════════════
+     QUALIFY MODAL — Questionnaire Typeform-style
+     ═══════════════════════════════════════════════════════ */
+  .qm-backdrop {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    display: none; align-items: center; justify-content: center;
+    padding: 20px; opacity: 0; transition: opacity .35s ease;
+  }
+  .qm-backdrop.open { display: flex; opacity: 1; }
+  .qm-backdrop::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(45, 212, 191, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px; pointer-events: none;
+  }
+
+  .qm-dialog {
+    position: relative; width: 100%; max-width: 720px;
+    max-height: 92vh; overflow: hidden;
+    background: linear-gradient(180deg, #0A0E0D 0%, #050808 100%);
+    border: 1px solid rgba(45, 212, 191, 0.16);
+    border-radius: 16px;
+    box-shadow: 0 0 140px rgba(45, 212, 191, 0.12), 0 20px 70px rgba(0, 0, 0, 0.65);
+    transform: translateY(20px) scale(.98);
+    transition: transform .4s cubic-bezier(.22,1,.36,1);
+    display: flex; flex-direction: column;
+  }
+  .qm-backdrop.open .qm-dialog { transform: translateY(0) scale(1); }
+
+  .qm-dialog::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(94, 234, 212, 0.6), transparent);
+  }
+
+  .qm-header {
+    padding: 20px 28px 16px; display: flex; align-items: center; gap: 18px;
+    border-bottom: 1px solid rgba(26, 38, 36, 0.5);
+    flex-shrink: 0;
+  }
+  .qm-brand { display: flex; align-items: center; gap: 11px; }
+  .qm-brand-dot {
+    width: 24px; height: 24px; border-radius: 50%; background: #2DD4BF;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 18px rgba(45, 212, 191, 0.55);
+  }
+  .qm-brand-dot::after {
+    content: ''; width: 9px; height: 9px; border-radius: 50%; background: #000;
+  }
+  .qm-brand-name { font-weight: 600; font-size: 13px; color: #E6FFFC; letter-spacing: -0.005em; }
+  .qm-brand-sub { font-size: 10.5px; color: #7A8C8A; letter-spacing: 0.01em; }
+
+  .qm-progress-wrap { flex: 1; padding: 0 4px; }
+  .qm-progress {
+    height: 2px; background: rgba(45, 212, 191, 0.1);
+    border-radius: 999px; overflow: hidden; position: relative;
+  }
+  .qm-progress-fill {
+    position: absolute; left: 0; top: 0; height: 100%; width: 0%;
+    background: linear-gradient(90deg, #2DD4BF, #5EEAD4);
+    border-radius: 999px;
+    box-shadow: 0 0 14px rgba(45, 212, 191, 0.55);
+    transition: width .6s cubic-bezier(.22,1,.36,1);
+  }
+  /* Counter hidden — progress bar is self-explanatory */
+  .qm-counter { display: none; }
+
+  .qm-close {
+    background: transparent; border: 1px solid rgba(26, 38, 36, 0.8);
+    color: #7A8C8A; width: 32px; height: 32px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: all .2s ease; flex-shrink: 0;
+  }
+  .qm-close:hover { border-color: rgba(45, 212, 191, 0.5); color: #5EEAD4; background: rgba(45, 212, 191, 0.06); }
+
+  .qm-body {
+    padding: 64px 64px 40px; flex: 1; overflow-y: auto;
+    position: relative; min-height: 480px;
+  }
+  .qm-body::-webkit-scrollbar { width: 6px; }
+  .qm-body::-webkit-scrollbar-track { background: transparent; }
+  .qm-body::-webkit-scrollbar-thumb { background: rgba(45, 212, 191, 0.2); border-radius: 10px; }
+
+  .qm-slide {
+    display: none;
+    animation: qmSlideIn .5s cubic-bezier(.22,1,.36,1);
+  }
+  .qm-slide.active { display: block; }
+
+  @keyframes qmSlideIn {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Tag pill removed — redundant with progress bar */
+  .qm-tag { display: none; }
+
+  .qm-num {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; font-weight: 500;
+    color: #5EEAD4; letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    opacity: 0.75;
+  }
+
+  .qm-question {
+    font-family: 'Inter', sans-serif;
+    font-size: 40px; font-weight: 700; line-height: 1.1;
+    color: #E6FFFC; letter-spacing: -0.035em;
+    margin-bottom: 14px;
+  }
+  .qm-question .accent { color: #5EEAD4; font-weight: 700; }
+
+  .qm-sub {
+    font-size: 14px; color: #7A8C8A; margin-bottom: 44px; line-height: 1.55;
+    max-width: 520px;
+  }
+
+  /* Inputs */
+  .qm-input, .qm-textarea {
+    width: 100%;
+    background: rgba(10, 14, 13, 0.65);
+    border: 1px solid rgba(26, 38, 36, 0.9);
+    border-radius: 8px;
+    color: #E6FFFC;
+    padding: 16px 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    transition: all .2s ease;
+    outline: none;
+  }
+  .qm-textarea { resize: vertical; min-height: 110px; font-family: 'Inter', sans-serif; }
+  .qm-input::placeholder, .qm-textarea::placeholder { color: #4a5856; }
+  .qm-input:focus, .qm-textarea:focus {
+    border-color: #2DD4BF;
+    box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.12), 0 0 40px rgba(45, 212, 191, 0.18);
+  }
+  .qm-input.error, .qm-textarea.error { border-color: rgba(239, 68, 68, 0.6); }
+
+  /* Phone prefix — no flag, pure typography */
+  .qm-phone {
+    display: flex; gap: 10px;
+  }
+  .qm-phone-prefix {
+    background: rgba(10, 14, 13, 0.65);
+    border: 1px solid rgba(26, 38, 36, 0.9);
+    border-radius: 8px;
+    padding: 16px 18px;
+    font-size: 15px; color: #7A8C8A;
+    font-weight: 500;
+    display: flex; align-items: center;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+  }
+
+  /* Options (radio / checkbox) */
+  .qm-options { display: flex; flex-direction: column; gap: 8px; }
+  .qm-option {
+    background: rgba(10, 14, 13, 0.65);
+    border: 1px solid rgba(26, 38, 36, 0.9);
+    border-radius: 8px;
+    padding: 16px 22px 16px 56px;
+    color: #E6FFFC; font-size: 14.5px; font-weight: 500;
+    cursor: pointer; transition: all .2s ease;
+    position: relative; text-align: left; width: 100%;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.005em;
+  }
+  .qm-option::before {
+    content: ''; position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+    width: 18px; height: 18px; border-radius: 4px;
+    border: 1.5px solid #1A2624; background: rgba(0, 0, 0, 0.3);
+    transition: all .2s ease;
+  }
+  .qm-option[data-type="radio"]::before { border-radius: 50%; }
+  .qm-option:hover {
+    border-color: rgba(45, 212, 191, 0.45);
+    background: rgba(45, 212, 191, 0.04);
+    transform: translateY(-1px);
+  }
+  .qm-option.selected {
+    border-color: #2DD4BF;
+    background: rgba(45, 212, 191, 0.09);
+    box-shadow: 0 0 24px rgba(45, 212, 191, 0.15);
+    color: #99F6E4;
+  }
+  .qm-option.selected::before {
+    border-color: #2DD4BF; background: #2DD4BF;
+    box-shadow: 0 0 12px rgba(45, 212, 191, 0.7);
+  }
+  .qm-option.selected::after {
+    content: ''; position: absolute; left: 25px; top: 50%;
+    width: 7px; height: 4px;
+    border-left: 2px solid #042F2E; border-bottom: 2px solid #042F2E;
+    transform: translateY(-70%) rotate(-45deg);
+  }
+  .qm-option .shortcut {
+    position: absolute; right: 18px; top: 50%; transform: translateY(-50%);
+    font-size: 10px; color: #7A8C8A; border: 1px solid rgba(26, 38, 36, 0.9);
+    padding: 2px 7px; border-radius: 3px; font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  .qm-error-msg {
+    display: none;
+    color: #f87171; font-size: 12px; margin-top: 8px;
+  }
+  .qm-error-msg.show { display: block; }
+
+  /* Footer */
+  .qm-footer {
+    padding: 20px 32px 24px; display: flex; align-items: center; justify-content: space-between;
+    gap: 14px; border-top: 1px solid rgba(26, 38, 36, 0.5);
+    flex-shrink: 0; background: rgba(5, 8, 8, 0.35);
+  }
+
+  .qm-btn {
+    background: #2DD4BF; color: #042F2E;
+    padding: 13px 30px; border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; font-size: 13.5px; letter-spacing: -0.005em;
+    border: none; cursor: pointer;
+    transition: all .25s ease;
+    display: inline-flex; align-items: center; gap: 8px;
+    box-shadow: 0 0 40px rgba(45, 212, 191, 0.22);
+  }
+  .qm-btn:hover { background: #5EEAD4; transform: translateY(-1px); box-shadow: 0 0 70px rgba(45, 212, 191, 0.5); }
+  .qm-btn:disabled {
+    background: rgba(45, 212, 191, 0.15); color: rgba(45, 212, 191, 0.4);
+    cursor: not-allowed; transform: none; box-shadow: none;
+  }
+
+  .qm-prev {
+    background: transparent; color: #7A8C8A;
+    border: 1px solid rgba(26, 38, 36, 0.9);
+    padding: 11px 22px; border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px; font-weight: 500; cursor: pointer;
+    transition: all .2s ease;
+    letter-spacing: -0.005em;
+  }
+  .qm-prev:hover { border-color: rgba(45, 212, 191, 0.4); color: #5EEAD4; }
+  .qm-prev.hidden { visibility: hidden; }
+
+  .qm-enter-hint {
+    font-size: 11px; color: #7A8C8A; font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+  .qm-enter-hint kbd {
+    background: transparent; border: none; padding: 0;
+    font-family: inherit; font-size: inherit; color: #7A8C8A;
+    font-weight: 500;
+  }
+
+  /* Intro slide — radically simplified, no orb, no meta-pills */
+  .qm-intro { text-align: left; padding: 12px 0; }
+  .qm-intro .qm-kicker {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; font-weight: 500;
+    color: #5EEAD4; letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 26px;
+    opacity: 0.8;
+  }
+  .qm-intro h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 48px; font-weight: 700; color: #E6FFFC;
+    letter-spacing: -0.04em; line-height: 1.03;
+    margin-bottom: 22px;
+  }
+  .qm-intro h2 .accent { color: #5EEAD4; font-weight: 700; }
+  .qm-intro p {
+    color: #7A8C8A; font-size: 15px; line-height: 1.65;
+    max-width: 440px; margin: 0;
+    font-weight: 400;
+  }
+
+  /* Cal embed container */
+  .qm-cal {
+    width: 100%; min-height: 580px;
+    border-radius: 14px; overflow: hidden;
+    border: 1px solid rgba(45, 212, 191, 0.15);
+    background: #0A0E0D;
+  }
+  .qm-cal-wrap { padding: 8px 0 4px; }
+  .qm-cal-title {
+    text-align: center; margin-bottom: 18px;
+  }
+  .qm-cal-title h2 {
+    font-size: 24px; font-weight: 800; color: #E6FFFC;
+    letter-spacing: -0.02em; margin-bottom: 6px;
+  }
+  .qm-cal-title h2 .accent { color: #5EEAD4; }
+  .qm-cal-title p { color: #7A8C8A; font-size: 13px; }
+
+  /* Loading state */
+  .qm-loading {
+    text-align: center; padding: 40px 20px;
+  }
+  .qm-spinner {
+    width: 44px; height: 44px; border-radius: 50%;
+    border: 3px solid rgba(45, 212, 191, 0.15);
+    border-top-color: #2DD4BF;
+    animation: qmSpin 0.9s linear infinite;
+    margin: 0 auto 18px;
+  }
+  @keyframes qmSpin { to { transform: rotate(360deg); } }
+
+  /* Responsive */
+  @media (max-width: 780px) {
+    .qm-body { padding: 40px 36px 28px; min-height: 420px; }
+    .qm-question { font-size: 32px; letter-spacing: -0.03em; }
+    .qm-sub { margin-bottom: 32px; }
+    .qm-intro h2 { font-size: 38px; }
+  }
+  @media (max-width: 640px) {
+    .qm-backdrop { padding: 0; align-items: stretch; }
+    .qm-dialog { max-height: 100vh; border-radius: 0; max-width: 100%; }
+    .qm-body { padding: 36px 24px 24px; min-height: 360px; }
+    .qm-question { font-size: 26px; letter-spacing: -0.025em; }
+    .qm-sub { font-size: 13.5px; margin-bottom: 28px; }
+    .qm-intro h2 { font-size: 32px; }
+    .qm-intro .qm-kicker { margin-bottom: 20px; }
+    .qm-header { padding: 16px 20px 14px; }
+    .qm-footer { padding: 16px 20px 20px; }
+    .qm-enter-hint { display: none; }
+    .qm-btn { padding: 13px 22px; font-size: 13px; }
+    .qm-num { margin-bottom: 18px; }
+  }
 </style>
 </head>
 <body class="bg-night text-ink">
@@ -330,11 +663,11 @@
 <!-- ============== NAV ============== -->
 <header class="fixed top-4 md:top-6 left-0 right-0 z-50 flex justify-center px-4">
   <nav class="pill-nav" aria-label="Navigation principale">
-    <a href="#" class="flex items-center gap-3 pr-2" aria-label="Exilia accueil">
+    <a href="#" class="flex items-center gap-3 pr-2" aria-label="Excilia accueil">
       <span class="w-7 h-7 rounded-full bg-teal-500 flex items-center justify-center" style="box-shadow: 0 0 20px rgba(45,212,191,0.6);">
         <span class="w-3 h-3 rounded-full bg-night"></span>
       </span>
-      <span class="font-semibold text-sm tracking-tight">Exilia</span>
+      <span class="font-semibold text-sm tracking-tight">Excilia</span>
     </a>
     <div class="hidden md:flex items-center gap-7 text-[13px] text-ink/70 font-medium">
       <a href="#problem" class="hover:text-ink transition">Le problème</a>
@@ -376,7 +709,7 @@
     </p>
     <p class="max-w-3xl mx-auto text-[15px] md:text-[17px] text-ink/55 leading-relaxed mb-12 font-light">
       Administratif, emails, Excel, prospection, contenu, organisation…
-      Exilia accompagne les PME suisses à intégrer concrètement l'IA dans leur quotidien
+      Excilia accompagne les PME suisses à intégrer concrètement l'IA dans leur quotidien
       pour gagner du temps, améliorer leur efficacité et accélérer leur croissance.
     </p>
 
@@ -621,7 +954,7 @@
         Le problème,<br/>ce n'est pas <span class="text-teal-400">l'outil</span>.
       </h2>
       <p class="max-w-2xl mx-auto text-ink/65 text-lg leading-relaxed">
-        C'est la manière de l'utiliser. Exilia forme vos équipes à utiliser Claude
+        C'est la manière de l'utiliser. Excilia forme vos équipes à utiliser Claude
         comme un véritable levier business — pas juste à poser des questions,
         mais à <strong class="text-teal-400">construire des workflows intelligents</strong>.
       </p>
@@ -758,7 +1091,7 @@
         <div class="w-16 h-16 rounded-full flex items-center justify-center font-bold text-night text-2xl" style="background: radial-gradient(circle at 30% 30%, #5EEAD4, #2DD4BF); box-shadow: 0 0 30px rgba(45,212,191,0.5);">M</div>
         <div>
           <p class="font-bold text-ink text-lg">Maxime Robini</p>
-          <p class="text-xs text-ink/50 mt-1">Fondateur — Exilia</p>
+          <p class="text-xs text-ink/50 mt-1">Fondateur — Excilia</p>
         </div>
       </div>
 
@@ -784,7 +1117,7 @@
           plusieurs entreprises en Suisse.
         </p>
         <p>
-          Aujourd'hui, avec <strong class="text-teal-400">Exilia</strong>, j'aide les PME romandes
+          Aujourd'hui, avec <strong class="text-teal-400">Excilia</strong>, j'aide les PME romandes
           à faire exactement la même transition.
         </p>
       </div>
@@ -854,7 +1187,7 @@
     <div class="text-center max-w-3xl mx-auto mb-16">
       <span class="stat-pill mb-6">Pour qui ?</span>
       <h2 class="headline-bold text-3xl sm:text-4xl md:text-6xl text-ink mt-6 mb-6">
-        Exilia est fait<br/>pour <span class="text-teal-400">les passeurs à l'action</span>
+        Excilia est fait<br/>pour <span class="text-teal-400">les passeurs à l'action</span>
       </h2>
     </div>
 
@@ -921,7 +1254,7 @@
       Sur le terrain,<br/>en <span class="text-teal-400">Suisse romande</span>
     </h2>
     <p class="text-ink/65 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-      Exilia travaille avec des entreprises partout en Suisse romande.
+      Excilia travaille avec des entreprises partout en Suisse romande.
       On peut se déplacer dans vos locaux, former vos équipes sur place et adapter
       les sessions à votre réalité.
     </p>
@@ -1010,7 +1343,7 @@
           <span class="faq-icon text-teal-400 text-2xl ml-4">+</span>
         </summary>
         <p class="text-ink/65 mt-5 leading-relaxed text-[14px]">
-          Oui. Exilia travaille exclusivement avec des outils respectant les standards européens
+          Oui. Excilia travaille exclusivement avec des outils respectant les standards européens
           et suisses de protection des données. Aucune information confidentielle n'est utilisée
           pour entraîner un modèle.
         </p>
@@ -1094,7 +1427,7 @@
           <span class="w-4 h-4 rounded-full bg-night"></span>
         </span>
         <div>
-          <p class="font-semibold text-lg leading-tight">Exilia</p>
+          <p class="font-semibold text-lg leading-tight">Excilia</p>
           <p class="text-ink/40 text-xs">Cabinet IA — Suisse romande</p>
         </div>
       </div>
@@ -1115,7 +1448,7 @@
     <div class="glow-line mb-12"></div>
 
     <p class="text-center text-ink/50 text-xs mb-6 max-w-2xl mx-auto">
-      Exilia accompagne les PME romandes dans leur transition vers l'IA.
+      Excilia accompagne les PME romandes dans leur transition vers l'IA.
       Formation Claude, conseil stratégique et automatisation sur-mesure à
       <strong class="text-ink/70">Genève</strong>, <strong class="text-ink/70">Lausanne</strong>,
       <strong class="text-ink/70">Fribourg</strong> et <strong class="text-ink/70">Sion</strong>.
@@ -1128,7 +1461,7 @@
       <a href="mailto:contact@exilia.ch" class="hover:text-ink transition">contact@exilia.ch</a>
     </div>
 
-    <p class="text-center text-ink/30 text-xs">© 2026 Exilia — Tous droits réservés · Suisse romande</p>
+    <p class="text-center text-ink/30 text-xs">© 2026 Excilia — Tous droits réservés · Suisse romande</p>
   </div>
 </footer>
 
@@ -1149,6 +1482,569 @@
     el.classList.add('fade-up');
     observer.observe(el);
   });
+</script>
+
+<!-- ═══════════════════════════════════════════════════════
+     QUALIFY MODAL — Questionnaire + Cal.com embed
+     ═══════════════════════════════════════════════════════ -->
+<div class="qm-backdrop" id="qm-backdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="qm-title">
+
+  <div class="qm-dialog">
+
+    <!-- HEADER -->
+    <div class="qm-header">
+      <div class="qm-brand">
+        <span class="qm-brand-dot" aria-hidden="true"></span>
+        <div>
+          <div class="qm-brand-name">Excilia</div>
+          <div class="qm-brand-sub">Audit Excilia</div>
+        </div>
+      </div>
+      <div class="qm-progress-wrap">
+        <div class="qm-progress" role="progressbar" aria-label="Progression">
+          <div class="qm-progress-fill" id="qm-progress"></div>
+        </div>
+      </div>
+      <!-- qm-counter kept in DOM for JS ref but visually hidden via CSS -->
+      <span class="qm-counter" id="qm-counter" aria-hidden="true"></span>
+      <button class="qm-close" data-qm-close aria-label="Fermer">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- BODY -->
+    <div class="qm-body" id="qm-body">
+
+      <!-- STEP 0 : INTRO -->
+      <div class="qm-slide active" data-step="0">
+        <div class="qm-intro">
+          <div class="qm-kicker">Audit Excilia</div>
+          <h2 id="qm-title">Dix questions<br/>avant notre <span class="accent">échange.</span></h2>
+          <p>Quelques minutes pour cadrer votre situation. Nous en parlerons ensuite de vive voix, pendant vingt minutes.</p>
+        </div>
+      </div>
+
+      <!-- STEP 1 : NAME -->
+      <div class="qm-slide" data-step="1">
+        <div class="qm-num">01</div>
+        <h2 class="qm-question">Votre <span class="accent">nom.</span></h2>
+        <input type="text" class="qm-input" data-qm-field="name" placeholder="Prénom et nom" autocomplete="name" />
+        <div class="qm-error-msg">Indiquez votre nom complet.</div>
+      </div>
+
+      <!-- STEP 2 : EMAIL -->
+      <div class="qm-slide" data-step="2">
+        <div class="qm-num">02</div>
+        <h2 class="qm-question">Votre <span class="accent">email.</span></h2>
+        <p class="qm-sub">La confirmation et le lien de visio y seront envoyés.</p>
+        <input type="email" class="qm-input" data-qm-field="email" placeholder="vous@entreprise.ch" autocomplete="email" />
+        <div class="qm-error-msg">Email invalide.</div>
+      </div>
+
+      <!-- STEP 3 : COMPANY -->
+      <div class="qm-slide" data-step="3">
+        <div class="qm-num">03</div>
+        <h2 class="qm-question">Votre <span class="accent">entreprise.</span></h2>
+        <input type="text" class="qm-input" data-qm-field="company" placeholder="Raison sociale" autocomplete="organization" />
+        <div class="qm-error-msg">Indiquez le nom de votre entreprise.</div>
+      </div>
+
+      <!-- STEP 4 : PHONE -->
+      <div class="qm-slide" data-step="4">
+        <div class="qm-num">04</div>
+        <h2 class="qm-question">Votre <span class="accent">téléphone.</span></h2>
+        <div class="qm-phone">
+          <span class="qm-phone-prefix">+41</span>
+          <input type="tel" class="qm-input" data-qm-field="phone" placeholder="78 123 45 67" autocomplete="tel" />
+        </div>
+        <div class="qm-error-msg">Numéro invalide.</div>
+      </div>
+
+      <!-- STEP 5 : SIZE -->
+      <div class="qm-slide" data-step="5">
+        <div class="qm-num">05</div>
+        <h2 class="qm-question">Taille de votre <span class="accent">entreprise.</span></h2>
+        <div class="qm-options" data-qm-field="size" data-qm-type="radio">
+          <button type="button" class="qm-option" data-type="radio" data-value="Solo / freelance">Solo / freelance<span class="shortcut">1</span></button>
+          <button type="button" class="qm-option" data-type="radio" data-value="2 à 10 employés">2 à 10 employés<span class="shortcut">2</span></button>
+          <button type="button" class="qm-option" data-type="radio" data-value="11 à 50 employés">11 à 50 employés<span class="shortcut">3</span></button>
+          <button type="button" class="qm-option" data-type="radio" data-value="51 à 200 employés">51 à 200 employés<span class="shortcut">4</span></button>
+          <button type="button" class="qm-option" data-type="radio" data-value="200+ employés">Plus de 200 employés<span class="shortcut">5</span></button>
+        </div>
+        <div class="qm-error-msg">Sélectionnez une option.</div>
+      </div>
+
+      <!-- STEP 6 : SECTOR -->
+      <div class="qm-slide" data-step="6">
+        <div class="qm-num">06</div>
+        <h2 class="qm-question">Votre <span class="accent">secteur.</span></h2>
+        <div class="qm-options" data-qm-field="sector" data-qm-type="radio">
+          <button type="button" class="qm-option" data-type="radio" data-value="Services / Conseil">Services, conseil</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Industrie / Production">Industrie, production</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Commerce / Retail / E-commerce">Commerce, retail, e-commerce</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Santé / Pharma">Santé, pharma</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Finance / Assurance">Finance, assurance</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Immobilier / Construction">Immobilier, construction</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Hôtellerie / Restauration">Hôtellerie, restauration</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Autre">Autre</button>
+        </div>
+        <div class="qm-error-msg">Sélectionnez une option.</div>
+      </div>
+
+      <!-- STEP 7 : TIMING -->
+      <div class="qm-slide" data-step="7">
+        <div class="qm-num">07</div>
+        <h2 class="qm-question">Horizon de <span class="accent">démarrage.</span></h2>
+        <div class="qm-options" data-qm-field="timing" data-qm-type="radio">
+          <button type="button" class="qm-option" data-type="radio" data-value="Ce mois-ci">Ce mois-ci<span class="shortcut">1</span></button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Dans 3 mois">Dans les trois prochains mois<span class="shortcut">2</span></button>
+          <button type="button" class="qm-option" data-type="radio" data-value="D'ici 6 mois">D'ici six mois<span class="shortcut">3</span></button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Je me renseigne">Je me renseigne<span class="shortcut">4</span></button>
+        </div>
+        <div class="qm-error-msg">Sélectionnez une option.</div>
+      </div>
+
+      <!-- STEP 8 : BUDGET -->
+      <div class="qm-slide" data-step="8">
+        <div class="qm-num">08</div>
+        <h2 class="qm-question">Enveloppe <span class="accent">envisagée.</span></h2>
+        <p class="qm-sub">Aucun jugement. Cela nous aide à proposer une solution adaptée.</p>
+        <div class="qm-options" data-qm-field="budget" data-qm-type="radio">
+          <button type="button" class="qm-option" data-type="radio" data-value="< 2'000 CHF">Moins de 2'000 CHF<span class="shortcut">1</span></button>
+          <button type="button" class="qm-option" data-type="radio" data-value="2'000 - 5'000 CHF">2'000 – 5'000 CHF<span class="shortcut">2</span></button>
+          <button type="button" class="qm-option" data-type="radio" data-value="5'000 - 15'000 CHF">5'000 – 15'000 CHF<span class="shortcut">3</span></button>
+          <button type="button" class="qm-option" data-type="radio" data-value="15'000+ CHF">15'000 CHF et plus<span class="shortcut">4</span></button>
+          <button type="button" class="qm-option" data-type="radio" data-value="À définir">À définir<span class="shortcut">5</span></button>
+        </div>
+        <div class="qm-error-msg">Sélectionnez une option.</div>
+      </div>
+
+      <!-- STEP 9 : TOOLS -->
+      <div class="qm-slide" data-step="9">
+        <div class="qm-num">09</div>
+        <h2 class="qm-question">Votre <span class="accent">environnement</span> actuel.</h2>
+        <p class="qm-sub">Plusieurs choix possibles.</p>
+        <div class="qm-options" data-qm-field="tools" data-qm-type="checkbox">
+          <button type="button" class="qm-option" data-type="checkbox" data-value="Google Workspace">Google Workspace (Gmail, Drive, Docs)</button>
+          <button type="button" class="qm-option" data-type="checkbox" data-value="Microsoft 365">Microsoft 365 (Outlook, Teams, SharePoint)</button>
+          <button type="button" class="qm-option" data-type="checkbox" data-value="CRM">CRM (HubSpot, Salesforce, Pipedrive, Odoo)</button>
+          <button type="button" class="qm-option" data-type="checkbox" data-value="ChatGPT/Claude">ChatGPT ou Claude, en usage personnel</button>
+          <button type="button" class="qm-option" data-type="checkbox" data-value="Automation">n8n, Make ou Zapier</button>
+          <button type="button" class="qm-option" data-type="checkbox" data-value="Aucun">Aucun outil IA pour l'instant</button>
+        </div>
+        <div class="qm-error-msg">Sélectionnez au moins une option.</div>
+      </div>
+
+      <!-- STEP 10 : CHALLENGE -->
+      <div class="qm-slide" data-step="10">
+        <div class="qm-num">10 — Dernière</div>
+        <h2 class="qm-question">Le <span class="accent">point de départ.</span></h2>
+        <p class="qm-sub">Quelle est, aujourd'hui, la tâche qui vous coûte le plus de temps ou que vous aimeriez déléguer ?</p>
+        <textarea class="qm-textarea" data-qm-field="challenge" placeholder="Quelques phrases suffisent."></textarea>
+        <div class="qm-error-msg">Décrivez brièvement votre situation.</div>
+      </div>
+
+      <!-- STEP 11 : LOADING -->
+      <div class="qm-slide" data-step="11">
+        <div class="qm-loading">
+          <div class="qm-spinner"></div>
+          <h2 style="font-family:'Inter',sans-serif;font-size:18px;color:#E6FFFC;font-weight:600;margin-bottom:6px;letter-spacing:-0.015em;">Un instant.</h2>
+          <p style="color:#7A8C8A;font-size:13px;letter-spacing:0.005em;">Ouverture de l'agenda.</p>
+        </div>
+      </div>
+
+      <!-- STEP 12 : CAL.COM EMBED -->
+      <div class="qm-slide" data-step="12">
+        <div class="qm-cal-wrap">
+          <div class="qm-cal-title">
+            <h2>Choisissez votre <span class="accent">créneau.</span></h2>
+            <p>Sélectionnez l'horaire qui vous convient.</p>
+          </div>
+          <div class="qm-cal" id="qm-cal-embed"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="qm-footer">
+      <button type="button" class="qm-prev hidden" id="qm-prev">Précédent</button>
+      <div class="qm-enter-hint">Appuyez sur <kbd>Entrée</kbd> pour continuer</div>
+      <button type="button" class="qm-btn" id="qm-next">Commencer</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   QUALIFY MODAL — State machine + Cal.com embed
+   ═══════════════════════════════════════════════════════ */
+(function () {
+  'use strict';
+
+  const CAL_LINK     = "maxime-robini-slzfkw/audit-ia";
+  const CAL_NS       = "audit-ia";
+  const LEAD_ENDPOINT = "https://excilia.app.n8n.cloud/webhook/excilia-form-lead";
+  const TOTAL_QS     = 10;
+
+  const qm = {
+    backdrop: document.getElementById('qm-backdrop'),
+    body:     document.getElementById('qm-body'),
+    progress: document.getElementById('qm-progress'),
+    counter:  document.getElementById('qm-counter'),
+    prevBtn:  document.getElementById('qm-prev'),
+    nextBtn:  document.getElementById('qm-next'),
+    step:     0,
+    answers:  {},
+    calLoaded: false,
+    submitted: false,
+
+    slides() { return this.body.querySelectorAll('.qm-slide'); },
+    currentSlide() { return this.body.querySelector('.qm-slide[data-step="' + this.step + '"]'); },
+
+    open() {
+      document.body.style.overflow = 'hidden';
+      this.backdrop.classList.add('open');
+      this.backdrop.setAttribute('aria-hidden', 'false');
+      this.goto(this.step || 0);
+    },
+
+    close() {
+      this.backdrop.classList.remove('open');
+      this.backdrop.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    },
+
+    reset() {
+      this.step = 0;
+      this.answers = {};
+      this.submitted = false;
+      this.body.querySelectorAll('.qm-input, .qm-textarea').forEach(el => { el.value = ''; el.classList.remove('error'); });
+      this.body.querySelectorAll('.qm-option.selected').forEach(el => el.classList.remove('selected'));
+      this.body.querySelectorAll('.qm-error-msg.show').forEach(el => el.classList.remove('show'));
+      this.goto(0);
+    },
+
+    goto(step) {
+      this.step = step;
+      this.slides().forEach(s => s.classList.toggle('active', parseInt(s.dataset.step, 10) === step));
+      this.updateProgress();
+      this.updateButtons();
+      this.focusCurrent();
+      // Scroll modal body to top
+      this.body.scrollTop = 0;
+
+      if (step === 12 && !this.calLoaded) this.loadCal();
+    },
+
+    updateProgress() {
+      const s = this.step;
+      let pct = 0;
+      if (s === 0) pct = 0;
+      else if (s >= 1 && s <= TOTAL_QS) pct = (s / TOTAL_QS) * 100;
+      else pct = 100;
+      this.progress.style.width = pct + '%';
+
+      if (s === 0) this.counter.textContent = 'Intro';
+      else if (s >= 1 && s <= TOTAL_QS) this.counter.textContent = s + ' / ' + TOTAL_QS;
+      else this.counter.textContent = '✓ Terminé';
+    },
+
+    updateButtons() {
+      const s = this.step;
+      // Prev button visibility
+      this.prevBtn.classList.toggle('hidden', s === 0 || s === 11 || s === 12);
+
+      // Next button label/visibility
+      if (s === 0) {
+        this.nextBtn.innerHTML = 'Commencer';
+        this.nextBtn.style.display = '';
+      } else if (s === TOTAL_QS) {
+        this.nextBtn.innerHTML = 'Choisir un créneau';
+        this.nextBtn.style.display = '';
+      } else if (s === 11 || s === 12) {
+        this.nextBtn.style.display = 'none';
+      } else {
+        this.nextBtn.innerHTML = 'Continuer';
+        this.nextBtn.style.display = '';
+      }
+    },
+
+    focusCurrent() {
+      const slide = this.currentSlide();
+      if (!slide) return;
+      const input = slide.querySelector('input, textarea');
+      if (input) setTimeout(() => { try { input.focus(); } catch (e) {} }, 200);
+    },
+
+    validate() {
+      const s = this.step;
+      if (s === 0 || s >= 11) return true;
+
+      const slide = this.currentSlide();
+      const input = slide.querySelector('.qm-input, .qm-textarea');
+      const options = slide.querySelector('.qm-options');
+      const errMsg = slide.querySelector('.qm-error-msg');
+
+      const showErr = (show) => {
+        if (errMsg) errMsg.classList.toggle('show', show);
+        if (input) input.classList.toggle('error', show);
+      };
+
+      if (input) {
+        const val = input.value.trim();
+        const field = input.dataset.qmField;
+
+        if (!val) { showErr(true); return false; }
+
+        if (input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val)) {
+          showErr(true); return false;
+        }
+        if (input.type === 'tel') {
+          const digits = val.replace(/\D/g, '');
+          if (digits.length < 9) { showErr(true); return false; }
+        }
+        if (field === 'name' && val.length < 2) { showErr(true); return false; }
+        if (field === 'challenge' && val.length < 10) { showErr(true); return false; }
+
+        this.answers[field] = val;
+        showErr(false);
+        return true;
+      }
+
+      if (options) {
+        const field = options.dataset.qmField;
+        const type = options.dataset.qmType;
+        const selected = options.querySelectorAll('.qm-option.selected');
+        if (selected.length === 0) { showErr(true); return false; }
+        if (type === 'checkbox') {
+          this.answers[field] = Array.from(selected).map(o => o.dataset.value);
+        } else {
+          this.answers[field] = selected[0].dataset.value;
+        }
+        showErr(false);
+        return true;
+      }
+
+      return true;
+    },
+
+    next() {
+      if (!this.validate()) return;
+
+      if (this.step === TOTAL_QS) {
+        this.goto(11);
+        this.submit();
+        return;
+      }
+      if (this.step >= 12) return;
+      this.goto(this.step + 1);
+    },
+
+    prev() {
+      if (this.step === 0 || this.step >= 11) return;
+      this.goto(this.step - 1);
+    },
+
+    async submit() {
+      if (this.submitted) return;
+      this.submitted = true;
+
+      const payload = Object.assign({}, this.answers, {
+        source: 'exilia-site',
+        submittedAt: new Date().toISOString(),
+        userAgent: navigator.userAgent,
+        referrer: document.referrer || 'direct',
+        pageUrl: window.location.href
+      });
+
+      try {
+        const res = await fetch(LEAD_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+          // Keep request alive even if user navigates
+          keepalive: true
+        });
+        if (!res.ok) console.warn('[Excilia] lead endpoint returned', res.status);
+      } catch (e) {
+        // Non-blocking : user can still book even if CRM push fails
+        console.warn('[Excilia] lead submit failed (non-blocking):', e);
+      }
+
+      // Brief "loading" moment for perceived polish, then Cal.com
+      setTimeout(() => this.goto(12), 900);
+    },
+
+    loadCal() {
+      if (this.calLoaded) return;
+      this.calLoaded = true;
+
+      // Cal.com embed bootstrap (official snippet — namespaced)
+      (function (C, A, L) {
+        let p = function (a, ar) { a.q.push(ar); };
+        let d = C.document;
+        C.Cal = C.Cal || function () {
+          let cal = C.Cal; let ar = arguments;
+          if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
+          if (ar[0] === L) {
+            const api = function () { p(api, arguments); };
+            const namespace = ar[1]; api.q = api.q || [];
+            if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar);
+            return;
+          }
+          p(cal, ar);
+        };
+      })(window, "https://app.cal.com/embed/embed.js", "init");
+
+      Cal("init", CAL_NS, { origin: "https://app.cal.com" });
+
+      // Pre-fill booker data from the questionnaire
+      const prefill = {
+        name:  this.answers.name  || '',
+        email: this.answers.email || '',
+        notes: this.buildNotes()
+      };
+
+      Cal.ns[CAL_NS]("inline", {
+        elementOrSelector: "#qm-cal-embed",
+        config: Object.assign({
+          layout: "month_view",
+          theme: "dark"
+        }, prefill),
+        calLink: CAL_LINK
+      });
+
+      Cal.ns[CAL_NS]("ui", {
+        hideEventTypeDetails: false,
+        layout: "month_view",
+        theme: "dark",
+        cssVarsPerTheme: {
+          light: { "cal-brand": "#2DD4BF" },
+          dark:  { "cal-brand": "#2DD4BF", "cal-bg": "#0A0E0D", "cal-bg-muted": "#0D1413", "cal-border": "#1A2624", "cal-text": "#E6FFFC" }
+        }
+      });
+
+      // When booking succeeds → redirect to merci.html
+      Cal.ns[CAL_NS]("on", {
+        action: "bookingSuccessful",
+        callback: () => {
+          // Small delay so user sees the Cal.com success state
+          setTimeout(() => { window.location.href = '/merci.html'; }, 1500);
+        }
+      });
+    },
+
+    buildNotes() {
+      const a = this.answers;
+      const lines = [];
+      if (a.company) lines.push('Entreprise : ' + a.company);
+      if (a.phone)   lines.push('Téléphone : +41 ' + a.phone);
+      if (a.size)    lines.push('Taille : ' + a.size);
+      if (a.sector)  lines.push('Secteur : ' + a.sector);
+      if (a.timing)  lines.push('Timing : ' + a.timing);
+      if (a.budget)  lines.push('Budget : ' + a.budget);
+      if (a.tools && a.tools.length) lines.push('Outils : ' + a.tools.join(', '));
+      if (a.challenge) lines.push('\nEnjeu principal :\n' + a.challenge);
+      return lines.join('\n');
+    },
+
+    init() {
+      // Intercept all #reserver CTAs → open modal
+      document.querySelectorAll('a[href="#reserver"]').forEach(a => {
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.open();
+        });
+      });
+
+      // Close handlers (backdrop click + close button)
+      this.backdrop.addEventListener('click', (e) => {
+        if (e.target === this.backdrop || e.target.closest('[data-qm-close]')) {
+          this.close();
+        }
+      });
+
+      // Nav buttons
+      this.nextBtn.addEventListener('click', () => this.next());
+      this.prevBtn.addEventListener('click', () => this.prev());
+
+      // Global keyboard handling
+      document.addEventListener('keydown', (e) => {
+        if (!this.backdrop.classList.contains('open')) return;
+
+        // Escape → close
+        if (e.key === 'Escape') { this.close(); return; }
+
+        // Enter → next (but not in textarea)
+        if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+          e.preventDefault();
+          this.next();
+          return;
+        }
+
+        // Number shortcuts (1-8) for radio options
+        const slide = this.currentSlide();
+        if (!slide) return;
+        const radios = slide.querySelectorAll('.qm-option[data-type="radio"]');
+        if (!radios.length) return;
+        // Only intercept number keys when not typing in an input
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        const n = parseInt(e.key, 10);
+        if (!isNaN(n) && n >= 1 && n <= radios.length) {
+          e.preventDefault();
+          radios[n - 1].click();
+        }
+      });
+
+      // Option click handlers
+      this.body.querySelectorAll('.qm-option').forEach(opt => {
+        opt.addEventListener('click', () => {
+          const parent = opt.closest('.qm-options');
+          const type = parent.dataset.qmType;
+
+          if (type === 'radio') {
+            parent.querySelectorAll('.qm-option').forEach(o => o.classList.remove('selected'));
+            opt.classList.add('selected');
+            // Auto-advance after brief delay for radio
+            setTimeout(() => this.next(), 420);
+          } else {
+            opt.classList.toggle('selected');
+          }
+
+          // Clear error state
+          const errMsg = parent.parentElement.querySelector('.qm-error-msg');
+          if (errMsg) errMsg.classList.remove('show');
+        });
+      });
+
+      // Auto-clear input error on typing
+      this.body.querySelectorAll('.qm-input, .qm-textarea').forEach(input => {
+        input.addEventListener('input', () => {
+          input.classList.remove('error');
+          const errMsg = input.closest('.qm-slide').querySelector('.qm-error-msg');
+          if (errMsg) errMsg.classList.remove('show');
+        });
+      });
+
+      // Deep-link: if URL has #reserver on page load → open modal after a tick
+      if (window.location.hash === '#reserver') {
+        setTimeout(() => this.open(), 400);
+      }
+    }
+  };
+
+  // Wait DOM ready (script is at end of body so already OK, but safe)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => qm.init());
+  } else {
+    qm.init();
+  }
+
+  // Expose for debugging / manual trigger
+  window.exiliaQualify = qm;
+})();
 </script>
 
 </body>

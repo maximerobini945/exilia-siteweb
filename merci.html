@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr-CH">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rendez-vous confirmé — Excilia</title>
+<meta name="description" content="Votre audit Excilia est noté dans l'agenda. Vous allez recevoir une confirmation par email." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="canonical" href="https://exilia.ch/merci.html" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background: #000;
+    color: #E6FFFC;
+    font-family: 'Inter', -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  /* Dot-grid ambient background — same as index.html */
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image: radial-gradient(rgba(45, 212, 191, 0.1) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none; z-index: 0;
+  }
+
+  body::after {
+    content: ''; position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 40% at 50% 0%, rgba(45, 212, 191, 0.12), transparent 70%),
+      radial-gradient(ellipse 50% 30% at 50% 100%, rgba(45, 212, 191, 0.06), transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+
+  .wrap {
+    position: relative; z-index: 1;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+  }
+
+  /* Minimal header */
+  header {
+    padding: 28px 40px;
+  }
+  .brand {
+    display: inline-flex; align-items: center; gap: 12px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .brand-dot {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #2DD4BF;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 22px rgba(45, 212, 191, 0.5);
+  }
+  .brand-dot::after {
+    content: ''; width: 11px; height: 11px; border-radius: 50%; background: #000;
+  }
+  .brand-name {
+    font-weight: 600; font-size: 14px; color: #E6FFFC;
+    letter-spacing: -0.005em;
+  }
+  .brand-sub {
+    font-size: 11px; color: #7A8C8A;
+    letter-spacing: 0.02em;
+  }
+
+  /* Main content — editorial centered */
+  main {
+    flex: 1;
+    display: flex; align-items: center; justify-content: center;
+    padding: 60px 40px 80px;
+  }
+
+  .content {
+    max-width: 620px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .kicker {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 11px; color: #5EEAD4;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 32px;
+    opacity: 0.9;
+  }
+  .kicker::before {
+    content: '';
+    width: 24px; height: 1px;
+    background: #5EEAD4;
+    opacity: 0.6;
+  }
+
+  h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(56px, 9vw, 96px);
+    font-weight: 700;
+    color: #E6FFFC;
+    letter-spacing: -0.045em;
+    line-height: 0.96;
+    margin: 0 0 36px;
+  }
+  h1 .period { color: #5EEAD4; }
+
+  .lede {
+    font-size: 17px;
+    line-height: 1.65;
+    color: #9AADAB;
+    max-width: 520px;
+    margin: 0 0 48px;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+  }
+
+  .rule {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(45, 212, 191, 0.3), rgba(45, 212, 191, 0.05), transparent);
+    margin: 0 0 36px;
+    max-width: 180px;
+  }
+
+  /* Minimal next-step notes, editorial style */
+  .notes {
+    display: grid; gap: 18px;
+    margin-bottom: 56px;
+  }
+  .note {
+    display: flex; gap: 18px;
+    font-size: 14px;
+    color: #7A8C8A;
+    line-height: 1.55;
+  }
+  .note-label {
+    color: #5EEAD4;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    width: 56px;
+    padding-top: 3px;
+    opacity: 0.75;
+  }
+  .note-body {
+    color: #9AADAB;
+    max-width: 480px;
+  }
+  .note-body strong {
+    color: #E6FFFC;
+    font-weight: 500;
+  }
+
+  /* Footer actions — very restrained */
+  .actions {
+    display: flex; align-items: center; gap: 28px;
+    flex-wrap: wrap;
+    padding-top: 32px;
+    border-top: 1px solid rgba(26, 38, 36, 0.6);
+  }
+  .action-link {
+    color: #5EEAD4;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    border-bottom: 1px solid rgba(94, 234, 212, 0.25);
+    padding-bottom: 2px;
+    transition: all .2s ease;
+  }
+  .action-link:hover {
+    border-bottom-color: rgba(94, 234, 212, 0.8);
+    color: #99F6E4;
+  }
+  .action-link.muted {
+    color: #7A8C8A;
+    border-bottom-color: rgba(122, 140, 138, 0.3);
+  }
+  .action-link.muted:hover {
+    color: #E6FFFC;
+    border-bottom-color: rgba(230, 255, 252, 0.5);
+  }
+
+  /* Footer */
+  footer {
+    padding: 32px 40px;
+    text-align: left;
+  }
+  footer p {
+    color: rgba(122, 140, 138, 0.55);
+    font-size: 11px;
+    margin: 0;
+    letter-spacing: 0.01em;
+  }
+
+  /* Responsive */
+  @media (max-width: 680px) {
+    header { padding: 22px 24px; }
+    main { padding: 40px 24px 60px; }
+    footer { padding: 24px; }
+    h1 { font-size: clamp(44px, 12vw, 64px); }
+    .lede { font-size: 15px; margin-bottom: 40px; }
+    .notes { margin-bottom: 44px; }
+    .note { flex-direction: column; gap: 4px; }
+    .note-label { width: auto; padding-top: 0; }
+    .actions { gap: 20px; padding-top: 28px; }
+  }
+
+  /* Subtle headline entrance */
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .content > * { animation: rise .7s cubic-bezier(.22,1,.36,1) both; }
+  .content > *:nth-child(1) { animation-delay: 0.05s; }
+  .content > *:nth-child(2) { animation-delay: 0.12s; }
+  .content > *:nth-child(3) { animation-delay: 0.20s; }
+  .content > *:nth-child(4) { animation-delay: 0.28s; }
+  .content > *:nth-child(5) { animation-delay: 0.36s; }
+  .content > *:nth-child(6) { animation-delay: 0.44s; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <a href="/" class="brand">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <div>
+        <div class="brand-name">Excilia</div>
+        <div class="brand-sub">Cabinet IA — Suisse romande</div>
+      </div>
+    </a>
+  </header>
+
+  <main>
+    <div class="content">
+      <div class="kicker">Rendez-vous noté</div>
+
+      <h1>Confirmé<span class="period">.</span></h1>
+
+      <p class="lede">
+        Votre audit Excilia est inscrit dans mon agenda.
+        Vous recevrez une confirmation par email dans les prochaines minutes, avec le lien de visio et l'invitation calendrier.
+      </p>
+
+      <div class="rule"></div>
+
+      <div class="notes">
+        <div class="note">
+          <div class="note-label">Email</div>
+          <div class="note-body">
+            Pensez à vérifier vos indésirables si rien n'arrive. L'invitation est envoyée depuis <strong>maxime.robini@excilia.ch</strong>.
+          </div>
+        </div>
+        <div class="note">
+          <div class="note-label">Avant l'appel</div>
+          <div class="note-body">
+            J'étudie vos réponses et prépare des pistes concrètes adaptées à votre situation. Aucune préparation n'est requise de votre côté.
+          </div>
+        </div>
+        <div class="note">
+          <div class="note-label">Le jour J</div>
+          <div class="note-body">
+            Vingt minutes en visio. On discute de votre contexte, je partage mes observations et vous repartez avec des directions concrètes.
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a href="mailto:contact@exilia.ch" class="action-link">Une question ? Écrivez-moi</a>
+        <a href="/" class="action-link muted">Retour à l'accueil</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Excilia · Cabinet IA · Genève · Lausanne · Fribourg · Sion</p>
+  </footer>
+
+</div>
+
+</body>
+</html>

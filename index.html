@@ -345,9 +345,9 @@
     position: relative; width: 100%; max-width: 720px;
     max-height: 92vh; overflow: hidden;
     background: linear-gradient(180deg, #0A0E0D 0%, #050808 100%);
-    border: 1px solid rgba(45, 212, 191, 0.18);
-    border-radius: 24px;
-    box-shadow: 0 0 120px rgba(45, 212, 191, 0.15), 0 20px 60px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(45, 212, 191, 0.16);
+    border-radius: 16px;
+    box-shadow: 0 0 140px rgba(45, 212, 191, 0.12), 0 20px 70px rgba(0, 0, 0, 0.65);
     transform: translateY(20px) scale(.98);
     transition: transform .4s cubic-bezier(.22,1,.36,1);
     display: flex; flex-direction: column;
@@ -360,50 +360,48 @@
   }
 
   .qm-header {
-    padding: 18px 24px 14px; display: flex; align-items: center; gap: 14px;
-    border-bottom: 1px solid rgba(26, 38, 36, 0.6);
+    padding: 20px 28px 16px; display: flex; align-items: center; gap: 18px;
+    border-bottom: 1px solid rgba(26, 38, 36, 0.5);
     flex-shrink: 0;
   }
-  .qm-brand { display: flex; align-items: center; gap: 10px; }
+  .qm-brand { display: flex; align-items: center; gap: 11px; }
   .qm-brand-dot {
-    width: 26px; height: 26px; border-radius: 50%; background: #2DD4BF;
+    width: 24px; height: 24px; border-radius: 50%; background: #2DD4BF;
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 0 20px rgba(45, 212, 191, 0.6);
+    box-shadow: 0 0 18px rgba(45, 212, 191, 0.55);
   }
   .qm-brand-dot::after {
-    content: ''; width: 10px; height: 10px; border-radius: 50%; background: #000;
+    content: ''; width: 9px; height: 9px; border-radius: 50%; background: #000;
   }
-  .qm-brand-name { font-weight: 700; font-size: 14px; color: #E6FFFC; letter-spacing: -0.01em; }
-  .qm-brand-sub { font-size: 11px; color: #7A8C8A; }
+  .qm-brand-name { font-weight: 600; font-size: 13px; color: #E6FFFC; letter-spacing: -0.005em; }
+  .qm-brand-sub { font-size: 10.5px; color: #7A8C8A; letter-spacing: 0.01em; }
 
-  .qm-progress-wrap { flex: 1; padding: 0 8px; }
+  .qm-progress-wrap { flex: 1; padding: 0 4px; }
   .qm-progress {
-    height: 3px; background: rgba(45, 212, 191, 0.1);
+    height: 2px; background: rgba(45, 212, 191, 0.1);
     border-radius: 999px; overflow: hidden; position: relative;
   }
   .qm-progress-fill {
     position: absolute; left: 0; top: 0; height: 100%; width: 0%;
     background: linear-gradient(90deg, #2DD4BF, #5EEAD4);
     border-radius: 999px;
-    box-shadow: 0 0 16px rgba(45, 212, 191, 0.6);
-    transition: width .5s cubic-bezier(.22,1,.36,1);
+    box-shadow: 0 0 14px rgba(45, 212, 191, 0.55);
+    transition: width .6s cubic-bezier(.22,1,.36,1);
   }
-  .qm-counter {
-    font-size: 11px; color: #7A8C8A; font-weight: 500;
-    white-space: nowrap; letter-spacing: 0.02em;
-  }
+  /* Counter hidden — progress bar is self-explanatory */
+  .qm-counter { display: none; }
 
   .qm-close {
     background: transparent; border: 1px solid rgba(26, 38, 36, 0.8);
-    color: #7A8C8A; width: 34px; height: 34px; border-radius: 10px;
+    color: #7A8C8A; width: 32px; height: 32px; border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
     cursor: pointer; transition: all .2s ease; flex-shrink: 0;
   }
   .qm-close:hover { border-color: rgba(45, 212, 191, 0.5); color: #5EEAD4; background: rgba(45, 212, 191, 0.06); }
 
   .qm-body {
-    padding: 36px 40px 24px; flex: 1; overflow-y: auto;
-    position: relative; min-height: 340px;
+    padding: 64px 64px 40px; flex: 1; overflow-y: auto;
+    position: relative; min-height: 480px;
   }
   .qm-body::-webkit-scrollbar { width: 6px; }
   .qm-body::-webkit-scrollbar-track { background: transparent; }
@@ -420,38 +418,38 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  .qm-tag {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 6px 12px; border-radius: 999px;
-    background: rgba(45, 212, 191, 0.08);
-    border: 1px solid rgba(45, 212, 191, 0.25);
-    font-size: 11px; color: #5EEAD4; font-weight: 600;
-    letter-spacing: 0.04em; text-transform: uppercase;
-    margin-bottom: 18px;
-  }
-  .qm-tag::before {
-    content: ''; width: 5px; height: 5px; border-radius: 50%;
-    background: #2DD4BF; box-shadow: 0 0 8px #2DD4BF;
+  /* Tag pill removed — redundant with progress bar */
+  .qm-tag { display: none; }
+
+  .qm-num {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; font-weight: 500;
+    color: #5EEAD4; letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    opacity: 0.75;
   }
 
   .qm-question {
     font-family: 'Inter', sans-serif;
-    font-size: 26px; font-weight: 800; line-height: 1.2;
-    color: #E6FFFC; letter-spacing: -0.02em;
-    margin-bottom: 10px;
+    font-size: 40px; font-weight: 700; line-height: 1.1;
+    color: #E6FFFC; letter-spacing: -0.035em;
+    margin-bottom: 14px;
   }
-  .qm-question .accent { color: #5EEAD4; }
+  .qm-question .accent { color: #5EEAD4; font-weight: 700; }
 
   .qm-sub {
-    font-size: 14px; color: #7A8C8A; margin-bottom: 26px; line-height: 1.5;
+    font-size: 14px; color: #7A8C8A; margin-bottom: 44px; line-height: 1.55;
+    max-width: 520px;
   }
 
   /* Inputs */
   .qm-input, .qm-textarea {
     width: 100%;
-    background: rgba(10, 14, 13, 0.7);
+    background: rgba(10, 14, 13, 0.65);
     border: 1px solid rgba(26, 38, 36, 0.9);
-    border-radius: 12px;
+    border-radius: 8px;
     color: #E6FFFC;
     padding: 16px 18px;
     font-family: 'Inter', sans-serif;
@@ -467,36 +465,38 @@
   }
   .qm-input.error, .qm-textarea.error { border-color: rgba(239, 68, 68, 0.6); }
 
-  /* Phone with flag */
+  /* Phone prefix — no flag, pure typography */
   .qm-phone {
     display: flex; gap: 10px;
   }
   .qm-phone-prefix {
-    background: rgba(10, 14, 13, 0.7);
+    background: rgba(10, 14, 13, 0.65);
     border: 1px solid rgba(26, 38, 36, 0.9);
-    border-radius: 12px;
-    padding: 16px 14px;
-    font-size: 15px; color: #E6FFFC;
-    font-weight: 600;
-    display: flex; align-items: center; gap: 6px;
+    border-radius: 8px;
+    padding: 16px 18px;
+    font-size: 15px; color: #7A8C8A;
+    font-weight: 500;
+    display: flex; align-items: center;
     white-space: nowrap;
+    letter-spacing: 0.01em;
   }
 
   /* Options (radio / checkbox) */
-  .qm-options { display: flex; flex-direction: column; gap: 10px; }
+  .qm-options { display: flex; flex-direction: column; gap: 8px; }
   .qm-option {
-    background: rgba(10, 14, 13, 0.7);
+    background: rgba(10, 14, 13, 0.65);
     border: 1px solid rgba(26, 38, 36, 0.9);
-    border-radius: 12px;
-    padding: 14px 18px 14px 54px;
-    color: #E6FFFC; font-size: 14px; font-weight: 500;
+    border-radius: 8px;
+    padding: 16px 22px 16px 56px;
+    color: #E6FFFC; font-size: 14.5px; font-weight: 500;
     cursor: pointer; transition: all .2s ease;
     position: relative; text-align: left; width: 100%;
     font-family: 'Inter', sans-serif;
+    letter-spacing: -0.005em;
   }
   .qm-option::before {
-    content: ''; position: absolute; left: 18px; top: 50%; transform: translateY(-50%);
-    width: 20px; height: 20px; border-radius: 6px;
+    content: ''; position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+    width: 18px; height: 18px; border-radius: 4px;
     border: 1.5px solid #1A2624; background: rgba(0, 0, 0, 0.3);
     transition: all .2s ease;
   }
@@ -517,14 +517,17 @@
     box-shadow: 0 0 12px rgba(45, 212, 191, 0.7);
   }
   .qm-option.selected::after {
-    content: '✓'; position: absolute; left: 22px; top: 50%;
-    transform: translateY(-50%); color: #042F2E; font-weight: 900; font-size: 13px;
-    line-height: 1;
+    content: ''; position: absolute; left: 25px; top: 50%;
+    width: 7px; height: 4px;
+    border-left: 2px solid #042F2E; border-bottom: 2px solid #042F2E;
+    transform: translateY(-70%) rotate(-45deg);
   }
   .qm-option .shortcut {
-    position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
-    font-size: 10px; color: #7A8C8A; border: 1px solid #1A2624;
-    padding: 2px 7px; border-radius: 4px; font-weight: 600;
+    position: absolute; right: 18px; top: 50%; transform: translateY(-50%);
+    font-size: 10px; color: #7A8C8A; border: 1px solid rgba(26, 38, 36, 0.9);
+    padding: 2px 7px; border-radius: 3px; font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.02em;
   }
 
   .qm-error-msg {
@@ -535,22 +538,22 @@
 
   /* Footer */
   .qm-footer {
-    padding: 18px 24px 22px; display: flex; align-items: center; justify-content: space-between;
-    gap: 14px; border-top: 1px solid rgba(26, 38, 36, 0.6);
-    flex-shrink: 0; background: rgba(5, 8, 8, 0.4);
+    padding: 20px 32px 24px; display: flex; align-items: center; justify-content: space-between;
+    gap: 14px; border-top: 1px solid rgba(26, 38, 36, 0.5);
+    flex-shrink: 0; background: rgba(5, 8, 8, 0.35);
   }
 
   .qm-btn {
     background: #2DD4BF; color: #042F2E;
-    padding: 13px 28px; border-radius: 10px;
+    padding: 13px 30px; border-radius: 8px;
     font-family: 'Inter', sans-serif;
-    font-weight: 700; font-size: 14px; letter-spacing: -0.01em;
+    font-weight: 600; font-size: 13.5px; letter-spacing: -0.005em;
     border: none; cursor: pointer;
     transition: all .25s ease;
     display: inline-flex; align-items: center; gap: 8px;
-    box-shadow: 0 0 40px rgba(45, 212, 191, 0.25);
+    box-shadow: 0 0 40px rgba(45, 212, 191, 0.22);
   }
-  .qm-btn:hover { background: #5EEAD4; transform: translateY(-1px); box-shadow: 0 0 70px rgba(45, 212, 191, 0.55); }
+  .qm-btn:hover { background: #5EEAD4; transform: translateY(-1px); box-shadow: 0 0 70px rgba(45, 212, 191, 0.5); }
   .qm-btn:disabled {
     background: rgba(45, 212, 191, 0.15); color: rgba(45, 212, 191, 0.4);
     cursor: not-allowed; transform: none; box-shadow: none;
@@ -559,57 +562,47 @@
   .qm-prev {
     background: transparent; color: #7A8C8A;
     border: 1px solid rgba(26, 38, 36, 0.9);
-    padding: 11px 20px; border-radius: 10px;
+    padding: 11px 22px; border-radius: 8px;
     font-family: 'Inter', sans-serif;
-    font-size: 13px; font-weight: 600; cursor: pointer;
+    font-size: 13px; font-weight: 500; cursor: pointer;
     transition: all .2s ease;
+    letter-spacing: -0.005em;
   }
   .qm-prev:hover { border-color: rgba(45, 212, 191, 0.4); color: #5EEAD4; }
   .qm-prev.hidden { visibility: hidden; }
 
   .qm-enter-hint {
-    font-size: 11px; color: #7A8C8A; display: flex; align-items: center; gap: 6px;
+    font-size: 11px; color: #7A8C8A; font-weight: 400;
+    letter-spacing: 0.01em;
   }
   .qm-enter-hint kbd {
-    background: rgba(45, 212, 191, 0.08); border: 1px solid rgba(45, 212, 191, 0.25);
-    padding: 2px 6px; border-radius: 4px; font-size: 10px; color: #5EEAD4;
-    font-family: inherit; font-weight: 600;
+    background: transparent; border: none; padding: 0;
+    font-family: inherit; font-size: inherit; color: #7A8C8A;
+    font-weight: 500;
   }
 
-  /* Intro + Success slides */
-  .qm-intro-icon {
-    width: 72px; height: 72px; border-radius: 50%;
-    background: radial-gradient(circle at 35% 30%, #99F6E4 0%, #2DD4BF 40%, #0D9488 80%);
-    box-shadow: 0 0 60px rgba(45, 212, 191, 0.45);
-    margin: 0 auto 26px;
-    display: flex; align-items: center; justify-content: center;
-    animation: qmPulse 2.8s ease-in-out infinite;
+  /* Intro slide — radically simplified, no orb, no meta-pills */
+  .qm-intro { text-align: left; padding: 12px 0; }
+  .qm-intro .qm-kicker {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; font-weight: 500;
+    color: #5EEAD4; letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 26px;
+    opacity: 0.8;
   }
-  .qm-intro-icon svg { width: 34px; height: 34px; color: #042F2E; }
-  @keyframes qmPulse {
-    0%, 100% { box-shadow: 0 0 60px rgba(45, 212, 191, 0.45); }
-    50%      { box-shadow: 0 0 90px rgba(45, 212, 191, 0.75); }
-  }
-
-  .qm-intro { text-align: center; padding: 20px 0; }
   .qm-intro h2 {
-    font-size: 28px; font-weight: 800; color: #E6FFFC;
-    letter-spacing: -0.02em; margin-bottom: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 48px; font-weight: 700; color: #E6FFFC;
+    letter-spacing: -0.04em; line-height: 1.03;
+    margin-bottom: 22px;
   }
-  .qm-intro h2 .accent { color: #5EEAD4; }
+  .qm-intro h2 .accent { color: #5EEAD4; font-weight: 700; }
   .qm-intro p {
-    color: #7A8C8A; font-size: 15px; line-height: 1.6;
-    max-width: 440px; margin: 0 auto 24px;
+    color: #7A8C8A; font-size: 15px; line-height: 1.65;
+    max-width: 440px; margin: 0;
+    font-weight: 400;
   }
-  .qm-intro-meta {
-    display: flex; justify-content: center; gap: 18px;
-    flex-wrap: wrap; margin-top: 22px;
-  }
-  .qm-meta {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 12px; color: #7A8C8A; font-weight: 500;
-  }
-  .qm-meta svg { width: 14px; height: 14px; color: #5EEAD4; }
 
   /* Cal embed container */
   .qm-cal {
@@ -643,17 +636,25 @@
   @keyframes qmSpin { to { transform: rotate(360deg); } }
 
   /* Responsive */
+  @media (max-width: 780px) {
+    .qm-body { padding: 40px 36px 28px; min-height: 420px; }
+    .qm-question { font-size: 32px; letter-spacing: -0.03em; }
+    .qm-sub { margin-bottom: 32px; }
+    .qm-intro h2 { font-size: 38px; }
+  }
   @media (max-width: 640px) {
     .qm-backdrop { padding: 0; align-items: stretch; }
     .qm-dialog { max-height: 100vh; border-radius: 0; max-width: 100%; }
-    .qm-body { padding: 24px 22px 18px; }
-    .qm-question { font-size: 22px; }
-    .qm-header { padding: 14px 18px 12px; }
-    .qm-footer { padding: 14px 18px 18px; }
-    .qm-intro h2 { font-size: 24px; }
+    .qm-body { padding: 36px 24px 24px; min-height: 360px; }
+    .qm-question { font-size: 26px; letter-spacing: -0.025em; }
+    .qm-sub { font-size: 13.5px; margin-bottom: 28px; }
+    .qm-intro h2 { font-size: 32px; }
+    .qm-intro .qm-kicker { margin-bottom: 20px; }
+    .qm-header { padding: 16px 20px 14px; }
+    .qm-footer { padding: 16px 20px 20px; }
     .qm-enter-hint { display: none; }
-    .qm-btn { padding: 13px 20px; font-size: 13px; }
-    .qm-counter { display: none; }
+    .qm-btn { padding: 13px 22px; font-size: 13px; }
+    .qm-num { margin-bottom: 18px; }
   }
 </style>
 </head>
@@ -1496,7 +1497,7 @@
         <span class="qm-brand-dot" aria-hidden="true"></span>
         <div>
           <div class="qm-brand-name">Exilia</div>
-          <div class="qm-brand-sub">Audit IA gratuit</div>
+          <div class="qm-brand-sub">Audit Exilia</div>
         </div>
       </div>
       <div class="qm-progress-wrap">
@@ -1504,9 +1505,10 @@
           <div class="qm-progress-fill" id="qm-progress"></div>
         </div>
       </div>
-      <div class="qm-counter" id="qm-counter">Intro</div>
-      <button class="qm-close" data-qm-close aria-label="Fermer le questionnaire">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      <!-- qm-counter kept in DOM for JS ref but visually hidden via CSS -->
+      <span class="qm-counter" id="qm-counter" aria-hidden="true"></span>
+      <button class="qm-close" data-qm-close aria-label="Fermer">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
       </button>
     </div>
 
@@ -1516,157 +1518,138 @@
       <!-- STEP 0 : INTRO -->
       <div class="qm-slide active" data-step="0">
         <div class="qm-intro">
-          <div class="qm-intro-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.5 7.5L22 10l-7.5 2.5L12 20l-2.5-7.5L2 10l7.5-2.5L12 0z"/></svg>
-          </div>
-          <h2 id="qm-title">Prêt pour votre <span class="accent">audit IA gratuit</span> ?</h2>
-          <p>10 questions rapides pour préparer votre appel de 20 minutes et vous apporter un maximum de valeur dès les premières secondes.</p>
-          <div class="qm-intro-meta">
-            <span class="qm-meta">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-              ~2 minutes
-            </span>
-            <span class="qm-meta">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
-              Sans engagement
-            </span>
-            <span class="qm-meta">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L15 8.5 22 9.3l-5 4.9L18.2 22 12 18.3 5.8 22 7 14.2l-5-4.9L9 8.5z"/></svg>
-              5 places / mois
-            </span>
-          </div>
+          <div class="qm-kicker">Audit Exilia</div>
+          <h2 id="qm-title">Dix questions<br/>avant notre <span class="accent">échange.</span></h2>
+          <p>Quelques minutes pour cadrer votre situation. Nous en parlerons ensuite de vive voix, pendant vingt minutes.</p>
         </div>
       </div>
 
       <!-- STEP 1 : NAME -->
       <div class="qm-slide" data-step="1">
-        <div class="qm-tag">Question 1 / 10</div>
-        <h2 class="qm-question">Comment vous <span class="accent">appelez-vous</span> ?</h2>
-        <p class="qm-sub">Prénom et nom de famille.</p>
-        <input type="text" class="qm-input" data-qm-field="name" placeholder="Ex: Maxime Robini" autocomplete="name" />
-        <div class="qm-error-msg">Merci d'entrer votre nom complet.</div>
+        <div class="qm-num">01</div>
+        <h2 class="qm-question">Votre <span class="accent">nom.</span></h2>
+        <input type="text" class="qm-input" data-qm-field="name" placeholder="Prénom et nom" autocomplete="name" />
+        <div class="qm-error-msg">Indiquez votre nom complet.</div>
       </div>
 
       <!-- STEP 2 : EMAIL -->
       <div class="qm-slide" data-step="2">
-        <div class="qm-tag">Question 2 / 10</div>
-        <h2 class="qm-question">Votre <span class="accent">email professionnel</span> ?</h2>
-        <p class="qm-sub">Pour la confirmation et le lien Google Meet.</p>
+        <div class="qm-num">02</div>
+        <h2 class="qm-question">Votre <span class="accent">email.</span></h2>
+        <p class="qm-sub">La confirmation et le lien de visio y seront envoyés.</p>
         <input type="email" class="qm-input" data-qm-field="email" placeholder="vous@entreprise.ch" autocomplete="email" />
-        <div class="qm-error-msg">Merci d'entrer un email valide.</div>
+        <div class="qm-error-msg">Email invalide.</div>
       </div>
 
       <!-- STEP 3 : COMPANY -->
       <div class="qm-slide" data-step="3">
-        <div class="qm-tag">Question 3 / 10</div>
-        <h2 class="qm-question">Le nom de <span class="accent">votre entreprise</span> ?</h2>
-        <p class="qm-sub">Pour que je fasse mes recherches avant l'appel.</p>
-        <input type="text" class="qm-input" data-qm-field="company" placeholder="Ex: Excilia SA" autocomplete="organization" />
-        <div class="qm-error-msg">Merci d'indiquer le nom de l'entreprise.</div>
+        <div class="qm-num">03</div>
+        <h2 class="qm-question">Votre <span class="accent">entreprise.</span></h2>
+        <input type="text" class="qm-input" data-qm-field="company" placeholder="Raison sociale" autocomplete="organization" />
+        <div class="qm-error-msg">Indiquez le nom de votre entreprise.</div>
       </div>
 
       <!-- STEP 4 : PHONE -->
       <div class="qm-slide" data-step="4">
-        <div class="qm-tag">Question 4 / 10</div>
-        <h2 class="qm-question">Votre <span class="accent">numéro de téléphone</span> ?</h2>
-        <p class="qm-sub">Au cas où on perdrait la connexion visio.</p>
+        <div class="qm-num">04</div>
+        <h2 class="qm-question">Votre <span class="accent">téléphone.</span></h2>
         <div class="qm-phone">
-          <span class="qm-phone-prefix">🇨🇭 +41</span>
+          <span class="qm-phone-prefix">+41</span>
           <input type="tel" class="qm-input" data-qm-field="phone" placeholder="78 123 45 67" autocomplete="tel" />
         </div>
-        <div class="qm-error-msg">Numéro invalide (minimum 9 chiffres).</div>
+        <div class="qm-error-msg">Numéro invalide.</div>
       </div>
 
       <!-- STEP 5 : SIZE -->
       <div class="qm-slide" data-step="5">
-        <div class="qm-tag">Question 5 / 10</div>
-        <h2 class="qm-question">Quelle est la <span class="accent">taille</span> de votre entreprise ?</h2>
+        <div class="qm-num">05</div>
+        <h2 class="qm-question">Taille de votre <span class="accent">entreprise.</span></h2>
         <div class="qm-options" data-qm-field="size" data-qm-type="radio">
           <button type="button" class="qm-option" data-type="radio" data-value="Solo / freelance">Solo / freelance<span class="shortcut">1</span></button>
           <button type="button" class="qm-option" data-type="radio" data-value="2 à 10 employés">2 à 10 employés<span class="shortcut">2</span></button>
           <button type="button" class="qm-option" data-type="radio" data-value="11 à 50 employés">11 à 50 employés<span class="shortcut">3</span></button>
           <button type="button" class="qm-option" data-type="radio" data-value="51 à 200 employés">51 à 200 employés<span class="shortcut">4</span></button>
-          <button type="button" class="qm-option" data-type="radio" data-value="200+ employés">200+ employés<span class="shortcut">5</span></button>
+          <button type="button" class="qm-option" data-type="radio" data-value="200+ employés">Plus de 200 employés<span class="shortcut">5</span></button>
         </div>
-        <div class="qm-error-msg">Merci de sélectionner une option.</div>
+        <div class="qm-error-msg">Sélectionnez une option.</div>
       </div>
 
       <!-- STEP 6 : SECTOR -->
       <div class="qm-slide" data-step="6">
-        <div class="qm-tag">Question 6 / 10</div>
-        <h2 class="qm-question">Votre <span class="accent">secteur d'activité</span> ?</h2>
+        <div class="qm-num">06</div>
+        <h2 class="qm-question">Votre <span class="accent">secteur.</span></h2>
         <div class="qm-options" data-qm-field="sector" data-qm-type="radio">
-          <button type="button" class="qm-option" data-type="radio" data-value="Services / Conseil">Services / Conseil</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Industrie / Production">Industrie / Production</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Commerce / Retail / E-commerce">Commerce / Retail / E-commerce</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Santé / Pharma">Santé / Pharma</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Finance / Assurance">Finance / Assurance</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Immobilier / Construction">Immobilier / Construction</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Hôtellerie / Restauration">Hôtellerie / Restauration</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Services / Conseil">Services, conseil</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Industrie / Production">Industrie, production</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Commerce / Retail / E-commerce">Commerce, retail, e-commerce</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Santé / Pharma">Santé, pharma</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Finance / Assurance">Finance, assurance</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Immobilier / Construction">Immobilier, construction</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Hôtellerie / Restauration">Hôtellerie, restauration</button>
           <button type="button" class="qm-option" data-type="radio" data-value="Autre">Autre</button>
         </div>
-        <div class="qm-error-msg">Merci de sélectionner une option.</div>
+        <div class="qm-error-msg">Sélectionnez une option.</div>
       </div>
 
       <!-- STEP 7 : TIMING -->
       <div class="qm-slide" data-step="7">
-        <div class="qm-tag">Question 7 / 10</div>
-        <h2 class="qm-question">Quand voulez-vous <span class="accent">démarrer</span> ?</h2>
+        <div class="qm-num">07</div>
+        <h2 class="qm-question">Horizon de <span class="accent">démarrage.</span></h2>
         <div class="qm-options" data-qm-field="timing" data-qm-type="radio">
-          <button type="button" class="qm-option" data-type="radio" data-value="Ce mois-ci">Je veux démarrer ce mois-ci ⚡<span class="shortcut">1</span></button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Dans 3 mois">Dans les 3 prochains mois<span class="shortcut">2</span></button>
-          <button type="button" class="qm-option" data-type="radio" data-value="D'ici 6 mois">D'ici 6 mois<span class="shortcut">3</span></button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Je me renseigne">Je me renseigne, pas de timing précis<span class="shortcut">4</span></button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Ce mois-ci">Ce mois-ci<span class="shortcut">1</span></button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Dans 3 mois">Dans les trois prochains mois<span class="shortcut">2</span></button>
+          <button type="button" class="qm-option" data-type="radio" data-value="D'ici 6 mois">D'ici six mois<span class="shortcut">3</span></button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Je me renseigne">Je me renseigne<span class="shortcut">4</span></button>
         </div>
-        <div class="qm-error-msg">Merci de sélectionner une option.</div>
+        <div class="qm-error-msg">Sélectionnez une option.</div>
       </div>
 
       <!-- STEP 8 : BUDGET -->
       <div class="qm-slide" data-step="8">
-        <div class="qm-tag">Question 8 / 10</div>
-        <h2 class="qm-question">Quel <span class="accent">budget</span> avez-vous envisagé ?</h2>
-        <p class="qm-sub">Aucun jugement — ça nous permet de vous proposer des solutions adaptées.</p>
+        <div class="qm-num">08</div>
+        <h2 class="qm-question">Enveloppe <span class="accent">envisagée.</span></h2>
+        <p class="qm-sub">Aucun jugement. Cela nous aide à proposer une solution adaptée.</p>
         <div class="qm-options" data-qm-field="budget" data-qm-type="radio">
           <button type="button" class="qm-option" data-type="radio" data-value="< 2'000 CHF">Moins de 2'000 CHF<span class="shortcut">1</span></button>
           <button type="button" class="qm-option" data-type="radio" data-value="2'000 - 5'000 CHF">2'000 – 5'000 CHF<span class="shortcut">2</span></button>
           <button type="button" class="qm-option" data-type="radio" data-value="5'000 - 15'000 CHF">5'000 – 15'000 CHF<span class="shortcut">3</span></button>
-          <button type="button" class="qm-option" data-type="radio" data-value="15'000+ CHF">15'000+ CHF<span class="shortcut">4</span></button>
-          <button type="button" class="qm-option" data-type="radio" data-value="À définir">Je ne sais pas encore<span class="shortcut">5</span></button>
+          <button type="button" class="qm-option" data-type="radio" data-value="15'000+ CHF">15'000 CHF et plus<span class="shortcut">4</span></button>
+          <button type="button" class="qm-option" data-type="radio" data-value="À définir">À définir<span class="shortcut">5</span></button>
         </div>
-        <div class="qm-error-msg">Merci de sélectionner une option.</div>
+        <div class="qm-error-msg">Sélectionnez une option.</div>
       </div>
 
       <!-- STEP 9 : TOOLS -->
       <div class="qm-slide" data-step="9">
-        <div class="qm-tag">Question 9 / 10</div>
-        <h2 class="qm-question">Quels <span class="accent">outils</span> utilisez-vous déjà ?</h2>
+        <div class="qm-num">09</div>
+        <h2 class="qm-question">Votre <span class="accent">environnement</span> actuel.</h2>
         <p class="qm-sub">Plusieurs choix possibles.</p>
         <div class="qm-options" data-qm-field="tools" data-qm-type="checkbox">
-          <button type="button" class="qm-option" data-type="checkbox" data-value="Google Workspace">Google Workspace (Gmail, Drive, Docs…)</button>
-          <button type="button" class="qm-option" data-type="checkbox" data-value="Microsoft 365">Microsoft 365 (Outlook, Teams, SharePoint…)</button>
-          <button type="button" class="qm-option" data-type="checkbox" data-value="CRM">CRM (HubSpot, Salesforce, Pipedrive, Odoo…)</button>
-          <button type="button" class="qm-option" data-type="checkbox" data-value="ChatGPT/Claude">ChatGPT ou Claude (usage perso)</button>
-          <button type="button" class="qm-option" data-type="checkbox" data-value="Automation">n8n, Make, Zapier (automatisation)</button>
+          <button type="button" class="qm-option" data-type="checkbox" data-value="Google Workspace">Google Workspace (Gmail, Drive, Docs)</button>
+          <button type="button" class="qm-option" data-type="checkbox" data-value="Microsoft 365">Microsoft 365 (Outlook, Teams, SharePoint)</button>
+          <button type="button" class="qm-option" data-type="checkbox" data-value="CRM">CRM (HubSpot, Salesforce, Pipedrive, Odoo)</button>
+          <button type="button" class="qm-option" data-type="checkbox" data-value="ChatGPT/Claude">ChatGPT ou Claude, en usage personnel</button>
+          <button type="button" class="qm-option" data-type="checkbox" data-value="Automation">n8n, Make ou Zapier</button>
           <button type="button" class="qm-option" data-type="checkbox" data-value="Aucun">Aucun outil IA pour l'instant</button>
         </div>
-        <div class="qm-error-msg">Merci de sélectionner au moins une option.</div>
+        <div class="qm-error-msg">Sélectionnez au moins une option.</div>
       </div>
 
       <!-- STEP 10 : CHALLENGE -->
       <div class="qm-slide" data-step="10">
-        <div class="qm-tag">Question 10 / 10 — Dernière</div>
-        <h2 class="qm-question">Votre principal <span class="accent">enjeu</span> ?</h2>
-        <p class="qm-sub">En 2-3 phrases, la tâche qui vous fait perdre le plus de temps ou que vous aimeriez automatiser.</p>
-        <textarea class="qm-textarea" data-qm-field="challenge" placeholder="Ex: Je passe 5h/semaine à répondre à des emails répétitifs, ou à préparer des devis à la main…"></textarea>
-        <div class="qm-error-msg">Merci de décrire brièvement votre enjeu (au moins 10 caractères).</div>
+        <div class="qm-num">10 — Dernière</div>
+        <h2 class="qm-question">Le <span class="accent">point de départ.</span></h2>
+        <p class="qm-sub">Quelle est, aujourd'hui, la tâche qui vous coûte le plus de temps ou que vous aimeriez déléguer ?</p>
+        <textarea class="qm-textarea" data-qm-field="challenge" placeholder="Quelques phrases suffisent."></textarea>
+        <div class="qm-error-msg">Décrivez brièvement votre situation.</div>
       </div>
 
       <!-- STEP 11 : LOADING -->
       <div class="qm-slide" data-step="11">
         <div class="qm-loading">
           <div class="qm-spinner"></div>
-          <h2 style="font-size:20px;color:#E6FFFC;font-weight:700;margin-bottom:8px;letter-spacing:-0.01em;">Préparation de votre réservation…</h2>
-          <p style="color:#7A8C8A;font-size:13px;">On vous ouvre l'agenda dans une seconde.</p>
+          <h2 style="font-family:'Inter',sans-serif;font-size:18px;color:#E6FFFC;font-weight:600;margin-bottom:6px;letter-spacing:-0.015em;">Un instant.</h2>
+          <p style="color:#7A8C8A;font-size:13px;letter-spacing:0.005em;">Ouverture de l'agenda.</p>
         </div>
       </div>
 
@@ -1674,8 +1657,8 @@
       <div class="qm-slide" data-step="12">
         <div class="qm-cal-wrap">
           <div class="qm-cal-title">
-            <h2>Parfait ! Choisissez <span class="accent">votre créneau</span></h2>
-            <p>Sélectionnez l'horaire qui vous arrange.</p>
+            <h2>Choisissez votre <span class="accent">créneau.</span></h2>
+            <p>Sélectionnez l'horaire qui vous convient.</p>
           </div>
           <div class="qm-cal" id="qm-cal-embed"></div>
         </div>
@@ -1685,9 +1668,9 @@
 
     <!-- FOOTER -->
     <div class="qm-footer">
-      <button type="button" class="qm-prev hidden" id="qm-prev">← Précédent</button>
-      <div class="qm-enter-hint"><kbd>↵ Entrée</kbd> pour continuer</div>
-      <button type="button" class="qm-btn" id="qm-next">Commencer →</button>
+      <button type="button" class="qm-prev hidden" id="qm-prev">Précédent</button>
+      <div class="qm-enter-hint">Appuyez sur <kbd>Entrée</kbd> pour continuer</div>
+      <button type="button" class="qm-btn" id="qm-next">Commencer</button>
     </div>
 
   </div>
@@ -1775,15 +1758,15 @@
 
       // Next button label/visibility
       if (s === 0) {
-        this.nextBtn.innerHTML = 'Commencer →';
+        this.nextBtn.innerHTML = 'Commencer';
         this.nextBtn.style.display = '';
       } else if (s === TOTAL_QS) {
-        this.nextBtn.innerHTML = 'Valider et choisir mon créneau →';
+        this.nextBtn.innerHTML = 'Choisir un créneau';
         this.nextBtn.style.display = '';
       } else if (s === 11 || s === 12) {
         this.nextBtn.style.display = 'none';
       } else {
-        this.nextBtn.innerHTML = 'Suivant →';
+        this.nextBtn.innerHTML = 'Continuer';
         this.nextBtn.style.display = '';
       }
     },

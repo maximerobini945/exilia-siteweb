@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr-CH">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Merci — votre audit IA est réservé | Exilia</title>
+<meta name="description" content="Votre audit IA gratuit est confirmé. À très vite pour votre appel de 20 minutes avec Maxime Robini." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="canonical" href="https://exilia.ch/merci.html" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          night: '#000000', panel: '#0A0E0D', panel2: '#0D1413', border: '#1A2624',
+          teal: { 500: '#2DD4BF', 400: '#5EEAD4', 300: '#99F6E4', 600: '#14B8A6', 900: '#042F2E' },
+          ink: '#E6FFFC', muted: '#7A8C8A'
+        },
+        fontFamily: { sans: ['Inter', 'sans-serif'] }
+      }
+    }
+  }
+</script>
+
+<style>
+  body {
+    background: #000; color: #E6FFFC;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Dot grid background */
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image: radial-gradient(rgba(45, 212, 191, 0.12) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none; z-index: 0;
+  }
+
+  /* Ambient glow */
+  body::after {
+    content: ''; position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(45, 212, 191, 0.15), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 50% 100%, rgba(45, 212, 191, 0.08), transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+
+  .wrap { position: relative; z-index: 1; }
+
+  .headline-grad {
+    background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 40%, #5EEAD4 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    font-weight: 800; letter-spacing: -0.02em;
+  }
+
+  .card {
+    background: linear-gradient(180deg, #0A0E0D 0%, #050808 100%);
+    border: 1px solid #1A2624;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(94, 234, 212, 0.6), transparent);
+  }
+
+  .check-orb {
+    width: 96px; height: 96px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #99F6E4 0%, #2DD4BF 35%, #0D9488 75%);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 80px rgba(45, 212, 191, 0.5), inset 0 -10px 20px rgba(4, 47, 46, 0.3);
+    margin: 0 auto 28px;
+    animation: pulse 3s ease-in-out infinite;
+  }
+  .check-orb svg { width: 44px; height: 44px; color: #042F2E; }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 80px rgba(45, 212, 191, 0.5), inset 0 -10px 20px rgba(4, 47, 46, 0.3); }
+    50%      { box-shadow: 0 0 120px rgba(45, 212, 191, 0.85), inset 0 -10px 20px rgba(4, 47, 46, 0.3); }
+  }
+
+  .stat-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 16px; border-radius: 999px;
+    background: rgba(45, 212, 191, 0.08);
+    border: 1px solid rgba(45, 212, 191, 0.25);
+    font-size: 12px; color: #5EEAD4; font-weight: 600; letter-spacing: 0.02em;
+  }
+  .stat-pill::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: #2DD4BF; box-shadow: 0 0 10px #2DD4BF;
+    animation: dotpulse 2s ease-in-out infinite;
+  }
+  @keyframes dotpulse {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.4; }
+  }
+
+  .step {
+    display: flex; gap: 16px; padding: 18px 0;
+    border-bottom: 1px solid rgba(26, 38, 36, 0.6);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px;
+    background: rgba(45, 212, 191, 0.1);
+    border: 1px solid rgba(45, 212, 191, 0.3);
+    display: flex; align-items: center; justify-content: center;
+    color: #5EEAD4; font-weight: 700; font-size: 14px;
+  }
+  .step-content h3 { color: #E6FFFC; font-size: 15px; font-weight: 600; margin-bottom: 4px; letter-spacing: -0.01em; }
+  .step-content p { color: #7A8C8A; font-size: 13px; line-height: 1.5; }
+
+  .btn-teal {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #2DD4BF; color: #042F2E;
+    padding: 16px 32px; border-radius: 12px;
+    font-weight: 700; font-size: 15px; letter-spacing: -0.01em;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 0 60px rgba(45, 212, 191, 0.35);
+  }
+  .btn-teal:hover { background: #5EEAD4; transform: translateY(-2px); box-shadow: 0 0 100px rgba(45, 212, 191, 0.7); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(45, 212, 191, 0.05); color: #5EEAD4;
+    padding: 16px 32px; border-radius: 12px;
+    border: 1px solid rgba(45, 212, 191, 0.3);
+    font-weight: 600; font-size: 14px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .btn-ghost:hover { background: rgba(45, 212, 191, 0.1); border-color: rgba(45, 212, 191, 0.6); }
+
+  .brand-dot {
+    width: 36px; height: 36px; border-radius: 50%; background: #2DD4BF;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 25px rgba(45, 212, 191, 0.6);
+  }
+  .brand-dot::after {
+    content: ''; width: 14px; height: 14px; border-radius: 50%; background: #000;
+  }
+
+  .confetti {
+    position: fixed; top: -20px; left: 50%; width: 8px; height: 8px;
+    pointer-events: none; z-index: 2;
+    opacity: 0;
+  }
+
+  @media (max-width: 640px) {
+    .check-orb { width: 80px; height: 80px; }
+    .check-orb svg { width: 36px; height: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap min-h-screen flex flex-col">
+
+  <!-- HEADER -->
+  <header class="px-6 py-6">
+    <a href="/" class="inline-flex items-center gap-3 no-underline">
+      <span class="brand-dot"></span>
+      <div>
+        <p class="font-semibold text-lg leading-tight text-ink">Exilia</p>
+        <p class="text-ink/40 text-xs">Cabinet IA — Suisse romande</p>
+      </div>
+    </a>
+  </header>
+
+  <!-- MAIN -->
+  <main class="flex-1 flex items-center justify-center px-6 py-12 md:py-16">
+    <div class="max-w-2xl w-full">
+
+      <div class="text-center mb-10">
+        <div class="check-orb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 13l4 4L19 7"/>
+          </svg>
+        </div>
+
+        <span class="stat-pill mb-6">Réservation confirmée</span>
+
+        <h1 class="headline-grad text-4xl md:text-5xl lg:text-6xl mt-6 mb-5">
+          À très vite,<br/>pour votre audit IA.
+        </h1>
+
+        <p class="text-ink/65 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+          Votre créneau est bloqué dans mon agenda.
+          Vous allez recevoir un email de confirmation avec le lien Google Meet.
+        </p>
+      </div>
+
+      <!-- STEPS -->
+      <div class="card p-7 md:p-9 mb-8">
+        <h2 class="text-ink font-bold text-lg md:text-xl mb-2 tracking-tight">Ce qui se passe maintenant</h2>
+        <p class="text-ink/50 text-sm mb-5">Quelques infos pour que tout soit prêt.</p>
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>📧 Vérifiez votre boîte mail</h3>
+            <p>Vous allez recevoir une confirmation avec l'invitation agenda et le lien Google Meet. Pensez à vérifier vos spams si rien n'arrive dans les 5 minutes.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>🕐 Bloquez le créneau</h3>
+            <p>Acceptez l'invitation dans votre agenda — 20 minutes, c'est court, on veut être 100% focus sur vous.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>🧠 Je prépare l'appel</h3>
+            <p>Avec vos réponses, j'analyse votre entreprise et prépare des pistes concrètes d'automatisation adaptées à votre situation avant qu'on se parle.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3>☕ Rendez-vous en visio</h3>
+            <p>On échange, j'écoute, on identifie ensemble les quick-wins IA les plus pertinents pour vous. Vous repartez avec un plan d'action — sans engagement.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="text-center">
+        <p class="text-ink/50 text-sm mb-4">
+          Une question avant le call ? Besoin de modifier l'horaire ?
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="mailto:contact@exilia.ch" class="btn-teal">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+            contact@exilia.ch
+          </a>
+          <a href="/" class="btn-ghost">
+            ← Retour à l'accueil
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="px-6 py-8 text-center">
+    <p class="text-ink/30 text-xs">© 2026 Exilia — Cabinet IA en Suisse romande · Genève · Lausanne · Fribourg · Sion</p>
+  </footer>
+
+</div>
+
+<script>
+  // Tiny confetti burst on load
+  (function () {
+    const colors = ['#2DD4BF', '#5EEAD4', '#99F6E4', '#14B8A6'];
+    const count = 24;
+    for (let i = 0; i < count; i++) {
+      const c = document.createElement('div');
+      c.className = 'confetti';
+      c.style.background = colors[i % colors.length];
+      c.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+      c.style.left = (20 + Math.random() * 60) + '%';
+      c.style.width = (6 + Math.random() * 8) + 'px';
+      c.style.height = c.style.width;
+      document.body.appendChild(c);
+
+      const duration = 2200 + Math.random() * 1200;
+      const delay = Math.random() * 400;
+      const drift = (Math.random() - 0.5) * 260;
+      const rot = Math.random() * 720;
+
+      c.animate([
+        { transform: 'translate(0, -20px) rotate(0deg)', opacity: 0 },
+        { transform: 'translate(' + (drift * 0.3) + 'px, 120px) rotate(' + (rot * 0.4) + 'deg)', opacity: 1, offset: 0.15 },
+        { transform: 'translate(' + drift + 'px, ' + window.innerHeight + 'px) rotate(' + rot + 'deg)', opacity: 0 }
+      ], {
+        duration: duration,
+        delay: delay,
+        easing: 'cubic-bezier(.22,1,.36,1)',
+        fill: 'forwards'
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>

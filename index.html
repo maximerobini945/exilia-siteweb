@@ -681,11 +681,8 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
 <!-- ============== NAV ============== -->
 <header class="fixed top-4 md:top-6 left-0 right-0 z-50 flex justify-center px-4">
   <nav class="pill-nav" aria-label="Navigation principale">
-    <a href="#" class="flex items-center gap-3 pr-2" aria-label="Excilia accueil">
-      <span class="w-7 h-7 rounded-full bg-teal-500 flex items-center justify-center" style="box-shadow: 0 0 20px rgba(45,212,191,0.6);">
-        <span class="w-3 h-3 rounded-full bg-night"></span>
-      </span>
-      <span class="font-semibold text-sm tracking-tight">Excilia</span>
+    <a href="#" class="flex items-center pr-2" aria-label="Excilia accueil">
+      <img src="/assets/logo-excilia.svg" alt="Excilia" height="22" style="height:22px;width:auto;" />
     </a>
     <div class="hidden md:flex items-center gap-7 text-[13px] text-ink/70 font-medium">
       <a href="#problem" class="hover:text-ink transition">Le problème</a>
@@ -1441,13 +1438,8 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
   <div class="relative max-w-6xl mx-auto px-6">
     <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-8">
       <div class="flex items-center gap-3">
-        <span class="w-9 h-9 rounded-full bg-teal-500 flex items-center justify-center" style="box-shadow: 0 0 25px rgba(45,212,191,0.6);">
-          <span class="w-4 h-4 rounded-full bg-night"></span>
-        </span>
-        <div>
-          <p class="font-semibold text-lg leading-tight">Excilia</p>
-          <p class="text-ink/40 text-xs">Cabinet IA — Suisse romande</p>
-        </div>
+        <img src="/assets/logo-excilia.svg" alt="Excilia" style="height:36px;width:auto;" />
+        <p class="text-ink/40 text-xs">Cabinet IA — Suisse romande</p>
       </div>
       <a href="#reserver" class="btn-teal-sm">
         <svg class="sparkle" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0l2.5 7.5L22 10l-7.5 2.5L12 20l-2.5-7.5L2 10l7.5-2.5L12 0z"/></svg>
@@ -1512,9 +1504,8 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
     <!-- HEADER -->
     <div class="qm-header">
       <div class="qm-brand">
-        <span class="qm-brand-dot" aria-hidden="true"></span>
+        <img src="/assets/logo-excilia.svg" alt="Excilia" style="height:22px;width:auto;" />
         <div>
-          <div class="qm-brand-name">Excilia</div>
           <div class="qm-brand-sub">Audit Excilia</div>
         </div>
       </div>
@@ -1871,7 +1862,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
       this.submitted = true;
 
       const payload = Object.assign({}, this.answers, {
-        source: 'exilia-site',
+        source: 'excilia-site',
         submittedAt: new Date().toISOString(),
         userAgent: navigator.userAgent,
         referrer: document.referrer || 'direct',
@@ -2065,7 +2056,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
   }
 
   // Expose for debugging / manual trigger
-  window.exiliaQualify = qm;
+  window.exciliaQualify = qm;
 })();
 </script>
 

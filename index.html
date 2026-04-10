@@ -877,13 +877,35 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
 
     </div>
 
-    <!-- Voir plus button -->
-    <div class="text-center mt-8" id="reviews-toggle-wrap">
-      <button onclick="document.querySelectorAll('[data-extra-review]').forEach(el=>el.classList.remove('hidden'));this.parentElement.style.display='none';" class="inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm font-semibold text-ink border border-border hover:border-teal-400/50 hover:text-teal-400 transition" style="min-width:200px;">
-        Voir les 12 avis
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+    <!-- Voir plus / Voir moins -->
+    <div class="text-center mt-8">
+      <button id="reviews-btn" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-[13px] font-semibold text-ink/70 border border-border hover:border-teal-400/40 hover:text-teal-400 transition">
+        <span id="reviews-btn-text">Voir plus d'avis</span>
+        <svg id="reviews-btn-icon" class="w-4 h-4 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
       </button>
     </div>
+    <script>
+    (function(){
+      var shown = 3, total = document.querySelectorAll('[data-extra-review]').length + 3;
+      var btn = document.getElementById('reviews-btn');
+      var txt = document.getElementById('reviews-btn-text');
+      var ico = document.getElementById('reviews-btn-icon');
+      var extras = Array.from(document.querySelectorAll('[data-extra-review]'));
+      btn.addEventListener('click', function(){
+        if (shown < total) {
+          var next = Math.min(shown + 3, total);
+          extras.slice(shown - 3, next - 3).forEach(function(el){ el.classList.remove('hidden'); });
+          shown = next;
+          if (shown >= total) { txt.textContent = 'Voir moins'; ico.style.transform = 'rotate(180deg)'; }
+        } else {
+          extras.forEach(function(el){ el.classList.add('hidden'); });
+          shown = 3;
+          txt.textContent = 'Voir plus d\'avis';
+          ico.style.transform = '';
+        }
+      });
+    })();
+    </script>
   </div>
 </section>
 <!-- ============== QUI JE SUIS ============== -->

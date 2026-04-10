@@ -217,6 +217,45 @@ section:not(.hero-section) { padding-top: 3rem !important; padding-bottom: 3rem 
 }
 
 /* ═══════════════════════════════════════════
+   PREMIUM EFFECTS
+   ═══════════════════════════════════════════ */
+
+/* Fade-in on scroll */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(.22,1,.36,1), transform 0.6s cubic-bezier(.22,1,.36,1);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.fade-in:nth-child(2) { transition-delay: 0.08s; }
+.fade-in:nth-child(3) { transition-delay: 0.16s; }
+
+/* Card hover lift */
+.corner-card,
+.review-card {
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+}
+.corner-card:hover,
+.review-card:hover {
+  transform: translateY(-4px) !important;
+}
+.section-light .corner-card:hover,
+.section-light .review-card:hover {
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08) !important;
+}
+
+/* Smooth teal line between sections */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(45,212,191,0.25), transparent);
+}
+
+/* ═══════════════════════════════════════════
    PRINT
    ═══════════════════════════════════════════ */
 @media print {

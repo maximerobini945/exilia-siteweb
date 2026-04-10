@@ -1174,6 +1174,39 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
 
 </main>
 
+<!-- Premium effects: fade-in on scroll + counter animation -->
+<script>
+(function(){
+  // Fade-in observer
+  var els = document.querySelectorAll('.corner-card, .review-card, .section-light > div > div, [class*="headline-bold"], .about-photo');
+  els.forEach(function(el){ el.classList.add('fade-in'); });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  els.forEach(function(el){ obs.observe(el); });
+
+  // Animated counter for "4.9/5"
+  var scoreEl = document.querySelector('.text-teal-400[class*="headline"]');
+  if(scoreEl && scoreEl.textContent.indexOf('4.9') > -1){
+    var done = false;
+    var obs2 = new IntersectionObserver(function(entries){
+      if(entries[0].isIntersecting && !done){
+        done = true;
+        var start = 0, end = 4.9, dur = 1200, t0 = performance.now();
+        function tick(now){
+          var p = Math.min((now - t0) / dur, 1);
+          var ease = 1 - Math.pow(1 - p, 3);
+          scoreEl.textContent = (start + (end - start) * ease).toFixed(1) + '/5';
+          if(p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+    }, { threshold: 0.5 });
+    obs2.observe(scoreEl);
+  }
+})();
+</script>
+
 <!-- ============== FOOTER ============== -->
 <footer class="relative pt-24 pb-28 md:pb-12 mt-16 overflow-hidden">
   <div class="absolute inset-0 footer-grid opacity-40"></div>

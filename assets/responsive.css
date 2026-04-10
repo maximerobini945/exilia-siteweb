@@ -29,8 +29,8 @@ h3, .text-2xl, .text-xl {
   font-size: 20px !important;
 }
 
-/* Section spacing */
-section { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+/* Section spacing — exclude hero which has its own padding */
+section:not(.hero-section) { padding-top: 3rem !important; padding-bottom: 3rem !important; }
 
 /* Cards */
 .corner-card { padding: 20px !important; }
@@ -64,7 +64,7 @@ section { padding-top: 3rem !important; padding-bottom: 3rem !important; }
   .headline-bold { font-size: 36px !important; }
   h3, .text-2xl, .text-xl { font-size: 22px !important; }
 
-  section { padding-top: 4.5rem !important; padding-bottom: 4.5rem !important; }
+  section:not(.hero-section) { padding-top: 4.5rem !important; padding-bottom: 4.5rem !important; }
   .corner-card { padding: 28px !important; }
 
   .btn-teal, .btn-ghost {
@@ -84,7 +84,7 @@ section { padding-top: 3rem !important; padding-bottom: 3rem !important; }
   .headline-bold { font-size: 52px !important; }
   h3, .text-2xl, .text-xl { font-size: 24px !important; }
 
-  section { padding-top: 6rem !important; padding-bottom: 6rem !important; }
+  section:not(.hero-section) { padding-top: 6rem !important; padding-bottom: 6rem !important; }
   .corner-card { padding: 36px !important; }
 
   .stat-pill { font-size: 13px !important; }

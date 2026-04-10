@@ -1,90 +1,139 @@
 /* ═══════════════════════════════════════════════════════
    EXCILIA — Responsive Typography & Spacing System
-   Fichier chargé sur toutes les pages pour garantir
-   des tailles cohérentes mobile / tablet / desktop.
+   Force toutes les tailles pour mobile / tablet / desktop.
+   !important nécessaire pour overrider les classes Tailwind inline.
    ═══════════════════════════════════════════════════════ */
 
-/* ─── BASE TYPOGRAPHY ─── */
-h1, h2, h3 { line-height: 1.05; letter-spacing: -0.03em; }
+/* ─── BASE ─── */
+h1, h2, h3 { line-height: 1.05 !important; letter-spacing: -0.03em !important; }
 p { line-height: 1.6; }
 
-/* ─── MOBILE FIRST (< 640px) ─── */
-.headline { font-size: 28px; }
-.headline-bold { font-size: 26px; }
-h3 { font-size: 20px; }
+/* ═══════════════════════════════════════════
+   MOBILE FIRST (< 640px)
+   ═══════════════════════════════════════════ */
 
-section { padding-top: 3rem; padding-bottom: 3rem; }
-.corner-card { padding: 20px; }
+/* Hero H1 */
+.headline {
+  font-size: 30px !important;
+  line-height: 1.08 !important;
+}
 
-/* Buttons */
-.btn-teal, .btn-ghost { font-size: 14px; padding: 14px 24px; width: 100%; justify-content: center; }
+/* Section H2 */
+.headline-bold {
+  font-size: 26px !important;
+  line-height: 1.08 !important;
+}
 
-/* Cards text */
-.corner-card p, .bento p { font-size: 14px; }
-.stat-pill { font-size: 12px; }
+/* Card titles */
+h3, .text-2xl, .text-xl {
+  font-size: 20px !important;
+}
 
-/* Review cards */
-.review-card { padding: 20px; }
-.review-card p { font-size: 13px; }
+/* Section spacing */
+section { padding-top: 3rem !important; padding-bottom: 3rem !important; }
 
-/* ─── TABLET (640px — 1024px) ─── */
+/* Cards */
+.corner-card { padding: 20px !important; }
+.corner-card p, .bento p { font-size: 14px !important; }
+
+/* Stat pill */
+.stat-pill { font-size: 11px !important; padding: 7px 14px !important; }
+
+/* Body text */
+.text-ink\/70, .text-ink\/65, .text-ink\/80 {
+  font-size: 15px !important;
+}
+
+/* Buttons full-width mobile */
+.btn-teal, .btn-ghost {
+  font-size: 14px !important;
+  padding: 14px 24px !important;
+  width: 100% !important;
+  justify-content: center !important;
+}
+
+/* Reviews */
+.review-card { padding: 20px !important; }
+.review-card p { font-size: 14px !important; }
+
+/* ═══════════════════════════════════════════
+   TABLET (640px+)
+   ═══════════════════════════════════════════ */
 @media (min-width: 640px) {
-  .headline { font-size: 40px; }
-  .headline-bold { font-size: 36px; }
-  h3 { font-size: 22px; }
+  .headline { font-size: 44px !important; }
+  .headline-bold { font-size: 36px !important; }
+  h3, .text-2xl, .text-xl { font-size: 22px !important; }
 
-  section { padding-top: 4rem; padding-bottom: 4rem; }
-  .corner-card { padding: 28px; }
+  section { padding-top: 4.5rem !important; padding-bottom: 4.5rem !important; }
+  .corner-card { padding: 28px !important; }
 
-  .btn-teal, .btn-ghost { font-size: 15px; padding: 16px 28px; width: auto; }
+  .btn-teal, .btn-ghost {
+    font-size: 15px !important;
+    padding: 16px 28px !important;
+    width: auto !important;
+  }
+
+  .stat-pill { font-size: 12px !important; }
 }
 
-/* ─── DESKTOP (1024px+) ─── */
+/* ═══════════════════════════════════════════
+   DESKTOP (1024px+)
+   ═══════════════════════════════════════════ */
 @media (min-width: 1024px) {
-  .headline { font-size: 72px; }
-  .headline-bold { font-size: 56px; }
-  h3 { font-size: 24px; }
+  .headline { font-size: 72px !important; }
+  .headline-bold { font-size: 52px !important; }
+  h3, .text-2xl, .text-xl { font-size: 24px !important; }
 
-  section { padding-top: 6rem; padding-bottom: 6rem; }
-  .corner-card { padding: 36px; }
+  section { padding-top: 6rem !important; padding-bottom: 6rem !important; }
+  .corner-card { padding: 36px !important; }
+
+  .stat-pill { font-size: 13px !important; }
 }
 
-/* ─── LARGE DESKTOP (1280px+) ─── */
+/* ═══════════════════════════════════════════
+   LARGE DESKTOP (1280px+)
+   ═══════════════════════════════════════════ */
 @media (min-width: 1280px) {
-  .headline { font-size: 88px; }
-  .headline-bold { font-size: 64px; }
+  .headline { font-size: 88px !important; }
+  .headline-bold { font-size: 60px !important; }
 }
 
-/* ─── NAV RESPONSIVE ─── */
-.pill-nav {
-  padding: 8px 8px 8px 16px;
-}
-.pill-nav img { height: 18px; }
+/* ═══════════════════════════════════════════
+   NAV
+   ═══════════════════════════════════════════ */
+.pill-nav { padding: 8px 8px 8px 16px; }
+.pill-nav img { height: 18px !important; width: auto !important; }
 
 @media (min-width: 640px) {
   .pill-nav { padding: 10px 10px 10px 20px; }
-  .pill-nav img { height: 22px; }
+  .pill-nav img { height: 22px !important; }
 }
 
-/* ─── HERO SPECIFIC ─── */
+/* ═══════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════ */
 .scarcity { font-size: 11px; padding: 8px 16px; }
 @media (min-width: 640px) { .scarcity { font-size: 13px; padding: 10px 20px; } }
 
-/* ─── STICKY CTA MOBILE ─── */
+/* ═══════════════════════════════════════════
+   STICKY CTA — padding bottom mobile
+   ═══════════════════════════════════════════ */
 @media (max-width: 767px) {
   body { padding-bottom: 80px; }
 }
 
-/* ─── LOGO CAROUSEL ─── */
-.animate-scroll {
-  animation: scrollLogos 20s linear infinite;
-}
+/* ═══════════════════════════════════════════
+   LOGO CAROUSEL
+   ═══════════════════════════════════════════ */
+.animate-scroll { animation: scrollLogos 20s linear infinite; }
 @keyframes scrollLogos {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-/* ─── REVIEW STARS ─── */
+/* ═══════════════════════════════════════════
+   REVIEWS
+   ═══════════════════════════════════════════ */
 .star { color: #FBBF24; }
 .review-card {
   background: #0A0E0D;
@@ -95,7 +144,9 @@ section { padding-top: 3rem; padding-bottom: 3rem; }
 }
 .review-card:hover { border-color: rgba(45, 212, 191, 0.3); }
 
-/* ─── ABOUT PHOTO ─── */
+/* ═══════════════════════════════════════════
+   ABOUT PHOTO
+   ═══════════════════════════════════════════ */
 .about-photo {
   width: 96px;
   height: 96px;
@@ -108,7 +159,9 @@ section { padding-top: 3rem; padding-bottom: 3rem; }
   .about-photo { width: 120px; height: 120px; }
 }
 
-/* ─── PRINT ─── */
+/* ═══════════════════════════════════════════
+   PRINT
+   ═══════════════════════════════════════════ */
 @media print {
   .sticky-cta, .pill-nav { display: none !important; }
   body { background: white; color: black; padding-bottom: 0; }

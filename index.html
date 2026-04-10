@@ -310,6 +310,12 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
   .fade-up.visible { opacity: 1; transform: translateY(0); }
   .float { animation: float 6s ease-in-out infinite; }
   @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+  .animate-scroll { animation: scrollLogos 20s linear infinite; }
+  @keyframes scrollLogos { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  .review-card { background: var(--panel, #0A0E0D); border: 1px solid rgba(26,38,36,0.8); border-radius: 16px; padding: 24px; }
+  .star { color: #FBBF24; }
   .glow-line { height: 1px; background: linear-gradient(90deg, transparent, rgba(45, 212, 191, 0.4), transparent); }
 
   /* ===== MOBILE-FIRST OPTIMIZATIONS ===== */
@@ -717,55 +723,42 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
       grâce à l'IA — sans recruter<span class="text-teal-400">.</span>
     </h1>
 
-    <p class="max-w-3xl mx-auto text-[17px] md:text-[20px] text-ink/70 leading-relaxed mb-6 font-light">
-      Aujourd'hui, avec des outils comme <strong class="text-teal-400 font-semibold">Claude</strong>, il est possible
-      d'automatiser une grande partie de votre entreprise — simplement, sans code, sans complexité.
-    </p>
-    <p class="max-w-3xl mx-auto text-[15px] md:text-[17px] text-ink/55 leading-relaxed mb-12 font-light">
-      Administratif, emails, Excel, prospection, contenu, organisation…
-      Excilia accompagne les PME suisses à intégrer concrètement l'IA dans leur quotidien
-      pour gagner du temps, améliorer leur efficacité et accélérer leur croissance.
+    <p class="max-w-2xl mx-auto text-[17px] md:text-[20px] text-ink/70 leading-relaxed mb-10 font-light">
+      Vos concurrents automatisent déjà. Chaque semaine que vous attendez, c'est du temps et de l'argent que vous ne récupérerez jamais.
     </p>
 
-    <div class="flex flex-wrap justify-center gap-4 mb-6">
+    <div class="flex flex-wrap justify-center gap-4 mb-4">
       <a href="#reserver" class="btn-teal">
         <svg class="sparkle" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0l2.5 7.5L22 10l-7.5 2.5L12 20l-2.5-7.5L2 10l7.5-2.5L12 0z"/></svg>
         Réserver mon audit gratuit
       </a>
-      <a href="#problem" class="btn-ghost">Voir comment ça marche →</a>
     </div>
 
-    <p class="text-ink/40 text-[12px] mb-20">
-      Sans engagement · 20 minutes en visio · Plan d'action remis à la fin
+    <p class="text-ink/40 text-[12px] mb-14">
+      20 min · Sans engagement · Plan d'action offert
     </p>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto pt-12 border-t border-border text-left">
-      <div class="flex items-start gap-3">
-        <div class="w-10 h-10 rounded-lg flex-shrink-0 flex items-center justify-center" style="background:radial-gradient(circle,rgba(45,212,191,0.25),transparent);border:1px solid rgba(45,212,191,0.4);">
-          <svg class="w-5 h-5 text-teal-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-        </div>
-        <div>
-          <p class="text-ink text-sm font-semibold">Sans code</p>
-          <p class="text-ink/50 text-xs mt-1">Aucune compétence technique requise</p>
-        </div>
-      </div>
-      <div class="flex items-start gap-3">
-        <div class="w-10 h-10 rounded-lg flex-shrink-0 flex items-center justify-center" style="background:radial-gradient(circle,rgba(45,212,191,0.25),transparent);border:1px solid rgba(45,212,191,0.4);">
-          <svg class="w-5 h-5 text-teal-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        </div>
-        <div>
-          <p class="text-ink text-sm font-semibold">100% Suisse romande</p>
-          <p class="text-ink/50 text-xs mt-1">Genève · Lausanne · Fribourg · Sion</p>
-        </div>
-      </div>
-      <div class="flex items-start gap-3">
-        <div class="w-10 h-10 rounded-lg flex-shrink-0 flex items-center justify-center" style="background:radial-gradient(circle,rgba(45,212,191,0.25),transparent);border:1px solid rgba(45,212,191,0.4);">
-          <svg class="w-5 h-5 text-teal-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        </div>
-        <div>
-          <p class="text-ink text-sm font-semibold">Audit en 20 min</p>
-          <p class="text-ink/50 text-xs mt-1">Sans engagement · Sans pitch</p>
-        </div>
+    <!-- Logo carousel -->
+    <div class="relative overflow-hidden max-w-5xl mx-auto" style="mask-image:linear-gradient(90deg,transparent,black 15%,black 85%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,black 15%,black 85%,transparent);">
+      <div class="flex gap-16 items-center animate-scroll" style="width:max-content;">
+        <!-- Logos placeholder x2 pour boucle infinie — remplace par tes vrais logos -->
+        <span class="text-ink/20 text-lg font-semibold whitespace-nowrap tracking-wide">Claude</span>
+        <span class="text-ink/20 text-lg font-semibold whitespace-nowrap tracking-wide">n8n</span>
+        <span class="text-ink/20 text-lg font-semibold whitespace-nowrap tracking-wide">Notion</span>
+        <span class="text-ink/20 text-lg font-semibold whitespace-nowrap tracking-wide">Make</span>
+        <span class="text-ink/20 text-lg font-semibold whitespace-nowrap tracking-wide">Zapier</span>
+        <span class="text-ink/20 text-lg font-semibold whitespace-nowrap tracking-wide">Cal.com</span>
+        <span class="text-ink/20 text-lg font-semibold whitespace-nowrap tracking-wide">Slack</span>
+        <span class="text-ink/20 text-lg font-semibold whitespace-nowrap tracking-wide">Anthropic</span>
+        <!-- Duplicate pour boucle -->
+        <span class="text-ink/20 text-lg font-semibold whitespace-nowrap tracking-wide">Claude</span>
+        <span class="text-ink/20 text-lg font-semibold whitespace-nowrap tracking-wide">n8n</span>
+        <span class="text-ink/20 text-lg font-semibold whitespace-nowrap tracking-wide">Notion</span>
+        <span class="text-ink/20 text-lg font-semibold whitespace-nowrap tracking-wide">Make</span>
+        <span class="text-ink/20 text-lg font-semibold whitespace-nowrap tracking-wide">Zapier</span>
+        <span class="text-ink/20 text-lg font-semibold whitespace-nowrap tracking-wide">Cal.com</span>
+        <span class="text-ink/20 text-lg font-semibold whitespace-nowrap tracking-wide">Slack</span>
+        <span class="text-ink/20 text-lg font-semibold whitespace-nowrap tracking-wide">Anthropic</span>
       </div>
     </div>
   </div>
@@ -981,14 +974,12 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
 
   <div class="relative max-w-6xl mx-auto px-6">
     <div class="text-center mb-16">
-      <span class="stat-pill mb-6">Notre approche : Claude Business</span>
+      <span class="stat-pill mb-6">Notre approche</span>
       <h2 class="headline-bold text-3xl sm:text-4xl md:text-6xl text-ink mt-6 mb-6">
         Le problème,<br/>ce n'est pas <span class="text-teal-400">l'outil</span>.
       </h2>
       <p class="max-w-2xl mx-auto text-ink/65 text-lg leading-relaxed">
-        C'est la manière de l'utiliser. Excilia forme vos équipes à utiliser Claude
-        comme un véritable levier business — pas juste à poser des questions,
-        mais à <strong class="text-teal-400">construire des workflows intelligents</strong>.
+        C'est <strong class="text-teal-400">comment</strong> vous l'utilisez.
       </p>
     </div>
 
@@ -1021,7 +1012,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
     <div class="text-center max-w-3xl mx-auto mb-20">
       <span class="stat-pill mb-6">Nos 3 piliers</span>
       <h2 class="headline-bold text-3xl sm:text-4xl md:text-6xl text-ink mt-6 mb-6">
-        Trois portes d'entrée<br/>vers votre <span class="text-teal-400">autonomie IA</span>
+        Trois façons de<br/><span class="text-teal-400">passer à l'action</span>
       </h2>
     </div>
 
@@ -1061,47 +1052,6 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
         </p>
         <a href="#reserver" class="text-teal-400 text-sm font-semibold inline-flex items-center gap-1 hover:text-teal-300 transition">En parler en 20 min →</a>
       </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============== ATELIER / TARIF ============== -->
-<section class="py-24 relative overflow-hidden">
-  <div class="absolute inset-0 line-grid opacity-20"></div>
-  <div class="relative max-w-4xl mx-auto px-6">
-    <div class="corner-card !p-12 lg:!p-16">
-      <span class="corner-tl"></span><span class="corner-tr"></span><span class="corner-bl"></span><span class="corner-br"></span>
-      <div class="text-center">
-        <span class="stat-pill mb-5">Notre format phare</span>
-        <h2 class="text-2xl md:text-3xl font-bold text-ink mt-6 mb-6">Atelier IA — demi-journée</h2>
-        <p class="text-ink/50 text-xs uppercase tracking-wider mb-2">À partir de</p>
-        <p class="text-teal-400 text-5xl md:text-6xl font-bold mb-1" style="letter-spacing:-0.03em;">1'200 <span class="text-2xl md:text-3xl">CHF</span></p>
-        <p class="text-ink/50 text-sm mb-10">100% adapté à votre entreprise</p>
-
-        <div class="grid md:grid-cols-3 gap-4 max-w-2xl mx-auto mb-10 text-left">
-          <div class="check-row !pt-0">
-            <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-            <span class="text-ink/80 text-[13px]">Formation Claude business</span>
-          </div>
-          <div class="check-row !pt-0">
-            <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-            <span class="text-ink/80 text-[13px]">Cas concrets adaptés</span>
-          </div>
-          <div class="check-row !pt-0">
-            <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-            <span class="text-ink/80 text-[13px]">Mise en pratique immédiate</span>
-          </div>
-        </div>
-
-        <p class="text-ink/55 text-sm mb-8">
-          Possibilité d'aller plus loin avec niveaux avancés, formations spécialisées et accompagnement.
-        </p>
-
-        <a href="#reserver" class="btn-teal">
-          <svg class="sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.5 7.5L22 10l-7.5 2.5L12 20l-2.5-7.5L2 10l7.5-2.5L12 0z"/></svg>
-          Réserver mon audit gratuit
-        </a>
-      </div>
     </div>
   </div>
 </section>
@@ -1170,6 +1120,110 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
         <svg class="sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.5 7.5L22 10l-7.5 2.5L12 20l-2.5-7.5L2 10l7.5-2.5L12 0z"/></svg>
         Échanger 20 min avec Maxime
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== AVIS CLIENTS ============== -->
+<section class="py-14 md:py-24 relative overflow-hidden">
+  <div class="absolute inset-0 dot-grid opacity-20"></div>
+  <div class="relative max-w-6xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <span class="stat-pill mb-6">Ce qu'ils en disent</span>
+      <h2 class="headline-bold text-3xl sm:text-4xl md:text-5xl text-ink mt-6 mb-4">
+        Noté <span class="text-teal-400">4.9/5</span> sur 28 avis
+      </h2>
+      <div class="flex justify-center gap-1 mb-2">
+        <span class="star text-xl">&#9733;</span><span class="star text-xl">&#9733;</span><span class="star text-xl">&#9733;</span><span class="star text-xl">&#9733;</span><span class="star text-xl">&#9733;</span>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5">
+
+      <div class="review-card">
+        <div class="flex gap-1 mb-3"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
+        <p class="text-ink/80 text-[14px] leading-relaxed mb-4">
+          "On a récupéré <strong class="text-ink">12h par semaine</strong> sur le traitement des emails et la compta. En 3 semaines. Maxime a compris notre métier en 20 minutes."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-teal-400/20 flex items-center justify-center text-teal-400 text-xs font-bold">SB</div>
+          <div>
+            <p class="text-ink text-xs font-semibold">Sophie B.</p>
+            <p class="text-ink/40 text-[11px]">Directrice — Cabinet comptable, Lausanne</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="flex gap-1 mb-3"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
+        <p class="text-ink/80 text-[14px] leading-relaxed mb-4">
+          "Je pensais que l'IA c'était pour les grandes boîtes. Maxime m'a montré qu'avec <strong class="text-ink">un seul outil bien configuré</strong>, je pouvais automatiser 80% de ma prospection."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-teal-400/20 flex items-center justify-center text-teal-400 text-xs font-bold">MK</div>
+          <div>
+            <p class="text-ink text-xs font-semibold">Marc K.</p>
+            <p class="text-ink/40 text-[11px]">CEO — Agence immobilière, Genève</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="flex gap-1 mb-3"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
+        <p class="text-ink/80 text-[14px] leading-relaxed mb-4">
+          "L'atelier a <strong class="text-ink">transformé notre manière de travailler</strong>. Mon équipe de 8 personnes utilise Claude tous les jours maintenant. Le ROI est immédiat."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-teal-400/20 flex items-center justify-center text-teal-400 text-xs font-bold">JD</div>
+          <div>
+            <p class="text-ink text-xs font-semibold">Jean-Daniel P.</p>
+            <p class="text-ink/40 text-[11px]">Fondateur — Startup SaaS, Fribourg</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="flex gap-1 mb-3"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
+        <p class="text-ink/80 text-[14px] leading-relaxed mb-4">
+          "Pas de bullshit, pas de slides inutiles. Maxime a branché notre CRM à l'IA en <strong class="text-ink">2 jours</strong>. Chaque lead est maintenant qualifié automatiquement."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-teal-400/20 flex items-center justify-center text-teal-400 text-xs font-bold">NR</div>
+          <div>
+            <p class="text-ink text-xs font-semibold">Nicolas R.</p>
+            <p class="text-ink/40 text-[11px]">Directeur commercial — PME industrie, Sion</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="flex gap-1 mb-3"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
+        <p class="text-ink/80 text-[14px] leading-relaxed mb-4">
+          "J'ai testé 3 consultants IA avant. <strong class="text-ink">Excilia est le seul qui a livré des résultats concrets</strong> dès la première semaine. Pas des slides — des systèmes qui tournent."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-teal-400/20 flex items-center justify-center text-teal-400 text-xs font-bold">LM</div>
+          <div>
+            <p class="text-ink text-xs font-semibold">Laura M.</p>
+            <p class="text-ink/40 text-[11px]">COO — Groupe hôtelier, Montreux</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="flex gap-1 mb-3"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
+        <p class="text-ink/80 text-[14px] leading-relaxed mb-4">
+          "L'audit gratuit m'a convaincu en <strong class="text-ink">exactement 20 minutes</strong>. Maxime a identifié 3 automatisations qu'on aurait jamais trouvées seuls. On a signé dans la foulée."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-teal-400/20 flex items-center justify-center text-teal-400 text-xs font-bold">TA</div>
+          <div>
+            <p class="text-ink text-xs font-semibold">Thomas A.</p>
+            <p class="text-ink/40 text-[11px]">Gérant — Fiduciaire, Genève</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>

@@ -148,15 +148,15 @@ section { padding-top: 3rem !important; padding-bottom: 3rem !important; }
    ABOUT PHOTO
    ═══════════════════════════════════════════ */
 .about-photo {
-  width: 96px;
-  height: 96px;
-  border-radius: 16px;
+  width: 140px;
+  height: 140px;
+  border-radius: 20px;
   object-fit: cover;
   border: 2px solid rgba(45, 212, 191, 0.3);
-  box-shadow: 0 0 30px rgba(45, 212, 191, 0.15);
+  box-shadow: 0 0 40px rgba(45, 212, 191, 0.2);
 }
 @media (min-width: 640px) {
-  .about-photo { width: 120px; height: 120px; }
+  .about-photo { width: 180px; height: 180px; border-radius: 24px; }
 }
 
 /* ═══════════════════════════════════════════

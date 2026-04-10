@@ -1,0 +1,115 @@
+/* ═══════════════════════════════════════════════════════
+   EXCILIA — Responsive Typography & Spacing System
+   Fichier chargé sur toutes les pages pour garantir
+   des tailles cohérentes mobile / tablet / desktop.
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── BASE TYPOGRAPHY ─── */
+h1, h2, h3 { line-height: 1.05; letter-spacing: -0.03em; }
+p { line-height: 1.6; }
+
+/* ─── MOBILE FIRST (< 640px) ─── */
+.headline { font-size: 28px; }
+.headline-bold { font-size: 26px; }
+h3 { font-size: 20px; }
+
+section { padding-top: 3rem; padding-bottom: 3rem; }
+.corner-card { padding: 20px; }
+
+/* Buttons */
+.btn-teal, .btn-ghost { font-size: 14px; padding: 14px 24px; width: 100%; justify-content: center; }
+
+/* Cards text */
+.corner-card p, .bento p { font-size: 14px; }
+.stat-pill { font-size: 12px; }
+
+/* Review cards */
+.review-card { padding: 20px; }
+.review-card p { font-size: 13px; }
+
+/* ─── TABLET (640px — 1024px) ─── */
+@media (min-width: 640px) {
+  .headline { font-size: 40px; }
+  .headline-bold { font-size: 36px; }
+  h3 { font-size: 22px; }
+
+  section { padding-top: 4rem; padding-bottom: 4rem; }
+  .corner-card { padding: 28px; }
+
+  .btn-teal, .btn-ghost { font-size: 15px; padding: 16px 28px; width: auto; }
+}
+
+/* ─── DESKTOP (1024px+) ─── */
+@media (min-width: 1024px) {
+  .headline { font-size: 72px; }
+  .headline-bold { font-size: 56px; }
+  h3 { font-size: 24px; }
+
+  section { padding-top: 6rem; padding-bottom: 6rem; }
+  .corner-card { padding: 36px; }
+}
+
+/* ─── LARGE DESKTOP (1280px+) ─── */
+@media (min-width: 1280px) {
+  .headline { font-size: 88px; }
+  .headline-bold { font-size: 64px; }
+}
+
+/* ─── NAV RESPONSIVE ─── */
+.pill-nav {
+  padding: 8px 8px 8px 16px;
+}
+.pill-nav img { height: 18px; }
+
+@media (min-width: 640px) {
+  .pill-nav { padding: 10px 10px 10px 20px; }
+  .pill-nav img { height: 22px; }
+}
+
+/* ─── HERO SPECIFIC ─── */
+.scarcity { font-size: 11px; padding: 8px 16px; }
+@media (min-width: 640px) { .scarcity { font-size: 13px; padding: 10px 20px; } }
+
+/* ─── STICKY CTA MOBILE ─── */
+@media (max-width: 767px) {
+  body { padding-bottom: 80px; }
+}
+
+/* ─── LOGO CAROUSEL ─── */
+.animate-scroll {
+  animation: scrollLogos 20s linear infinite;
+}
+@keyframes scrollLogos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ─── REVIEW STARS ─── */
+.star { color: #FBBF24; }
+.review-card {
+  background: #0A0E0D;
+  border: 1px solid rgba(26, 38, 36, 0.8);
+  border-radius: 16px;
+  padding: 24px;
+  transition: border-color 0.2s ease;
+}
+.review-card:hover { border-color: rgba(45, 212, 191, 0.3); }
+
+/* ─── ABOUT PHOTO ─── */
+.about-photo {
+  width: 96px;
+  height: 96px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 2px solid rgba(45, 212, 191, 0.3);
+  box-shadow: 0 0 30px rgba(45, 212, 191, 0.15);
+}
+@media (min-width: 640px) {
+  .about-photo { width: 120px; height: 120px; }
+}
+
+/* ─── PRINT ─── */
+@media print {
+  .sticky-cta, .pill-nav { display: none !important; }
+  body { background: white; color: black; padding-bottom: 0; }
+}

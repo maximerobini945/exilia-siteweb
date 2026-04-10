@@ -1152,12 +1152,10 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
       </p>
 
       <div class="relative flex flex-wrap justify-center gap-4 mb-8">
-        <!-- TODO: remplacer par ton lien Calendly une fois créé -->
-        <a href="mailto:contact@excilia.ch" class="btn-teal">
+        <a href="#reserver" class="btn-teal">
           <svg class="sparkle" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0l2.5 7.5L22 10l-7.5 2.5L12 20l-2.5-7.5L2 10l7.5-2.5L12 0z"/></svg>
           Réserver mon audit gratuit
         </a>
-        <a href="mailto:contact@excilia.ch" class="btn-ghost">contact@excilia.ch</a>
       </div>
 
       <div class="relative flex flex-wrap justify-center gap-6 text-ink/50 text-xs">
@@ -1738,8 +1736,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
           if (type === 'radio') {
             parent.querySelectorAll('.qm-option').forEach(o => o.classList.remove('selected'));
             opt.classList.add('selected');
-            // Auto-advance after brief delay for radio
-            setTimeout(() => this.next(), 420);
+            // No auto-advance — user must click "Continuer"
           } else {
             opt.classList.toggle('selected');
           }

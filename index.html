@@ -1726,6 +1726,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
       this.backdrop.classList.add('open');
       this.backdrop.setAttribute('aria-hidden', 'false');
       this.goto(this.step || 0);
+      if (typeof fbq === 'function') fbq('track', 'ViewContent', { content_name: 'Formulaire Audit' });
     },
 
     close() {
@@ -1877,6 +1878,8 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
         pageUrl: window.location.href
       });
 
+      if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: this.answers.company || 'Unknown' });
+
       try {
         const res = await fetch(LEAD_ENDPOINT, {
           method: 'POST',
@@ -1948,6 +1951,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
       Cal.ns[CAL_NS]("on", {
         action: "bookingSuccessful",
         callback: () => {
+          if (typeof fbq === 'function') fbq('track', 'Schedule', { content_name: 'Audit IA Excilia' });
           // Small delay so user sees the Cal.com success state
           setTimeout(() => { window.location.href = '/merci.html'; }, 1500);
         }

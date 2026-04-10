@@ -691,17 +691,11 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
 
 <!-- ============== NAV ============== -->
 <header class="fixed top-4 md:top-6 left-0 right-0 z-50 flex justify-center px-4">
-  <nav class="pill-nav" aria-label="Navigation principale">
-    <a href="#" class="flex items-center pr-2" aria-label="Excilia accueil">
-      <img src="/assets/logo-excilia.svg" alt="Excilia" class="h-[18px] md:h-[22px] w-auto" />
+  <nav class="pill-nav" style="justify-content:space-between;border-radius:100px;padding:8px 8px 8px 24px;" aria-label="Navigation principale">
+    <a href="#" class="flex items-center" aria-label="Excilia accueil">
+      <img src="/assets/logo-excilia.svg" alt="Excilia" class="h-[22px] md:h-[26px] w-auto" />
     </a>
-    <div class="hidden md:flex items-center gap-7 text-[13px] text-ink/70 font-medium">
-      <a href="#problem" class="hover:text-ink transition">Le problème</a>
-      <a href="#services" class="hover:text-ink transition">Services</a>
-      <a href="#about" class="hover:text-ink transition">Qui je suis</a>
-      <a href="#faq" class="hover:text-ink transition">FAQ</a>
-    </div>
-    <a href="#reserver" class="btn-teal-sm">
+    <a href="#reserver" class="btn-teal-sm" style="border-radius:100px;padding:10px 20px;">
       <svg class="sparkle" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0l2.5 7.5L22 10l-7.5 2.5L12 20l-2.5-7.5L2 10l7.5-2.5L12 0z"/></svg>
       Audit gratuit
     </a>
@@ -1152,12 +1146,10 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
       </p>
 
       <div class="relative flex flex-wrap justify-center gap-4 mb-8">
-        <!-- TODO: remplacer par ton lien Calendly une fois créé -->
-        <a href="mailto:contact@excilia.ch" class="btn-teal">
+        <a href="#reserver" class="btn-teal">
           <svg class="sparkle" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0l2.5 7.5L22 10l-7.5 2.5L12 20l-2.5-7.5L2 10l7.5-2.5L12 0z"/></svg>
           Réserver mon audit gratuit
         </a>
-        <a href="mailto:contact@excilia.ch" class="btn-ghost">contact@excilia.ch</a>
       </div>
 
       <div class="relative flex flex-wrap justify-center gap-6 text-ink/50 text-xs">
@@ -1214,7 +1206,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
 </script>
 
 <!-- ============== FOOTER ============== -->
-<footer class="relative pt-24 pb-28 md:pb-12 mt-16 overflow-hidden">
+<footer class="relative pt-24 pb-12 mt-16 overflow-hidden">
   <div class="absolute inset-0 footer-grid opacity-40"></div>
   <div class="spotlight-bottom"></div>
   <div class="relative max-w-6xl mx-auto px-6">
@@ -1258,13 +1250,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
 </footer>
 
 <!-- ============== STICKY MOBILE CTA ============== -->
-<div class="sticky-cta">
-  <div class="flex-1 min-w-0">
-    <p class="text-teal-400 text-[11px] font-semibold leading-tight">2 places restantes ce mois</p>
-    <p class="text-ink text-[13px] font-semibold leading-tight">Audit gratuit · 20 min</p>
-  </div>
-  <a href="#reserver" class="btn-teal-sm flex-shrink-0">Réserver →</a>
-</div>
+<!-- Sticky CTA mobile supprimé pour fluidifier l'expérience -->
 
 <script>
   const observer = new IntersectionObserver((entries) => {
@@ -1738,8 +1724,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
           if (type === 'radio') {
             parent.querySelectorAll('.qm-option').forEach(o => o.classList.remove('selected'));
             opt.classList.add('selected');
-            // Auto-advance after brief delay for radio
-            setTimeout(() => this.next(), 420);
+            // No auto-advance — user must click "Continuer"
           } else {
             opt.classList.toggle('selected');
           }
@@ -1778,5 +1763,8 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
 })();
 </script>
 
+<!-- Vercel Analytics + Speed Insights (HTML version) -->
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>

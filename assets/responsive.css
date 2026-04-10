@@ -8,6 +8,62 @@
 h1, h2, h3 { line-height: 1.05 !important; letter-spacing: -0.03em !important; }
 p { line-height: 1.6; }
 
+/* ─── LIGHT SECTIONS ─── */
+.section-light {
+  background: #FAFBFC !important;
+  color: #1a1a1a !important;
+}
+.section-light h2,
+.section-light h3,
+.section-light strong { color: #1a1a1a !important; }
+.section-light p,
+.section-light span,
+.section-light li { color: #444 !important; }
+.section-light .text-teal-400,
+.section-light .text-teal-400 span { color: #0D9488 !important; -webkit-text-fill-color: #0D9488 !important; }
+.section-light .stat-pill {
+  background: rgba(13, 148, 136, 0.08) !important;
+  border-color: rgba(13, 148, 136, 0.25) !important;
+  color: #0D9488 !important;
+}
+.section-light .corner-card {
+  background: #fff !important;
+  border-color: #e5e7eb !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06) !important;
+}
+.section-light .corner-card:hover { border-color: rgba(13, 148, 136, 0.4) !important; }
+.section-light .corner-tl,
+.section-light .corner-tr,
+.section-light .corner-bl,
+.section-light .corner-br { border-color: rgba(13, 148, 136, 0.3) !important; }
+.section-light .review-card {
+  background: #fff !important;
+  border-color: #e5e7eb !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06) !important;
+}
+.section-light .review-card:hover { border-color: rgba(13, 148, 136, 0.3) !important; }
+.section-light .star { color: #F59E0B !important; }
+.section-light .btn-teal {
+  background: #0D9488 !important;
+  color: #fff !important;
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.3) !important;
+}
+.section-light .btn-teal:hover { background: #0F766E !important; }
+.section-light .text-ink\/40,
+.section-light .text-ink\/50,
+.section-light .text-ink\/60,
+.section-light .text-ink\/65,
+.section-light .text-ink\/70,
+.section-light .text-ink\/80 { color: #555 !important; }
+.section-light .text-ink { color: #1a1a1a !important; }
+.section-light .dot-grid,
+.section-light .line-grid { opacity: 0 !important; }
+.section-light .check-icon { background: rgba(13, 148, 136, 0.1) !important; border-color: rgba(13, 148, 136, 0.3) !important; }
+.section-light a.text-teal-400 { color: #0D9488 !important; }
+.section-light a.text-teal-400:hover { color: #0F766E !important; }
+.section-light img { border-color: rgba(13, 148, 136, 0.3) !important; }
+.section-light .about-photo { box-shadow: 0 0 30px rgba(13, 148, 136, 0.1) !important; }
+
 /* ═══════════════════════════════════════════
    MOBILE FIRST (< 640px)
    ═══════════════════════════════════════════ */

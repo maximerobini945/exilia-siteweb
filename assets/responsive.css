@@ -117,7 +117,7 @@ section:not(.hero-section) { padding-top: 3rem !important; padding-bottom: 3rem 
    TABLET (640px+)
    ═══════════════════════════════════════════ */
 @media (min-width: 640px) {
-  .headline { font-size: 44px !important; }
+  .headline { font-size: 36px !important; }
   .headline-bold { font-size: 36px !important; }
   h3, .text-2xl, .text-xl { font-size: 22px !important; }
 
@@ -136,8 +136,11 @@ section:not(.hero-section) { padding-top: 3rem !important; padding-bottom: 3rem 
 /* ═══════════════════════════════════════════
    DESKTOP (1024px+)
    ═══════════════════════════════════════════ */
+@media (min-width: 768px) {
+  .headline { font-size: 48px !important; }
+}
 @media (min-width: 1024px) {
-  .headline { font-size: 72px !important; }
+  .headline { font-size: 64px !important; }
   .headline-bold { font-size: 52px !important; }
   h3, .text-2xl, .text-xl { font-size: 24px !important; }
 

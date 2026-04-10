@@ -1305,11 +1305,11 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
         <div class="qm-intro">
           <div class="qm-kicker">Audit Excilia</div>
           <h2 id="qm-title">Quelques questions avant de <span class="accent">commencer.</span></h2>
-          <p>On ne travaille pas avec tout le monde. Ces 4 questions nous aident à vérifier qu'on peut vraiment vous aider.</p>
+          <p>On ne travaille pas avec tout le monde. Ces questions nous aident à vérifier qu'on peut vraiment vous aider.</p>
         </div>
       </div>
 
-      <!-- STEP 1 : CONTACT (nom + email + entreprise) -->
+      <!-- STEP 1 : CONTACT (nom + email + entreprise + tel) -->
       <div class="qm-slide" data-step="1">
         <div class="qm-num">01</div>
         <h2 class="qm-question">Vos <span class="accent">coordonnées.</span></h2>
@@ -1325,60 +1325,55 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
         <div class="qm-error-msg">Remplissez au minimum nom, email et entreprise.</div>
       </div>
 
-      <!-- STEP 2 : PROFIL (taille + secteur) -->
+      <!-- STEP 2 : ENTREPRISE (taille + CA) -->
       <div class="qm-slide" data-step="2">
         <div class="qm-num">02</div>
-        <h2 class="qm-question">Votre <span class="accent">profil.</span></h2>
-        <p class="qm-sub" style="margin-bottom:16px;">Taille de l'entreprise</p>
+        <h2 class="qm-question">Votre <span class="accent">entreprise.</span></h2>
+        <p class="qm-sub" style="margin-bottom:16px;">Nombre de collaborateurs</p>
         <div class="qm-options" data-qm-field="size" data-qm-type="radio" style="margin-bottom:24px;">
-          <button type="button" class="qm-option" data-type="radio" data-value="Solo / freelance">Solo / freelance</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Solo / freelance">Solo</button>
           <button type="button" class="qm-option" data-type="radio" data-value="2 à 10 employés">2 — 10</button>
           <button type="button" class="qm-option" data-type="radio" data-value="11 à 50 employés">11 — 50</button>
           <button type="button" class="qm-option" data-type="radio" data-value="51 à 200 employés">51 — 200</button>
           <button type="button" class="qm-option" data-type="radio" data-value="200+ employés">200+</button>
         </div>
-        <p class="qm-sub" style="margin-bottom:16px;">Secteur</p>
-        <div class="qm-options" data-qm-field="sector" data-qm-type="radio">
-          <button type="button" class="qm-option" data-type="radio" data-value="Services / Conseil">Services</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Industrie / Production">Industrie</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Commerce / Retail / E-commerce">Commerce</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Santé / Pharma">Santé</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Finance / Assurance">Finance</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Immobilier / Construction">Immobilier</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Hôtellerie / Restauration">Hôtellerie</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Autre">Autre</button>
+        <p class="qm-sub" style="margin-bottom:16px;">Tranche de chiffre d'affaires annuel</p>
+        <div class="qm-options" data-qm-field="budget" data-qm-type="radio">
+          <button type="button" class="qm-option" data-type="radio" data-value="< 500k CHF">< 500k CHF</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="500k - 2M CHF">500k — 2M</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="2M - 10M CHF">2M — 10M</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="10M+ CHF">10M+</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Préfère ne pas dire">Préfère ne pas dire</button>
         </div>
-        <div class="qm-error-msg">Sélectionnez taille et secteur.</div>
+        <div class="qm-error-msg">Sélectionnez taille et CA.</div>
       </div>
 
-      <!-- STEP 3 : PROJET (timing + budget) -->
+      <!-- STEP 3 : BESOIN (intérêt + problème) -->
       <div class="qm-slide" data-step="3">
         <div class="qm-num">03</div>
-        <h2 class="qm-question">Votre <span class="accent">projet.</span></h2>
-        <p class="qm-sub" style="margin-bottom:16px;">Quand souhaitez-vous démarrer ?</p>
-        <div class="qm-options" data-qm-field="timing" data-qm-type="radio" style="margin-bottom:24px;">
-          <button type="button" class="qm-option" data-type="radio" data-value="Ce mois-ci">Ce mois-ci</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Dans 3 mois">Dans 3 mois</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="D'ici 6 mois">D'ici 6 mois</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Je me renseigne">Je me renseigne</button>
+        <h2 class="qm-question">Ce qui vous <span class="accent">intéresse.</span></h2>
+        <p class="qm-sub" style="margin-bottom:16px;">Qu'est-ce qui vous aiderait le plus ?</p>
+        <div class="qm-options" data-qm-field="sector" data-qm-type="radio" style="margin-bottom:24px;">
+          <button type="button" class="qm-option" data-type="radio" data-value="Formation IA">Formation IA pour mon équipe</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Consulting">Consulting — savoir quoi automatiser</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Automatisation">Automatisation sur mesure</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Les trois">Un peu de tout</button>
         </div>
-        <p class="qm-sub" style="margin-bottom:16px;">Budget envisagé</p>
-        <div class="qm-options" data-qm-field="budget" data-qm-type="radio">
-          <button type="button" class="qm-option" data-type="radio" data-value="< 2'000 CHF">< 2k CHF</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="2'000 - 5'000 CHF">2 — 5k</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="5'000 - 15'000 CHF">5 — 15k</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="15'000+ CHF">15k+</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="À définir">À définir</button>
-        </div>
-        <div class="qm-error-msg">Sélectionnez timing et budget.</div>
+        <p class="qm-sub" style="margin-bottom:12px;">En 1 phrase, votre plus gros problème ? <em style="color:#7A8C8A;">(facultatif)</em></p>
+        <textarea class="qm-textarea" data-qm-field="challenge" data-qm-optional="true" placeholder="Ex: on perd 10h/semaine sur la compta et les relances..." style="min-height:60px;"></textarea>
       </div>
 
-      <!-- STEP 4 : CHALLENGE (facultatif) -->
+      <!-- STEP 4 : TIMING (quand démarrer) -->
       <div class="qm-slide" data-step="4">
         <div class="qm-num">04 — Dernière</div>
-        <h2 class="qm-question">En quelques mots<span class="accent">.</span></h2>
-        <p class="qm-sub">Quelle tâche vous coûte le plus de temps ? <em style="color:#7A8C8A;">(facultatif)</em></p>
-        <textarea class="qm-textarea" data-qm-field="challenge" data-qm-optional="true" placeholder="Ex: je perds 5h/semaine sur les emails et la compta..."></textarea>
+        <h2 class="qm-question">Quand souhaitez-vous <span class="accent">démarrer ?</span></h2>
+        <div class="qm-options" data-qm-field="timing" data-qm-type="radio">
+          <button type="button" class="qm-option" data-type="radio" data-value="Ce mois-ci">Ce mois-ci</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Dans 3 mois">Dans les 3 prochains mois</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="D'ici 6 mois">D'ici 6 mois</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Je me renseigne">Je me renseigne pour le moment</button>
+        </div>
+        <div class="qm-error-msg">Sélectionnez une option.</div>
       </div>
 
       <!-- STEP 5 : LOADING -->

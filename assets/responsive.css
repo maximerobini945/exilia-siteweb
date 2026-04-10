@@ -1,0 +1,267 @@
+/* ═══════════════════════════════════════════════════════
+   EXCILIA — Responsive Typography & Spacing System
+   Force toutes les tailles pour mobile / tablet / desktop.
+   !important nécessaire pour overrider les classes Tailwind inline.
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── BASE ─── */
+h1, h2, h3 { line-height: 1.05 !important; letter-spacing: -0.03em !important; }
+p { line-height: 1.6; }
+
+/* ─── LIGHT SECTIONS ─── */
+.section-light {
+  background: #FAFBFC !important;
+  color: #1a1a1a !important;
+}
+.section-light h2,
+.section-light h3,
+.section-light strong { color: #1a1a1a !important; }
+.section-light p,
+.section-light span,
+.section-light li { color: #444 !important; }
+.section-light .text-teal-400,
+.section-light .text-teal-400 span { color: #0D9488 !important; -webkit-text-fill-color: #0D9488 !important; }
+.section-light .stat-pill {
+  background: rgba(13, 148, 136, 0.08) !important;
+  border-color: rgba(13, 148, 136, 0.25) !important;
+  color: #0D9488 !important;
+}
+.section-light .corner-card {
+  background: #fff !important;
+  border-color: #e5e7eb !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06) !important;
+}
+.section-light .corner-card:hover { border-color: rgba(13, 148, 136, 0.4) !important; }
+.section-light .corner-tl,
+.section-light .corner-tr,
+.section-light .corner-bl,
+.section-light .corner-br { border-color: rgba(13, 148, 136, 0.3) !important; }
+.section-light .review-card {
+  background: #fff !important;
+  border-color: #e5e7eb !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06) !important;
+}
+.section-light .review-card:hover { border-color: rgba(13, 148, 136, 0.3) !important; }
+.section-light .star { color: #F59E0B !important; }
+.section-light .btn-teal {
+  background: #0D9488 !important;
+  color: #fff !important;
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.3) !important;
+}
+.section-light .btn-teal:hover { background: #0F766E !important; }
+.section-light .text-ink\/40,
+.section-light .text-ink\/50,
+.section-light .text-ink\/60,
+.section-light .text-ink\/65,
+.section-light .text-ink\/70,
+.section-light .text-ink\/80 { color: #555 !important; }
+.section-light .text-ink { color: #1a1a1a !important; }
+.section-light .dot-grid,
+.section-light .line-grid { opacity: 0 !important; }
+.section-light .check-icon { background: rgba(13, 148, 136, 0.1) !important; border-color: rgba(13, 148, 136, 0.3) !important; }
+.section-light a.text-teal-400 { color: #0D9488 !important; }
+.section-light a.text-teal-400:hover { color: #0F766E !important; }
+.section-light img { border-color: rgba(13, 148, 136, 0.3) !important; }
+.section-light .about-photo { box-shadow: 0 0 30px rgba(13, 148, 136, 0.1) !important; }
+
+/* ═══════════════════════════════════════════
+   MOBILE FIRST (< 640px)
+   ═══════════════════════════════════════════ */
+
+/* Hero H1 */
+.headline {
+  font-size: 30px !important;
+  line-height: 1.08 !important;
+}
+
+/* Section H2 */
+.headline-bold {
+  font-size: 26px !important;
+  line-height: 1.08 !important;
+}
+
+/* Card titles */
+h3, .text-2xl, .text-xl {
+  font-size: 20px !important;
+}
+
+/* Section spacing — exclude hero which has its own padding */
+section:not(.hero-section) { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+
+/* Cards */
+.corner-card { padding: 20px !important; }
+.corner-card p, .bento p { font-size: 14px !important; }
+
+/* Stat pill */
+.stat-pill { font-size: 11px !important; padding: 7px 14px !important; }
+
+/* Body text */
+.text-ink\/70, .text-ink\/65, .text-ink\/80 {
+  font-size: 15px !important;
+}
+
+/* Buttons mobile */
+.btn-teal, .btn-ghost {
+  font-size: 14px !important;
+  padding: 14px 28px !important;
+  width: auto !important;
+  max-width: 100% !important;
+  justify-content: center !important;
+}
+
+/* Reviews */
+.review-card { padding: 20px !important; }
+.review-card p { font-size: 14px !important; }
+
+/* ═══════════════════════════════════════════
+   TABLET (640px+)
+   ═══════════════════════════════════════════ */
+@media (min-width: 640px) {
+  .headline { font-size: 36px !important; }
+  .headline-bold { font-size: 36px !important; }
+  h3, .text-2xl, .text-xl { font-size: 22px !important; }
+
+  section:not(.hero-section) { padding-top: 4.5rem !important; padding-bottom: 4.5rem !important; }
+  .corner-card { padding: 28px !important; }
+
+  .btn-teal, .btn-ghost {
+    font-size: 15px !important;
+    padding: 16px 28px !important;
+    width: auto !important;
+  }
+
+  .stat-pill { font-size: 12px !important; }
+}
+
+/* ═══════════════════════════════════════════
+   DESKTOP (1024px+)
+   ═══════════════════════════════════════════ */
+@media (min-width: 768px) {
+  .headline { font-size: 48px !important; }
+}
+@media (min-width: 1024px) {
+  .headline { font-size: 64px !important; }
+  .headline-bold { font-size: 52px !important; }
+  h3, .text-2xl, .text-xl { font-size: 24px !important; }
+
+  section:not(.hero-section) { padding-top: 6rem !important; padding-bottom: 6rem !important; }
+  .corner-card { padding: 36px !important; }
+
+  .stat-pill { font-size: 13px !important; }
+}
+
+/* ═══════════════════════════════════════════
+   LARGE DESKTOP (1280px+)
+   ═══════════════════════════════════════════ */
+@media (min-width: 1280px) {
+  .headline { font-size: 88px !important; }
+  .headline-bold { font-size: 60px !important; }
+}
+
+/* ═══════════════════════════════════════════
+   NAV
+   ═══════════════════════════════════════════ */
+.pill-nav { padding: 8px 8px 8px 16px; }
+.pill-nav img { height: 18px !important; width: auto !important; }
+
+@media (min-width: 640px) {
+  .pill-nav { padding: 10px 10px 10px 20px; }
+  .pill-nav img { height: 22px !important; }
+}
+
+/* ═══════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════ */
+.scarcity { font-size: 11px; padding: 8px 16px; }
+@media (min-width: 640px) { .scarcity { font-size: 13px; padding: 10px 20px; } }
+
+/* ═══════════════════════════════════════════
+   STICKY CTA — padding bottom mobile
+   ═══════════════════════════════════════════ */
+@media (max-width: 767px) {
+  body { padding-bottom: 80px; }
+}
+
+/* ═══════════════════════════════════════════
+   LOGO CAROUSEL
+   ═══════════════════════════════════════════ */
+.animate-scroll { animation: scrollLogos 20s linear infinite; }
+@keyframes scrollLogos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ═══════════════════════════════════════════
+   REVIEWS
+   ═══════════════════════════════════════════ */
+.star { color: #FBBF24; }
+.review-card {
+  background: #0A0E0D;
+  border: 1px solid rgba(26, 38, 36, 0.8);
+  border-radius: 16px;
+  padding: 24px;
+  transition: border-color 0.2s ease;
+}
+.review-card:hover { border-color: rgba(45, 212, 191, 0.3); }
+
+/* ═══════════════════════════════════════════
+   ABOUT PHOTO
+   ═══════════════════════════════════════════ */
+.about-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 20px;
+  object-fit: cover;
+  border: 2px solid rgba(45, 212, 191, 0.3);
+  box-shadow: 0 0 40px rgba(45, 212, 191, 0.2);
+}
+@media (min-width: 640px) {
+  .about-photo { width: 180px; height: 180px; border-radius: 24px; }
+}
+
+/* ═══════════════════════════════════════════
+   PREMIUM EFFECTS
+   ═══════════════════════════════════════════ */
+
+/* Fade-in on scroll */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(.22,1,.36,1), transform 0.6s cubic-bezier(.22,1,.36,1);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.fade-in:nth-child(2) { transition-delay: 0.08s; }
+.fade-in:nth-child(3) { transition-delay: 0.16s; }
+
+/* Card hover lift */
+.corner-card,
+.review-card {
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+}
+.corner-card:hover,
+.review-card:hover {
+  transform: translateY(-4px) !important;
+}
+.section-light .corner-card:hover,
+.section-light .review-card:hover {
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08) !important;
+}
+
+/* Smooth teal line between sections */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(45,212,191,0.25), transparent);
+}
+
+/* ═══════════════════════════════════════════
+   PRINT
+   ═══════════════════════════════════════════ */
+@media print {
+  .sticky-cta, .pill-nav { display: none !important; }
+  body { background: white; color: black; padding-bottom: 0; }
+}

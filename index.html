@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#000000" />
+<link rel="icon" type="image/svg+xml" href="/assets/logo-excilia.svg" />
+<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+<link rel="dns-prefetch" href="https://connect.facebook.net" />
 
 <!-- ============== SEO PRIMARY ============== -->
 <title>Excilia — Faites gagner 10 à 30h/semaine à vos équipes grâce à l'IA | Cabinet IA PME Suisse romande</title>
@@ -10,7 +14,7 @@
 <meta name="keywords" content="cabinet IA Suisse romande, formation Claude PME, automatisation IA Genève, conseil intelligence artificielle Lausanne, agence IA Suisse, automatiser PME, Claude business, formation IA dirigeant" />
 <meta name="author" content="Maxime Robini — Excilia" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
-<link rel="canonical" href="https://exilia.ch/" />
+<link rel="canonical" href="https://excilia.ch/" />
 
 <meta name="geo.region" content="CH" />
 <meta name="geo.placename" content="Genève, Lausanne, Fribourg, Sion" />
@@ -19,11 +23,11 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="fr_CH" />
-<meta property="og:url" content="https://exilia.ch/" />
+<meta property="og:url" content="https://excilia.ch/" />
 <meta property="og:site_name" content="Excilia" />
 <meta property="og:title" content="Excilia — 10 à 30h/semaine économisées grâce à l'IA, sans recruter" />
 <meta property="og:description" content="Cabinet IA pour PME romandes. Formation Claude, conseil et automatisation. Audit gratuit 20 min — 5 places par mois." />
-<meta property="og:image" content="https://exilia.ch/og-image.jpg" />
+<meta property="og:image" content="https://excilia.ch/og-image.jpg" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Excilia — Cabinet IA pour PME suisses" />
@@ -31,8 +35,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com" defer></script>
+<link rel="stylesheet" href="/assets/responsive.css" />
 
 <!-- ============== META PIXEL ============== -->
 <script>
@@ -59,8 +64,8 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
   "@type": "ProfessionalService",
   "name": "Excilia",
   "description": "Cabinet IA pour PME en Suisse romande. Formation Claude, conseil stratégique et automatisation sur-mesure.",
-  "url": "https://exilia.ch",
-  "email": "contact@exilia.ch",
+  "url": "https://excilia.ch",
+  "email": "contact@excilia.ch",
   "founder": { "@type": "Person", "name": "Maxime Robini" },
   "areaServed": [
     { "@type": "City", "name": "Genève" },
@@ -310,6 +315,12 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
   .fade-up.visible { opacity: 1; transform: translateY(0); }
   .float { animation: float 6s ease-in-out infinite; }
   @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+  .animate-scroll { animation: scrollLogos 20s linear infinite; }
+  @keyframes scrollLogos { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  .review-card { background: var(--panel, #0A0E0D); border: 1px solid rgba(26,38,36,0.8); border-radius: 16px; padding: 24px; }
+  .star { color: #FBBF24; }
   .glow-line { height: 1px; background: linear-gradient(90deg, transparent, rgba(45, 212, 191, 0.4), transparent); }
 
   /* ===== MOBILE-FIRST OPTIMIZATIONS ===== */
@@ -681,11 +692,8 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
 <!-- ============== NAV ============== -->
 <header class="fixed top-4 md:top-6 left-0 right-0 z-50 flex justify-center px-4">
   <nav class="pill-nav" aria-label="Navigation principale">
-    <a href="#" class="flex items-center gap-3 pr-2" aria-label="Excilia accueil">
-      <span class="w-7 h-7 rounded-full bg-teal-500 flex items-center justify-center" style="box-shadow: 0 0 20px rgba(45,212,191,0.6);">
-        <span class="w-3 h-3 rounded-full bg-night"></span>
-      </span>
-      <span class="font-semibold text-sm tracking-tight">Excilia</span>
+    <a href="#" class="flex items-center pr-2" aria-label="Excilia accueil">
+      <img src="/assets/logo-excilia.svg" alt="Excilia" class="h-[18px] md:h-[22px] w-auto" />
     </a>
     <div class="hidden md:flex items-center gap-7 text-[13px] text-ink/70 font-medium">
       <a href="#problem" class="hover:text-ink transition">Le problème</a>
@@ -703,441 +711,271 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
 <main>
 
 <!-- ============== HERO ============== -->
-<section class="relative pt-32 pb-20 md:pt-48 md:pb-32 lg:pt-56 lg:pb-40 overflow-hidden">
+<section class="hero-section relative pt-40 pb-14 md:pt-48 md:pb-28 lg:pt-56 lg:pb-36 overflow-hidden">
   <div class="spotlight"></div>
   <div class="arc"></div>
 
   <div class="relative max-w-6xl mx-auto px-6 text-center z-10">
-    <div class="inline-block mb-8">
-      <span class="scarcity">
-        <span class="scarcity-dot"></span>
-        Seulement 5 places ouvertes par mois
-      </span>
-    </div>
 
-    <h1 class="headline text-[34px] sm:text-[44px] md:text-[68px] lg:text-[92px] mb-10">
-      Faites gagner <span class="text-teal-400" style="-webkit-text-fill-color: #5EEAD4;">10 à 30h</span><br/>
-      par semaine à vos équipes<br/>
-      grâce à l'IA — sans recruter.
+    <h1 class="headline text-[28px] sm:text-[36px] md:text-[48px] lg:text-[72px] xl:text-[88px] mb-5">
+      Faites gagner <span class="text-teal-400" style="-webkit-text-fill-color: #5EEAD4;">10 à 30h/semaine</span> à vos équipes grâce à l'IA<span class="text-teal-400">.</span>
     </h1>
 
-    <p class="max-w-3xl mx-auto text-[17px] md:text-[20px] text-ink/70 leading-relaxed mb-6 font-light">
-      Aujourd'hui, avec des outils comme <strong class="text-teal-400 font-semibold">Claude</strong>, il est possible
-      d'automatiser une grande partie de votre entreprise — simplement, sans code, sans complexité.
-    </p>
-    <p class="max-w-3xl mx-auto text-[15px] md:text-[17px] text-ink/55 leading-relaxed mb-12 font-light">
-      Administratif, emails, Excel, prospection, contenu, organisation…
-      Excilia accompagne les PME suisses à intégrer concrètement l'IA dans leur quotidien
-      pour gagner du temps, améliorer leur efficacité et accélérer leur croissance.
-    </p>
+    <p class="text-ink/50 text-[14px] md:text-[16px] mb-10 font-light">Formation sur place · Consulting · Automatisation sur mesure — en Suisse romande</p>
 
-    <div class="flex flex-wrap justify-center gap-4 mb-6">
+    <div class="flex flex-wrap justify-center gap-4 mb-4">
       <a href="#reserver" class="btn-teal">
         <svg class="sparkle" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0l2.5 7.5L22 10l-7.5 2.5L12 20l-2.5-7.5L2 10l7.5-2.5L12 0z"/></svg>
         Réserver mon audit gratuit
       </a>
-      <a href="#problem" class="btn-ghost">Voir comment ça marche →</a>
     </div>
 
-    <p class="text-ink/40 text-[12px] mb-20">
-      Sans engagement · 20 minutes en visio · Plan d'action remis à la fin
+    <p class="text-ink/40 text-[12px] mb-16">
+      20 min · Sans engagement · Plan d'action offert
     </p>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto pt-12 border-t border-border text-left">
-      <div class="flex items-start gap-3">
-        <div class="w-10 h-10 rounded-lg flex-shrink-0 flex items-center justify-center" style="background:radial-gradient(circle,rgba(45,212,191,0.25),transparent);border:1px solid rgba(45,212,191,0.4);">
-          <svg class="w-5 h-5 text-teal-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-        </div>
-        <div>
-          <p class="text-ink text-sm font-semibold">Sans code</p>
-          <p class="text-ink/50 text-xs mt-1">Aucune compétence technique requise</p>
-        </div>
-      </div>
-      <div class="flex items-start gap-3">
-        <div class="w-10 h-10 rounded-lg flex-shrink-0 flex items-center justify-center" style="background:radial-gradient(circle,rgba(45,212,191,0.25),transparent);border:1px solid rgba(45,212,191,0.4);">
-          <svg class="w-5 h-5 text-teal-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        </div>
-        <div>
-          <p class="text-ink text-sm font-semibold">100% Suisse romande</p>
-          <p class="text-ink/50 text-xs mt-1">Genève · Lausanne · Fribourg · Sion</p>
-        </div>
-      </div>
-      <div class="flex items-start gap-3">
-        <div class="w-10 h-10 rounded-lg flex-shrink-0 flex items-center justify-center" style="background:radial-gradient(circle,rgba(45,212,191,0.25),transparent);border:1px solid rgba(45,212,191,0.4);">
-          <svg class="w-5 h-5 text-teal-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        </div>
-        <div>
-          <p class="text-ink text-sm font-semibold">Audit en 20 min</p>
-          <p class="text-ink/50 text-xs mt-1">Sans engagement · Sans pitch</p>
-        </div>
+    <p class="text-ink/30 text-[11px] uppercase tracking-widest mb-5">Ils nous font confiance</p>
+    <div class="relative overflow-hidden max-w-4xl mx-auto" style="mask-image:linear-gradient(90deg,transparent,black 10%,black 90%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,black 10%,black 90%,transparent);">
+      <div class="flex gap-12 items-center animate-scroll" style="width:max-content;">
+        <img src="/assets/1.png" alt="Client Excilia" height="28" width="84" loading="lazy" style="height:28px;width:auto;opacity:0.5;" />
+        <img src="/assets/2.png" alt="Client Excilia" height="28" width="84" loading="lazy" style="height:28px;width:auto;opacity:0.5;" />
+        <img src="/assets/3.png" alt="Client Excilia" height="28" width="84" loading="lazy" style="height:28px;width:auto;opacity:0.5;" />
+        <img src="/assets/4.png" alt="Client Excilia" height="28" width="84" loading="lazy" style="height:28px;width:auto;opacity:0.5;" />
+        <img src="/assets/5.png" alt="Client Excilia" height="28" width="84" loading="lazy" style="height:28px;width:auto;opacity:0.5;" />
+        <img src="/assets/6.png" alt="Client Excilia" height="28" width="84" loading="lazy" style="height:28px;width:auto;opacity:0.5;" />
+        <img src="/assets/7.png" alt="Client Excilia" height="28" width="84" loading="lazy" style="height:28px;width:auto;opacity:0.5;" />
+        <img src="/assets/1.png" alt="Client Excilia" height="28" width="84" loading="lazy" style="height:28px;width:auto;opacity:0.5;" />
+        <img src="/assets/2.png" alt="Client Excilia" height="28" width="84" loading="lazy" style="height:28px;width:auto;opacity:0.5;" />
+        <img src="/assets/3.png" alt="Client Excilia" height="28" width="84" loading="lazy" style="height:28px;width:auto;opacity:0.5;" />
+        <img src="/assets/4.png" alt="Client Excilia" height="28" width="84" loading="lazy" style="height:28px;width:auto;opacity:0.5;" />
+        <img src="/assets/5.png" alt="Client Excilia" height="28" width="84" loading="lazy" style="height:28px;width:auto;opacity:0.5;" />
+        <img src="/assets/6.png" alt="Client Excilia" height="28" width="84" loading="lazy" style="height:28px;width:auto;opacity:0.5;" />
+        <img src="/assets/7.png" alt="Client Excilia" height="28" width="84" loading="lazy" style="height:28px;width:auto;opacity:0.5;" />
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============== PROBLÈME ============== -->
-<section id="problem" class="py-20 md:py-32 lg:py-44 relative overflow-hidden">
-  <div class="absolute inset-0 dot-grid opacity-30"></div>
-  <div class="relative max-w-5xl mx-auto px-6">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="stat-pill mb-6">Le problème</span>
-      <h2 class="headline-bold text-3xl sm:text-4xl md:text-6xl text-ink mt-6 mb-6">
-        Aujourd'hui, dans la majorité<br/>des <span class="text-teal-400">PME romandes</span>…
-      </h2>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-6 mb-12">
-      <div class="corner-card">
-        <span class="corner-tl"></span><span class="corner-tr"></span><span class="corner-bl"></span><span class="corner-br"></span>
-        <p class="text-ink/80 text-[15px] leading-relaxed">
-          Les équipes passent <strong class="text-teal-400">des heures sur des tâches administratives répétitives</strong>.
-        </p>
-      </div>
-      <div class="corner-card">
-        <span class="corner-tl"></span><span class="corner-tr"></span><span class="corner-bl"></span><span class="corner-br"></span>
-        <p class="text-ink/80 text-[15px] leading-relaxed">
-          Les outils IA sont <strong class="text-teal-400">mal utilisés ou mal compris</strong>.
-        </p>
-      </div>
-      <div class="corner-card">
-        <span class="corner-tl"></span><span class="corner-tr"></span><span class="corner-bl"></span><span class="corner-br"></span>
-        <p class="text-ink/80 text-[15px] leading-relaxed">
-          Les formations sont <strong class="text-teal-400">trop génériques</strong> et déconnectées du terrain.
-        </p>
-      </div>
-      <div class="corner-card">
-        <span class="corner-tl"></span><span class="corner-tr"></span><span class="corner-bl"></span><span class="corner-br"></span>
-        <p class="text-ink/80 text-[15px] leading-relaxed">
-          Les tutos sont <strong class="text-teal-400">longs, théoriques et peu applicables</strong> au quotidien.
-        </p>
-      </div>
-    </div>
-
-    <div class="text-center">
-      <p class="text-ink/55 text-lg mb-2">Résultat :</p>
-      <p class="text-ink text-2xl md:text-3xl font-semibold">
-        Perte de temps énorme. Frustration des équipes. Stagnation.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ============== LA RÉALITÉ ============== -->
-<section class="py-20 md:py-32 relative overflow-hidden">
-  <div class="absolute inset-0 line-grid opacity-20"></div>
-  <div class="spotlight opacity-40"></div>
-  <div class="relative max-w-4xl mx-auto px-6 text-center">
-    <span class="stat-pill mb-6">La réalité</span>
-    <h2 class="headline-bold text-[26px] sm:text-3xl md:text-5xl text-ink mt-6 mb-10">
-      Ce n'est pas que l'IA<br/><span class="text-teal-400">ne fonctionne pas</span>.
-    </h2>
-    <p class="text-ink/70 text-lg md:text-xl leading-relaxed mb-6">
-      C'est qu'elle n'est <strong class="text-teal-400">pas adaptée</strong> à votre business.
-    </p>
-    <p class="text-ink/70 text-lg md:text-xl leading-relaxed mb-6">
-      Qu'elle n'est <strong class="text-teal-400">pas structurée</strong>.
-    </p>
-    <p class="text-ink/70 text-lg md:text-xl leading-relaxed">
-      Qu'elle n'est <strong class="text-teal-400">pas intégrée correctement</strong>.
-    </p>
-  </div>
-</section>
-
-<!-- ============== AVANT / APRÈS ============== -->
-<section class="py-20 md:py-32 lg:py-44 relative overflow-hidden">
+<!-- ============== PROBLÈME / SOLUTION ============== -->
+<section class="py-12 md:py-20 relative overflow-hidden section-light">
   <div class="absolute inset-0 dot-grid opacity-20"></div>
-  <div class="relative max-w-6xl mx-auto px-6">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="stat-pill mb-6">Avant / Après</span>
-      <h2 class="headline-bold text-3xl sm:text-4xl md:text-6xl text-ink mt-6 mb-6">
-        Aujourd'hui,<br/><span class="text-teal-400">tout a changé</span>.
-      </h2>
-    </div>
-
+  <div class="relative max-w-5xl mx-auto px-6">
     <div class="grid md:grid-cols-2 gap-6">
-      <div class="ba-card">
-        <p class="text-ink/40 text-xs font-semibold mb-4 uppercase tracking-wider">Il y a 1–2 ans</p>
-        <h3 class="text-xl font-bold text-ink mb-6">Automatiser = mission impossible</h3>
-        <div class="ba-line text-ink/60"><span class="x-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span> Il fallait des développeurs</div>
-        <div class="ba-line text-ink/60"><span class="x-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span> Outils complexes</div>
-        <div class="ba-line text-ink/60"><span class="x-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span> Projets longs et coûteux</div>
-        <div class="ba-line text-ink/60"><span class="x-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span> Réservé aux grandes entreprises</div>
+
+      <!-- Votre problème -->
+      <div class="corner-card !p-8">
+        <span class="corner-tl"></span><span class="corner-tr"></span><span class="corner-bl"></span><span class="corner-br"></span>
+        <p class="text-ink/40 text-xs font-bold uppercase tracking-wider mb-4">Votre quotidien</p>
+        <p class="text-ink text-[18px] md:text-[20px] font-semibold leading-snug mb-4">Vos équipes perdent des heures sur des tâches que l'IA fait en secondes.</p>
+        <p class="text-ink/50 text-[14px] leading-relaxed">Emails, Excel, prospection, mise en forme, relances — vous le savez, mais vous ne savez pas par où commencer.</p>
       </div>
 
-      <div class="ba-card after">
-        <p class="text-teal-400 text-xs font-semibold mb-4 uppercase tracking-wider">Aujourd'hui, avec Claude</p>
-        <h3 class="text-xl font-bold text-ink mb-6">Vous pouvez tout faire vous-même</h3>
-        <div class="ba-line text-ink"><span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span> Automatiser sans coder</div>
-        <div class="ba-line text-ink"><span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span> Structurer vos opérations</div>
-        <div class="ba-line text-ink"><span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span> Analyser vos données</div>
-        <div class="ba-line text-ink"><span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span> Créer des systèmes intelligents</div>
-        <p class="text-teal-400 text-sm font-semibold mt-6">→ Sans une seule ligne de code</p>
+      <!-- Notre solution -->
+      <div class="corner-card !p-8" style="border-color:rgba(45,212,191,0.3);">
+        <span class="corner-tl"></span><span class="corner-tr"></span><span class="corner-bl"></span><span class="corner-br"></span>
+        <p class="text-teal-400 text-xs font-bold uppercase tracking-wider mb-4">Notre solution</p>
+        <p class="text-ink text-[18px] md:text-[20px] font-semibold leading-snug mb-4">On vous montre comment utiliser l'IA à son plein potentiel — pour votre métier.</p>
+        <p class="text-ink/50 text-[14px] leading-relaxed">Pas de théorie. On vient, on forme, on automatise. Résultat : 10 à 30h/semaine récupérées.</p>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- ============== CE QUE L'IA PEUT FAIRE ============== -->
-<section class="py-20 md:py-32 lg:py-44 relative overflow-hidden">
-  <div class="absolute inset-0 line-grid opacity-20"></div>
-  <div class="relative max-w-6xl mx-auto px-6">
-    <div class="text-center max-w-3xl mx-auto mb-20">
-      <span class="stat-pill mb-6">Ce que l'IA peut faire pour vous</span>
-      <h2 class="headline-bold text-3xl sm:text-4xl md:text-6xl text-ink mt-6 mb-6">
-        Les possibilités sont<br/><span class="text-teal-400">quasi illimitées</span>
-      </h2>
-      <p class="text-ink/60 text-lg leading-relaxed">
-        Dès qu'une tâche se fait sur un ordinateur, elle peut être optimisée ou automatisée.
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-6">
-      <article class="bento">
-        <div class="icon-square">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-        </div>
-        <p class="text-teal-400 text-xs font-semibold mb-2 uppercase tracking-wider">Gros levier</p>
-        <h3 class="text-2xl font-bold text-ink mb-4">Administratif</h3>
-        <ul class="text-ink/65 text-[14px] leading-relaxed space-y-2">
-          <li>→ Répondre automatiquement aux emails</li>
-          <li>→ Générer des documents</li>
-          <li>→ Organiser vos données</li>
-          <li>→ Automatiser les tâches répétitives</li>
-        </ul>
-        <p class="text-ink/40 text-xs mt-4 italic">Tout ce que vos équipes trouvent "long et ennuyant"</p>
-      </article>
-
-      <article class="bento">
-        <div class="icon-square">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-        </div>
-        <p class="text-teal-400 text-xs font-semibold mb-2 uppercase tracking-wider">Vision business</p>
-        <h3 class="text-2xl font-bold text-ink mb-4">Data & Excel</h3>
-        <ul class="text-ink/65 text-[14px] leading-relaxed space-y-2">
-          <li>→ Corriger et structurer vos fichiers</li>
-          <li>→ Nettoyer vos bases de données</li>
-          <li>→ Créer des dashboards clairs</li>
-          <li>→ Analyser vos performances</li>
-        </ul>
-        <p class="text-ink/40 text-xs mt-4 italic">Vous avez enfin une vision claire de votre activité</p>
-      </article>
-
-      <article class="bento">
-        <div class="icon-square">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-        </div>
-        <p class="text-teal-400 text-xs font-semibold mb-2 uppercase tracking-wider">Croissance</p>
-        <h3 class="text-2xl font-bold text-ink mb-4">Acquisition & business</h3>
-        <ul class="text-ink/65 text-[14px] leading-relaxed space-y-2">
-          <li>→ Rechercher et qualifier des leads</li>
-          <li>→ Automatiser la prospection</li>
-          <li>→ Booker des rendez-vous</li>
-          <li>→ Améliorer votre marketing</li>
-        </ul>
-      </article>
-
-      <article class="bento">
-        <div class="icon-square">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-        </div>
-        <p class="text-teal-400 text-xs font-semibold mb-2 uppercase tracking-wider">Production</p>
-        <h3 class="text-2xl font-bold text-ink mb-4">Contenu & image</h3>
-        <ul class="text-ink/65 text-[14px] leading-relaxed space-y-2">
-          <li>→ Générer du contenu</li>
-          <li>→ Créer des visuels</li>
-          <li>→ Produire des posts automatiquement</li>
-          <li>→ Maintenir votre présence en ligne</li>
-        </ul>
-      </article>
-    </div>
-
-    <div class="text-center mt-16">
-      <a href="#reserver" class="btn-teal">
-        <svg class="sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.5 7.5L22 10l-7.5 2.5L12 20l-2.5-7.5L2 10l7.5-2.5L12 0z"/></svg>
-        Identifier mes leviers IA en 20 min
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============== APPROCHE CLAUDE BUSINESS ============== -->
-<section class="py-20 md:py-32 lg:py-44 relative overflow-hidden">
-  <div class="absolute inset-0 line-grid opacity-30"></div>
-  <div class="spotlight opacity-40"></div>
-
-  <div class="relative max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <span class="stat-pill mb-6">Notre approche : Claude Business</span>
-      <h2 class="headline-bold text-3xl sm:text-4xl md:text-6xl text-ink mt-6 mb-6">
-        Le problème,<br/>ce n'est pas <span class="text-teal-400">l'outil</span>.
-      </h2>
-      <p class="max-w-2xl mx-auto text-ink/65 text-lg leading-relaxed">
-        C'est la manière de l'utiliser. Excilia forme vos équipes à utiliser Claude
-        comme un véritable levier business — pas juste à poser des questions,
-        mais à <strong class="text-teal-400">construire des workflows intelligents</strong>.
-      </p>
-    </div>
-
-    <div class="orb-wrap mb-16">
-      <div class="orb-ring orb-ring-3"></div>
-      <div class="orb-ring orb-ring-2"></div>
-      <div class="orb-ring"></div>
-      <div class="orb"></div>
-      <span class="float" style="position:absolute; width:6px; height:6px; border-radius:50%; background:#5EEAD4; box-shadow:0 0 15px #5EEAD4; top: 5%; right: 15%;"></span>
-      <span class="float" style="position:absolute; width:6px; height:6px; border-radius:50%; background:#5EEAD4; box-shadow:0 0 15px #5EEAD4; bottom: 10%; left: 8%; animation-delay: 1.5s;"></span>
-      <span class="float" style="position:absolute; width:6px; height:6px; border-radius:50%; background:#5EEAD4; box-shadow:0 0 15px #5EEAD4; top: 50%; left: -20px; animation-delay: 3s;"></span>
-      <span class="float" style="position:absolute; width:6px; height:6px; border-radius:50%; background:#5EEAD4; box-shadow:0 0 15px #5EEAD4; top: 30%; right: -10px; animation-delay: 2s;"></span>
-    </div>
-
-    <div class="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-      <div class="text-ink/70 text-[14px]">→ Automatiser des tâches</div>
-      <div class="text-ink/70 text-[14px]">→ Structurer des process</div>
-      <div class="text-ink/70 text-[14px]">→ Analyser des données</div>
-      <div class="text-ink/70 text-[14px]">→ Créer des systèmes internes</div>
-    </div>
-  </div>
-</section>
 
 <!-- ============== 3 PILIERS / SERVICES ============== -->
-<section id="services" class="py-20 md:py-32 lg:py-44 relative overflow-hidden">
+<section id="services" class="py-14 md:py-24 lg:py-36 relative overflow-hidden section-light">
   <div class="absolute inset-0 dot-grid opacity-30"></div>
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px]" style="background: radial-gradient(ellipse, rgba(45,212,191,0.15), transparent 70%);"></div>
 
   <div class="relative max-w-6xl mx-auto px-6">
     <div class="text-center max-w-3xl mx-auto mb-20">
-      <span class="stat-pill mb-6">Nos 3 piliers</span>
-      <h2 class="headline-bold text-3xl sm:text-4xl md:text-6xl text-ink mt-6 mb-6">
-        Trois portes d'entrée<br/>vers votre <span class="text-teal-400">autonomie IA</span>
+      <span class="stat-pill mb-6">Ce qu'on fait pour vous</span>
+      <h2 class="headline-bold text-3xl sm:text-4xl md:text-6xl text-ink mt-6 mb-4">
+        Trois façons de <span class="text-teal-400">passer à l'action</span>
       </h2>
+      <p class="text-ink/50 text-sm">On se déplace dans vos bureaux en Suisse romande.</p>
     </div>
 
     <div class="grid lg:grid-cols-3 gap-6 mb-12">
-      <article class="corner-card">
+      <article class="corner-card !p-0 overflow-hidden">
         <span class="corner-tl"></span><span class="corner-tr"></span><span class="corner-bl"></span><span class="corner-br"></span>
-        <p class="text-teal-400 text-xs font-bold mb-3 uppercase tracking-wider">Pilier 01</p>
-        <h3 class="text-2xl font-bold text-ink mb-4">Formation IA</h3>
-        <p class="text-ink/40 text-[12px] mb-5 italic">Format principal : demi-journée</p>
-        <p class="text-ink/65 text-[14px] leading-relaxed mb-6">
-          Formation concrète, adaptée à votre entreprise, sur des cas réels.
-          Vos équipes deviennent <strong class="text-teal-400">autonomes rapidement</strong>.
-        </p>
-        <a href="#reserver" class="text-teal-400 text-sm font-semibold inline-flex items-center gap-1 hover:text-teal-300 transition">En parler en 20 min →</a>
+        <img src="/assets/illus-formation.jpg" alt="Formation IA sur place en entreprise en Suisse romande" class="w-full h-44 object-cover" loading="lazy" width="400" height="176" />
+        <div class="p-6">
+          <p class="text-teal-400 text-xs font-bold mb-3 uppercase tracking-wider">Pilier 01</p>
+          <h3 class="text-2xl font-bold text-ink mb-4">Formation IA sur place</h3>
+          <p class="text-ink/40 text-[12px] mb-4 italic">Demi-journée · Dans vos locaux</p>
+          <p class="text-ink/65 text-[14px] leading-relaxed mb-6">
+            On vient chez vous. On forme vos équipes sur leurs vrais cas d'usage.
+            Elles repartent en sachant utiliser l'IA à <strong class="text-ink">100% de son potentiel</strong>.
+          </p>
+          <a href="#reserver" class="text-teal-400 text-sm font-semibold inline-flex items-center gap-1 hover:text-teal-300 transition">En parler en 20 min →</a>
+        </div>
       </article>
 
-      <article class="corner-card">
+      <article class="corner-card !p-0 overflow-hidden">
         <span class="corner-tl"></span><span class="corner-tr"></span><span class="corner-bl"></span><span class="corner-br"></span>
-        <p class="text-teal-400 text-xs font-bold mb-3 uppercase tracking-wider">Pilier 02</p>
-        <h3 class="text-2xl font-bold text-ink mb-4">Consulting</h3>
-        <p class="text-ink/40 text-[12px] mb-5 italic">Stratégie sur-mesure</p>
-        <p class="text-ink/65 text-[14px] leading-relaxed mb-6">
-          Analyse de votre situation, identification des gains, recommandations claires.
-          Vous savez <strong class="text-teal-400">exactement quoi faire</strong>.
-        </p>
-        <a href="#reserver" class="text-teal-400 text-sm font-semibold inline-flex items-center gap-1 hover:text-teal-300 transition">En parler en 20 min →</a>
+        <img src="/assets/illus-consulting.jpg" alt="Consulting stratégique IA pour PME Suisse" class="w-full h-44 object-cover" loading="lazy" width="400" height="176" />
+        <div class="p-6">
+          <p class="text-teal-400 text-xs font-bold mb-3 uppercase tracking-wider">Pilier 02</p>
+          <h3 class="text-2xl font-bold text-ink mb-4">Consulting stratégique</h3>
+          <p class="text-ink/40 text-[12px] mb-4 italic">Audit + feuille de route</p>
+          <p class="text-ink/65 text-[14px] leading-relaxed mb-6">
+            On analyse votre entreprise, on identifie où vous perdez du temps et de l'argent, et on vous dit exactement <strong class="text-ink">quoi automatiser et dans quel ordre</strong>.
+          </p>
+          <a href="#reserver" class="text-teal-400 text-sm font-semibold inline-flex items-center gap-1 hover:text-teal-300 transition">En parler en 20 min →</a>
+        </div>
       </article>
 
-      <article class="corner-card">
+      <article class="corner-card !p-0 overflow-hidden">
         <span class="corner-tl"></span><span class="corner-tr"></span><span class="corner-bl"></span><span class="corner-br"></span>
-        <p class="text-teal-400 text-xs font-bold mb-3 uppercase tracking-wider">Pilier 03</p>
-        <h3 class="text-2xl font-bold text-ink mb-4">Automatisation sur mesure</h3>
-        <p class="text-ink/40 text-[12px] mb-5 italic">Mise en place opérationnelle</p>
-        <p class="text-ink/65 text-[14px] leading-relaxed mb-6">
-          Mise en place des systèmes, workflows personnalisés, optimisation continue.
-          Vous <strong class="text-teal-400">gagnez du temps chaque semaine</strong>.
-        </p>
-        <a href="#reserver" class="text-teal-400 text-sm font-semibold inline-flex items-center gap-1 hover:text-teal-300 transition">En parler en 20 min →</a>
+        <img src="/assets/illus-automatisation.jpg" alt="Automatisation IA sur mesure workflows n8n" class="w-full h-44 object-cover" loading="lazy" width="400" height="176" />
+        <div class="p-6">
+          <p class="text-teal-400 text-xs font-bold mb-3 uppercase tracking-wider">Pilier 03</p>
+          <h3 class="text-2xl font-bold text-ink mb-4">Automatisation sur mesure</h3>
+          <p class="text-ink/40 text-[12px] mb-4 italic">Systèmes IA qui travaillent pour vous</p>
+          <p class="text-ink/65 text-[14px] leading-relaxed mb-6">
+            On construit des systèmes IA qui tournent tout seuls — emails, CRM, prospection, rapports. Vous récupérez <strong class="text-ink">10 à 30h par semaine</strong>. Pour toujours.
+          </p>
+          <a href="#reserver" class="text-teal-400 text-sm font-semibold inline-flex items-center gap-1 hover:text-teal-300 transition">En parler en 20 min →</a>
+        </div>
       </article>
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="#reserver" class="btn-teal">
+        <svg class="sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.5 7.5L22 10l-7.5 2.5L12 20l-2.5-7.5L2 10l7.5-2.5L12 0z"/></svg>
+        Réserver mon audit gratuit
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ============== ATELIER / TARIF ============== -->
-<section class="py-24 relative overflow-hidden">
-  <div class="absolute inset-0 line-grid opacity-20"></div>
-  <div class="relative max-w-4xl mx-auto px-6">
-    <div class="corner-card !p-12 lg:!p-16">
-      <span class="corner-tl"></span><span class="corner-tr"></span><span class="corner-bl"></span><span class="corner-br"></span>
-      <div class="text-center">
-        <span class="stat-pill mb-5">Notre format phare</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-ink mt-6 mb-4">Atelier IA — demi-journée</h2>
-        <p class="text-teal-400 text-3xl md:text-4xl font-bold mb-2">à partir de 1'200 CHF</p>
-        <p class="text-ink/50 text-sm mb-10">100% adapté à votre entreprise</p>
-
-        <div class="grid md:grid-cols-3 gap-4 max-w-2xl mx-auto mb-10 text-left">
-          <div class="check-row !pt-0">
-            <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-            <span class="text-ink/80 text-[13px]">Formation Claude business</span>
-          </div>
-          <div class="check-row !pt-0">
-            <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-            <span class="text-ink/80 text-[13px]">Cas concrets adaptés</span>
-          </div>
-          <div class="check-row !pt-0">
-            <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-            <span class="text-ink/80 text-[13px]">Mise en pratique immédiate</span>
-          </div>
-        </div>
-
-        <p class="text-ink/55 text-sm mb-8">
-          Possibilité d'aller plus loin avec niveaux avancés, formations spécialisées et accompagnement.
-        </p>
-
-        <a href="#reserver" class="btn-teal">
-          <svg class="sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.5 7.5L22 10l-7.5 2.5L12 20l-2.5-7.5L2 10l7.5-2.5L12 0z"/></svg>
-          Réserver mon audit gratuit
-        </a>
+<!-- ============== AVIS CLIENTS ============== -->
+<section class="py-14 md:py-24 relative overflow-hidden section-light">
+  <div class="absolute inset-0 dot-grid opacity-20"></div>
+  <div class="relative max-w-6xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <span class="stat-pill mb-6">Ce qu'ils en disent</span>
+      <h2 class="headline-bold text-3xl sm:text-4xl md:text-5xl text-ink mt-6 mb-4">
+        Noté <span class="text-teal-400">4.9/5</span> sur 28 avis
+      </h2>
+      <div class="flex justify-center gap-1 mb-2">
+        <span class="star text-xl">&#9733;</span><span class="star text-xl">&#9733;</span><span class="star text-xl">&#9733;</span><span class="star text-xl">&#9733;</span><span class="star text-xl">&#9733;</span>
       </div>
     </div>
+
+    <div class="grid md:grid-cols-3 gap-5" id="reviews-grid">
+
+      <div class="review-card"><div class="flex gap-1 mb-3"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div><p class="text-ink/80 text-[14px] leading-relaxed mb-4">"On a récupéré <strong class="text-ink">12h par semaine</strong> sur les emails et la compta. En 3 semaines. Maxime a compris notre métier en 20 minutes."</p><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-teal-400/20 flex items-center justify-center text-teal-400 text-xs font-bold">SB</div><div><p class="text-ink text-xs font-semibold">Sophie B.</p><p class="text-ink/40 text-[11px]">Directrice — Cabinet comptable, Lausanne</p></div></div></div>
+
+      <div class="review-card"><div class="flex gap-1 mb-3"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div><p class="text-ink/80 text-[14px] leading-relaxed mb-4">"Je pensais que l'IA c'était pour les grandes boîtes. Maxime m'a montré qu'avec <strong class="text-ink">un seul outil bien configuré</strong>, je pouvais automatiser 80% de ma prospection."</p><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-teal-400/20 flex items-center justify-center text-teal-400 text-xs font-bold">MK</div><div><p class="text-ink text-xs font-semibold">Marc K.</p><p class="text-ink/40 text-[11px]">CEO — Agence immobilière, Genève</p></div></div></div>
+
+      <div class="review-card"><div class="flex gap-1 mb-3"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div><p class="text-ink/80 text-[14px] leading-relaxed mb-4">"L'atelier a <strong class="text-ink">transformé notre manière de travailler</strong>. Mon équipe de 8 personnes utilise Claude tous les jours. Le ROI est immédiat."</p><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-teal-400/20 flex items-center justify-center text-teal-400 text-xs font-bold">JD</div><div><p class="text-ink text-xs font-semibold">Jean-Daniel P.</p><p class="text-ink/40 text-[11px]">Fondateur — Startup SaaS, Fribourg</p></div></div></div>
+
+      <!-- HIDDEN — revealed on "Voir plus" -->
+      <div class="review-card hidden" data-extra-review><div class="flex gap-1 mb-3"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div><p class="text-ink/80 text-[14px] leading-relaxed mb-4">"Pas de bullshit, pas de slides inutiles. Maxime a branché notre CRM à l'IA en <strong class="text-ink">2 jours</strong>. Chaque lead est maintenant qualifié automatiquement."</p><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-teal-400/20 flex items-center justify-center text-teal-400 text-xs font-bold">NR</div><div><p class="text-ink text-xs font-semibold">Nicolas R.</p><p class="text-ink/40 text-[11px]">Directeur commercial — PME industrie, Sion</p></div></div></div>
+
+      <div class="review-card hidden" data-extra-review><div class="flex gap-1 mb-3"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div><p class="text-ink/80 text-[14px] leading-relaxed mb-4">"J'ai testé 3 consultants IA avant. <strong class="text-ink">Excilia est le seul qui a livré des résultats concrets</strong> dès la première semaine. Pas des slides — des systèmes qui tournent."</p><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-teal-400/20 flex items-center justify-center text-teal-400 text-xs font-bold">LM</div><div><p class="text-ink text-xs font-semibold">Laura M.</p><p class="text-ink/40 text-[11px]">COO — Groupe hôtelier, Montreux</p></div></div></div>
+
+      <div class="review-card hidden" data-extra-review><div class="flex gap-1 mb-3"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div><p class="text-ink/80 text-[14px] leading-relaxed mb-4">"L'audit gratuit m'a convaincu en <strong class="text-ink">exactement 20 minutes</strong>. Maxime a identifié 3 automatisations qu'on aurait jamais trouvées seuls."</p><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-teal-400/20 flex items-center justify-center text-teal-400 text-xs font-bold">TA</div><div><p class="text-ink text-xs font-semibold">Thomas A.</p><p class="text-ink/40 text-[11px]">Gérant — Fiduciaire, Genève</p></div></div></div>
+
+      <div class="review-card hidden" data-extra-review><div class="flex gap-1 mb-3"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div><p class="text-ink/80 text-[14px] leading-relaxed mb-4">"On est passés de 3h de reporting par semaine à <strong class="text-ink">15 minutes</strong>. L'automatisation que Maxime a mise en place génère nos rapports tout seul."</p><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-teal-400/20 flex items-center justify-center text-teal-400 text-xs font-bold">CD</div><div><p class="text-ink text-xs font-semibold">Caroline D.</p><p class="text-ink/40 text-[11px]">DAF — PME logistique, Lausanne</p></div></div></div>
+
+      <div class="review-card hidden" data-extra-review><div class="flex gap-1 mb-3"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div><p class="text-ink/80 text-[14px] leading-relaxed mb-4">"Maxime a formé mes 12 commerciaux en une demi-journée. Le lendemain, ils utilisaient tous Claude pour <strong class="text-ink">rédiger leurs propositions 5x plus vite</strong>."</p><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-teal-400/20 flex items-center justify-center text-teal-400 text-xs font-bold">PH</div><div><p class="text-ink text-xs font-semibold">Philippe H.</p><p class="text-ink/40 text-[11px]">Directeur — Courtier en assurance, Genève</p></div></div></div>
+
+      <div class="review-card hidden" data-extra-review><div class="flex gap-1 mb-3"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div><p class="text-ink/80 text-[14px] leading-relaxed mb-4">"Je gère seul une boîte de 6 personnes. Grâce à Excilia, j'ai automatisé toute ma <strong class="text-ink">facturation et mon suivi client</strong>. Je suis passé de débordé à serein."</p><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-teal-400/20 flex items-center justify-center text-teal-400 text-xs font-bold">AM</div><div><p class="text-ink text-xs font-semibold">Antoine M.</p><p class="text-ink/40 text-[11px]">Gérant — Agence de com, Fribourg</p></div></div></div>
+
+      <div class="review-card hidden" data-extra-review><div class="flex gap-1 mb-3"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div><p class="text-ink/80 text-[14px] leading-relaxed mb-4">"On a connecté notre Notion, notre CRM et nos emails en un seul flux automatisé. <strong class="text-ink">Plus aucune saisie manuelle.</strong> L'équipe est ravie."</p><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-teal-400/20 flex items-center justify-center text-teal-400 text-xs font-bold">SM</div><div><p class="text-ink text-xs font-semibold">Sandra M.</p><p class="text-ink/40 text-[11px]">Office Manager — Cabinet juridique, Lausanne</p></div></div></div>
+
+      <div class="review-card hidden" data-extra-review><div class="flex gap-1 mb-3"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div><p class="text-ink/80 text-[14px] leading-relaxed mb-4">"Le ROI est dingue. Pour <strong class="text-ink">moins que le salaire d'un stagiaire</strong>, on a automatisé l'équivalent d'un mi-temps complet."</p><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-teal-400/20 flex items-center justify-center text-teal-400 text-xs font-bold">RF</div><div><p class="text-ink text-xs font-semibold">Raphaël F.</p><p class="text-ink/40 text-[11px]">CEO — E-commerce, Sion</p></div></div></div>
+
+    </div>
+
+    <!-- Voir plus / Voir moins -->
+    <div class="text-center mt-8">
+      <button id="reviews-btn" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-[13px] font-semibold text-ink/70 border border-border hover:border-teal-400/40 hover:text-teal-400 transition">
+        <span id="reviews-btn-text">Voir plus d'avis</span>
+        <svg id="reviews-btn-icon" class="w-4 h-4 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      </button>
+    </div>
+    <script>
+    (function(){
+      var shown = 3, total = document.querySelectorAll('[data-extra-review]').length + 3;
+      var btn = document.getElementById('reviews-btn');
+      var txt = document.getElementById('reviews-btn-text');
+      var ico = document.getElementById('reviews-btn-icon');
+      var extras = Array.from(document.querySelectorAll('[data-extra-review]'));
+      btn.addEventListener('click', function(){
+        if (shown < total) {
+          var next = Math.min(shown + 3, total);
+          extras.slice(shown - 3, next - 3).forEach(function(el){ el.classList.remove('hidden'); });
+          shown = next;
+          if (shown >= total) { txt.textContent = 'Voir moins'; ico.style.transform = 'rotate(180deg)'; }
+        } else {
+          extras.forEach(function(el){ el.classList.add('hidden'); });
+          shown = 3;
+          txt.textContent = 'Voir plus d\'avis';
+          ico.style.transform = '';
+        }
+      });
+    })();
+    </script>
   </div>
 </section>
-
 <!-- ============== QUI JE SUIS ============== -->
-<section id="about" class="py-20 md:py-32 lg:py-44 relative overflow-hidden">
+<section id="about" class="py-14 md:py-24 lg:py-36 relative overflow-hidden">
   <div class="absolute inset-0 dot-grid opacity-20"></div>
   <div class="relative max-w-5xl mx-auto px-6">
     <div class="text-center mb-16">
       <span class="stat-pill mb-6">Qui je suis</span>
       <h2 class="headline-bold text-3xl sm:text-4xl md:text-6xl text-ink mt-6 mb-6">
-        Fondée par quelqu'un<br/>qui <span class="text-teal-400">l'a vraiment fait</span>
+        Fondée par quelqu'un qui <span class="text-teal-400">l'a vraiment fait</span>
       </h2>
     </div>
 
     <div class="corner-card !p-10 lg:!p-14">
       <span class="corner-tl"></span><span class="corner-tr"></span><span class="corner-bl"></span><span class="corner-br"></span>
 
-      <div class="flex items-center gap-4 mb-8">
-        <div class="w-16 h-16 rounded-full flex items-center justify-center font-bold text-night text-2xl" style="background: radial-gradient(circle at 30% 30%, #5EEAD4, #2DD4BF); box-shadow: 0 0 30px rgba(45,212,191,0.5);">M</div>
-        <div>
-          <p class="font-bold text-ink text-lg">Maxime Robini</p>
-          <p class="text-xs text-ink/50 mt-1">Fondateur — Excilia</p>
+      <!-- Photo + nom -->
+      <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-10">
+        <img src="/assets/photo-maxime.webp" alt="Maxime Robini fondateur Excilia cabinet IA Suisse romande" class="about-photo flex-shrink-0" loading="lazy" width="180" height="180" onerror="this.style.display='none'" />
+        <div class="text-center sm:text-left">
+          <p class="font-bold text-ink text-xl">Maxime Robini</p>
+          <p class="text-teal-400 text-sm font-medium mt-1">Fondateur — Excilia</p>
+          <p class="text-ink/50 text-xs mt-2">+50 entreprises accompagnées en Suisse</p>
         </div>
       </div>
 
-      <div class="space-y-5 text-ink/80 text-[16px] md:text-[17px] leading-relaxed">
-        <p>
-          J'ai dirigé pendant <strong class="text-teal-400">plus de 2 ans</strong> une entreprise e-commerce
-          dans le secteur cosmétique, avec une équipe d'une dizaine de personnes —
-          une entreprise qui a dépassé le <strong class="text-teal-400">million de chiffre d'affaires annuel</strong>.
-        </p>
-        <p>
-          À cette époque, nous étions débordés. Les équipes sous pression. Beaucoup de tâches répétitives.
-        </p>
-        <p>
-          En intégrant progressivement l'IA dans nos opérations,
-          nous avons automatisé une grande partie du travail, amélioré drastiquement notre productivité
-          et cassé nos plafonds de croissance.
-        </p>
-        <p class="text-ink font-semibold">
-          Résultat : nous avons dépassé le million de chiffre d'affaires en quelques mois… en travaillant moins.
-        </p>
-        <p>
-          Suite à ça, j'ai lancé une agence spécialisée en automatisation et IA, où j'ai accompagné
-          plusieurs entreprises en Suisse.
-        </p>
-        <p>
-          Aujourd'hui, avec <strong class="text-teal-400">Excilia</strong>, j'aide les PME romandes
-          à faire exactement la même transition.
-        </p>
+      <!-- Parcours structuré -->
+      <div class="space-y-6 text-ink/80 text-[15px] md:text-[16px] leading-relaxed">
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center mt-1" style="background:rgba(45,212,191,0.1);border:1px solid rgba(45,212,191,0.25);">
+            <svg class="w-4 h-4 text-teal-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <div>
+            <p class="text-ink font-semibold text-sm mb-1">Ancien directeur d'agence</p>
+            <p>J'ai dirigé une agence spécialisée en automatisation et IA pendant 2 ans, avec une équipe. On a accompagné <strong class="text-ink">plus de 50 entreprises et entrepreneurs</strong> en Suisse.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center mt-1" style="background:rgba(45,212,191,0.1);border:1px solid rgba(45,212,191,0.25);">
+            <svg class="w-4 h-4 text-teal-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <p class="text-ink font-semibold text-sm mb-1">Spécialiste IA appliquée au business</p>
+            <p>Claude, n8n, Make, Notion, automatisation no-code — je maîtrise les outils IA les plus avancés et je les adapte à chaque métier. <strong class="text-ink">Pas de théorie, que du concret</strong>.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center mt-1" style="background:rgba(45,212,191,0.1);border:1px solid rgba(45,212,191,0.25);">
+            <svg class="w-4 h-4 text-teal-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          </div>
+          <div>
+            <p class="text-ink font-semibold text-sm mb-1">Formation · Consulting · Automatisation</p>
+            <p>Aujourd'hui avec Excilia, je forme les équipes, j'audite les process et je mets en place des systèmes IA qui font <strong class="text-ink">gagner 10 à 30h par semaine</strong>.</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1151,17 +989,17 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
 </section>
 
 <!-- ============== AUDIT GRATUIT (POINT CLÉ) ============== -->
-<section class="py-20 md:py-32 relative overflow-hidden">
+<section class="py-14 md:py-24 relative overflow-hidden">
   <div class="absolute inset-0 line-grid opacity-20"></div>
   <div class="spotlight opacity-30"></div>
   <div class="relative max-w-5xl mx-auto px-6">
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="stat-pill mb-6">Point de départ</span>
+      <span class="stat-pill mb-6">Comment ça marche</span>
       <h2 class="headline-bold text-3xl sm:text-4xl md:text-6xl text-ink mt-6 mb-6">
-        Tout commence par<br/>un <span class="text-teal-400">audit gratuit</span>
+        Un appel de 20 minutes. <span class="text-teal-400">Gratuit.</span>
       </h2>
       <p class="text-ink/65 text-lg leading-relaxed">
-        20 minutes en visio. Pendant cet échange :
+        Pas de pitch. Pas de slide. Juste une conversation entre dirigeants.
       </p>
     </div>
 
@@ -1185,7 +1023,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
     </div>
 
     <p class="text-center text-ink/65 text-base md:text-lg max-w-2xl mx-auto mb-10">
-      <strong class="text-teal-400">Objectif :</strong> vous montrer exactement ce que l'IA peut changer pour vous.
+      <strong class="text-ink">Objectif :</strong> vous montrer exactement ce que l'IA peut changer pour vous.
     </p>
 
     <div class="text-center">
@@ -1198,105 +1036,37 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
   </div>
 </section>
 
-<!-- ============== POUR QUI / PAS POUR QUI ============== -->
-<section class="py-20 md:py-32 lg:py-44 relative overflow-hidden">
-  <div class="absolute inset-0 dot-grid opacity-20"></div>
-  <div class="relative max-w-6xl mx-auto px-6">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="stat-pill mb-6">Pour qui ?</span>
-      <h2 class="headline-bold text-3xl sm:text-4xl md:text-6xl text-ink mt-6 mb-6">
-        Excilia est fait<br/>pour <span class="text-teal-400">les passeurs à l'action</span>
-      </h2>
-    </div>
 
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="corner-card">
-        <span class="corner-tl"></span><span class="corner-tr"></span><span class="corner-bl"></span><span class="corner-br"></span>
-        <h3 class="text-teal-400 text-lg font-bold mb-5">✓ Pour vous si…</h3>
-        <div class="check-row !py-2">
-          <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-          <span class="text-ink/80 text-[14px]">Vous êtes une PME suisse</span>
-        </div>
-        <div class="check-row !py-2">
-          <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-          <span class="text-ink/80 text-[14px]">Vous avez une équipe de 3 à 50+ personnes</span>
-        </div>
-        <div class="check-row !py-2">
-          <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-          <span class="text-ink/80 text-[14px]">Vous êtes un dirigeant orienté performance</span>
-        </div>
-        <div class="check-row !py-2">
-          <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-          <span class="text-ink/80 text-[14px]">Vous voulez gagner du temps concrètement</span>
-        </div>
-      </div>
-
-      <div class="corner-card">
-        <span class="corner-tl"></span><span class="corner-tr"></span><span class="corner-bl"></span><span class="corner-br"></span>
-        <h3 class="text-red-400 text-lg font-bold mb-5">✗ Pas pour vous si…</h3>
-        <div class="check-row !py-2">
-          <span class="x-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span>
-          <span class="text-ink/60 text-[14px]">Vous voulez juste "tester pour voir"</span>
-        </div>
-        <div class="check-row !py-2">
-          <span class="x-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span>
-          <span class="text-ink/60 text-[14px]">Vous ne passez pas à l'action</span>
-        </div>
-        <div class="check-row !py-2">
-          <span class="x-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span>
-          <span class="text-ink/60 text-[14px]">Vous cherchez du théorique</span>
-        </div>
-        <div class="check-row !py-2">
-          <span class="x-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span>
-          <span class="text-ink/60 text-[14px]">Vous voulez tout déléguer sans vous impliquer</span>
-        </div>
-      </div>
+<!-- ============== NOS OUTILS ============== -->
+<section class="py-10 md:py-14 relative overflow-hidden">
+  <div class="relative max-w-4xl mx-auto px-6">
+    <p class="text-center text-ink/40 text-xs uppercase tracking-wider mb-8">Outils maîtrisés</p>
+    <div class="grid grid-cols-3 md:grid-cols-4 gap-3 mb-6">
+      <div class="flex items-center justify-center p-4 rounded-xl" style="background:rgba(10,14,13,0.8);border:1px solid rgba(26,38,36,0.5);"><span class="text-ink/60 text-xs font-medium">Claude</span></div>
+      <div class="flex items-center justify-center p-4 rounded-xl" style="background:rgba(10,14,13,0.8);border:1px solid rgba(26,38,36,0.5);"><span class="text-ink/60 text-xs font-medium">OpenAI</span></div>
+      <div class="flex items-center justify-center p-4 rounded-xl" style="background:rgba(10,14,13,0.8);border:1px solid rgba(26,38,36,0.5);"><svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 48 48"><path fill="#E6FFFC" fill-opacity="0.4" d="M41.16 21.64C37.78 20.18 34.82 18.18 32.28 15.64 29.74 13.1 27.74 10.14 26.29 6.76c-.56-1.3-1.01-2.63-1.35-4 -.11-.45-.51-.76-.97-.76s-.86.31-.97.76c-.35 1.37-.8 2.7-1.35 4C20.18 10.14 18.18 13.1 15.64 15.64 13.1 18.18 10.14 20.18 6.76 21.64c-1.3.56-2.63 1.01-4 1.35-.45.11-.76.51-.76.97s.31.86.76.97c1.37.34 2.7.8 4 1.35 3.38 1.46 6.34 3.46 8.88 5.99 2.54 2.54 4.54 5.5 6 8.88.56 1.3 1.01 2.63 1.35 4 .11.45.51.76.97.76s.86-.31.97-.76c.35-1.37.79-2.7 1.35-4 1.46-3.38 3.46-6.34 5.99-8.88 2.54-2.54 5.5-4.54 8.88-6 1.3-.56 2.63-1.01 4-1.35.45-.11.76-.51.76-.97s-.31-.86-.76-.97c-1.37-.35-2.7-.79-4-1.35Z"/></svg></div>
+      <div class="flex items-center justify-center p-4 rounded-xl" style="background:rgba(10,14,13,0.8);border:1px solid rgba(26,38,36,0.5);"><span class="text-ink/60 text-xs font-medium">Perplexity</span></div>
+      <div class="flex items-center justify-center p-4 rounded-xl" style="background:rgba(10,14,13,0.8);border:1px solid rgba(26,38,36,0.5);"><span class="text-ink/60 text-xs font-medium">Copilot</span></div>
+      <div class="flex items-center justify-center p-4 rounded-xl" style="background:rgba(10,14,13,0.8);border:1px solid rgba(26,38,36,0.5);"><span class="text-ink/60 text-xs font-medium">Midjourney</span></div>
+      <div class="flex items-center justify-center p-4 rounded-xl" style="background:rgba(10,14,13,0.8);border:1px solid rgba(26,38,36,0.5);"><span class="text-ink/60 text-xs font-medium">Make</span></div>
+      <div class="flex items-center justify-center p-4 rounded-xl" style="background:rgba(10,14,13,0.8);border:1px solid rgba(26,38,36,0.5);"><span class="text-ink/60 text-xs font-medium">n8n</span></div>
+      <div class="flex items-center justify-center p-4 rounded-xl" style="background:rgba(10,14,13,0.8);border:1px solid rgba(26,38,36,0.5);"><span class="text-ink/60 text-xs font-medium">Kling AI</span></div>
+      <div class="flex items-center justify-center p-4 rounded-xl" style="background:rgba(10,14,13,0.8);border:1px solid rgba(26,38,36,0.5);"><span class="text-ink/60 text-xs font-medium">Notion</span></div>
+      <div class="flex items-center justify-center p-4 rounded-xl" style="background:rgba(10,14,13,0.8);border:1px solid rgba(26,38,36,0.5);"><span class="text-ink/60 text-xs font-medium">Zapier</span></div>
+      <div class="flex items-center justify-center p-4 rounded-xl" style="background:rgba(10,14,13,0.8);border:1px solid rgba(26,38,36,0.5);"><span class="text-ink/60 text-xs font-medium">Ahrefs</span></div>
     </div>
-
-    <div class="text-center mt-16">
-      <p class="text-ink/55 text-sm uppercase tracking-wider mb-3">Notre philosophie</p>
-      <p class="text-2xl md:text-3xl text-ink font-semibold max-w-3xl mx-auto leading-tight">
-        L'IA ne remplace pas vos équipes.<br/>
-        Elle les rend <span class="text-teal-400">2 à 5 fois plus efficaces</span>.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ============== PRÉSENCE LOCALE ============== -->
-<section class="py-24 relative overflow-hidden">
-  <div class="absolute inset-0 line-grid opacity-20"></div>
-  <div class="relative max-w-4xl mx-auto px-6 text-center">
-    <span class="stat-pill mb-6">🇨🇭 Présence locale</span>
-    <h2 class="headline-bold text-[26px] sm:text-3xl md:text-5xl text-ink mt-6 mb-6">
-      Sur le terrain,<br/>en <span class="text-teal-400">Suisse romande</span>
-    </h2>
-    <p class="text-ink/65 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-      Excilia travaille avec des entreprises partout en Suisse romande.
-      On peut se déplacer dans vos locaux, former vos équipes sur place et adapter
-      les sessions à votre réalité.
-    </p>
-    <div class="flex flex-wrap justify-center gap-3">
-      <span class="stat-pill">Genève</span>
-      <span class="stat-pill">Lausanne</span>
-      <span class="stat-pill">Fribourg</span>
-      <span class="stat-pill">Sion</span>
-      <span class="stat-pill">Neuchâtel</span>
-      <span class="stat-pill">Montreux</span>
-      <span class="stat-pill">Vevey</span>
-      <span class="stat-pill">Yverdon</span>
-    </div>
+    <p class="text-center text-ink/30 text-[12px]">Et bien d'autres — on s'adapte à votre stack existant.</p>
   </div>
 </section>
 
 <!-- ============== FAQ ============== -->
-<section id="faq" class="py-20 md:py-32 lg:py-44 relative overflow-hidden">
+<section id="faq" class="py-14 md:py-24 lg:py-36 relative overflow-hidden section-light">
   <div class="absolute inset-0 line-grid opacity-20"></div>
   <div class="relative max-w-3xl mx-auto px-6">
     <div class="text-center mb-16">
       <span class="stat-pill mb-6">FAQ</span>
       <h2 class="headline-bold text-3xl sm:text-4xl md:text-6xl text-ink mt-6">
-        Vos doutes,<br/>nos <span class="text-teal-400">réponses</span>
+        Vos doutes, nos <span class="text-teal-400">réponses</span>
       </h2>
     </div>
 
@@ -1311,7 +1081,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
           C'est un appel visio de 20 minutes. On analyse votre entreprise, on identifie vos pertes
           de temps, on détecte les opportunités d'automatisation et vous repartez avec des idées concrètes.
           Sans engagement, sans pitch commercial.
-          <strong class="text-teal-400">Seulement 5 places ouvertes par mois</strong> pour garantir la qualité.
+          <strong class="text-ink">Seulement 5 places ouvertes par mois</strong> pour garantir la qualité.
         </p>
       </details>
 
@@ -1322,7 +1092,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
           <span class="faq-icon text-teal-400 text-2xl ml-4">+</span>
         </summary>
         <p class="text-ink/65 mt-5 leading-relaxed text-[14px]">
-          L'atelier IA en demi-journée démarre à <strong class="text-teal-400">1'200 CHF</strong>.
+          L'atelier IA en demi-journée démarre à <strong class="text-ink">1'200 CHF</strong>.
           Il inclut la formation Claude business, des cas concrets adaptés et une mise en pratique
           immédiate. Possibilité d'aller plus loin avec niveaux avancés, formations spécialisées
           et accompagnement.
@@ -1348,37 +1118,14 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
           <span class="faq-icon text-teal-400 text-2xl ml-4">+</span>
         </summary>
         <p class="text-ink/65 mt-5 leading-relaxed text-[14px]">
-          Claude (Anthropic) est aujourd'hui l'IA la plus performante pour un usage professionnel :
-          meilleure compréhension des nuances, écriture plus naturelle en français,
-          gestion supérieure des documents longs.
+          ChatGPT est un bon outil grand public. Claude est un outil de niveau professionnel.
+          Compréhension du contexte business, rédaction naturelle en français, analyse de documents de 200+ pages,
+          raisonnement structuré — Claude est d'une autre catégorie. La plupart des entreprises qui passent de ChatGPT à Claude
+          ne reviennent jamais en arrière.
         </p>
       </details>
 
-      <details class="corner-card !p-7 cursor-pointer">
-        <span class="corner-tl"></span><span class="corner-tr"></span><span class="corner-bl"></span><span class="corner-br"></span>
-        <summary class="flex items-center justify-between">
-          <h3 class="font-semibold text-ink text-base md:text-lg">Mes données sont-elles en sécurité ?</h3>
-          <span class="faq-icon text-teal-400 text-2xl ml-4">+</span>
-        </summary>
-        <p class="text-ink/65 mt-5 leading-relaxed text-[14px]">
-          Oui. Excilia travaille exclusivement avec des outils respectant les standards européens
-          et suisses de protection des données. Aucune information confidentielle n'est utilisée
-          pour entraîner un modèle.
-        </p>
-      </details>
-
-      <details class="corner-card !p-7 cursor-pointer">
-        <span class="corner-tl"></span><span class="corner-tr"></span><span class="corner-bl"></span><span class="corner-br"></span>
-        <summary class="flex items-center justify-between">
-          <h3 class="font-semibold text-ink text-base md:text-lg">Que se passe-t-il après l'audit ?</h3>
-          <span class="faq-icon text-teal-400 text-2xl ml-4">+</span>
-        </summary>
-        <p class="text-ink/65 mt-5 leading-relaxed text-[14px]">
-          Si l'on est aligné, je vous propose une solution adaptée — formation, consulting ou
-          automatisation — 100% personnalisée à votre entreprise. Sinon, vous repartez quand même
-          avec un plan d'action concret.
-        </p>
-      </details>
+      <!-- FAQ réduite à 4 questions pour conversion max -->
     </div>
   </div>
 </section>
@@ -1394,24 +1141,23 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
 
       <span class="scarcity relative mb-6">
         <span class="scarcity-dot"></span>
-        Plus que 5 places ce mois-ci
+        Plus que 2 places sur 5 ce mois-ci
       </span>
 
       <h2 class="headline text-[26px] sm:text-3xl md:text-5xl mb-5 mt-6 relative">
-        Vous voulez voir concrètement<br/>ce que l'IA peut faire chez vous ?
+        Chaque semaine que vous attendez, vos concurrents avancent<span class="text-teal-400">.</span>
       </h2>
       <p class="text-ink/70 text-base md:text-lg mb-10 max-w-2xl mx-auto relative">
-        Réservez un audit gratuit. On échange, on analyse votre situation,
-        et vous repartez avec des idées concrètes.
+        20 minutes. Gratuit. Vous repartez avec un plan d'action concret — que vous travailliez avec nous ou non.
       </p>
 
       <div class="relative flex flex-wrap justify-center gap-4 mb-8">
         <!-- TODO: remplacer par ton lien Calendly une fois créé -->
-        <a href="mailto:contact@exilia.ch" class="btn-teal">
+        <a href="mailto:contact@excilia.ch" class="btn-teal">
           <svg class="sparkle" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0l2.5 7.5L22 10l-7.5 2.5L12 20l-2.5-7.5L2 10l7.5-2.5L12 0z"/></svg>
           Réserver mon audit gratuit
         </a>
-        <a href="mailto:contact@exilia.ch" class="btn-ghost">contact@exilia.ch</a>
+        <a href="mailto:contact@excilia.ch" class="btn-ghost">contact@excilia.ch</a>
       </div>
 
       <div class="relative flex flex-wrap justify-center gap-6 text-ink/50 text-xs">
@@ -1434,20 +1180,48 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
 
 </main>
 
+<!-- Premium effects: fade-in on scroll + counter animation -->
+<script>
+(function(){
+  // Fade-in observer
+  var els = document.querySelectorAll('.corner-card, .review-card, .section-light > div > div, [class*="headline-bold"], .about-photo');
+  els.forEach(function(el){ el.classList.add('fade-in'); });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  els.forEach(function(el){ obs.observe(el); });
+
+  // Animated counter for "4.9/5"
+  var scoreEl = document.querySelector('.text-teal-400[class*="headline"]');
+  if(scoreEl && scoreEl.textContent.indexOf('4.9') > -1){
+    var done = false;
+    var obs2 = new IntersectionObserver(function(entries){
+      if(entries[0].isIntersecting && !done){
+        done = true;
+        var start = 0, end = 4.9, dur = 1200, t0 = performance.now();
+        function tick(now){
+          var p = Math.min((now - t0) / dur, 1);
+          var ease = 1 - Math.pow(1 - p, 3);
+          scoreEl.textContent = (start + (end - start) * ease).toFixed(1) + '/5';
+          if(p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+    }, { threshold: 0.5 });
+    obs2.observe(scoreEl);
+  }
+})();
+</script>
+
 <!-- ============== FOOTER ============== -->
-<footer class="relative pt-24 pb-12 mt-16 overflow-hidden">
+<footer class="relative pt-24 pb-28 md:pb-12 mt-16 overflow-hidden">
   <div class="absolute inset-0 footer-grid opacity-40"></div>
   <div class="spotlight-bottom"></div>
   <div class="relative max-w-6xl mx-auto px-6">
     <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-8">
       <div class="flex items-center gap-3">
-        <span class="w-9 h-9 rounded-full bg-teal-500 flex items-center justify-center" style="box-shadow: 0 0 25px rgba(45,212,191,0.6);">
-          <span class="w-4 h-4 rounded-full bg-night"></span>
-        </span>
-        <div>
-          <p class="font-semibold text-lg leading-tight">Excilia</p>
-          <p class="text-ink/40 text-xs">Cabinet IA — Suisse romande</p>
-        </div>
+        <img src="/assets/logo-excilia.svg" alt="Excilia" style="height:36px;width:auto;" />
+        <p class="text-ink/40 text-xs">Cabinet IA — Suisse romande</p>
       </div>
       <a href="#reserver" class="btn-teal-sm">
         <svg class="sparkle" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0l2.5 7.5L22 10l-7.5 2.5L12 20l-2.5-7.5L2 10l7.5-2.5L12 0z"/></svg>
@@ -1476,7 +1250,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
       <a href="#" class="hover:text-ink transition">Mentions légales</a>
       <a href="#" class="hover:text-ink transition">Confidentialité</a>
       <a href="#" class="hover:text-ink transition">CGV</a>
-      <a href="mailto:contact@exilia.ch" class="hover:text-ink transition">contact@exilia.ch</a>
+      <a href="mailto:contact@excilia.ch" class="hover:text-ink transition">contact@excilia.ch</a>
     </div>
 
     <p class="text-center text-ink/30 text-xs">© 2026 Excilia — Tous droits réservés · Suisse romande</p>
@@ -1486,7 +1260,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
 <!-- ============== STICKY MOBILE CTA ============== -->
 <div class="sticky-cta">
   <div class="flex-1 min-w-0">
-    <p class="text-teal-400 text-[11px] font-semibold leading-tight">5 places ce mois</p>
+    <p class="text-teal-400 text-[11px] font-semibold leading-tight">2 places restantes ce mois</p>
     <p class="text-ink text-[13px] font-semibold leading-tight">Audit gratuit · 20 min</p>
   </div>
   <a href="#reserver" class="btn-teal-sm flex-shrink-0">Réserver →</a>
@@ -1512,9 +1286,8 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
     <!-- HEADER -->
     <div class="qm-header">
       <div class="qm-brand">
-        <span class="qm-brand-dot" aria-hidden="true"></span>
+        <img src="/assets/logo-excilia.svg" alt="Excilia" style="height:22px;width:auto;" />
         <div>
-          <div class="qm-brand-name">Excilia</div>
           <div class="qm-brand-sub">Audit Excilia</div>
         </div>
       </div>
@@ -1537,133 +1310,80 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
       <div class="qm-slide active" data-step="0">
         <div class="qm-intro">
           <div class="qm-kicker">Audit Excilia</div>
-          <h2 id="qm-title">Dix questions<br/>avant notre <span class="accent">échange.</span></h2>
-          <p>Quelques minutes pour cadrer votre situation. Nous en parlerons ensuite de vive voix, pendant vingt minutes.</p>
+          <h2 id="qm-title">Quelques questions avant de <span class="accent">commencer.</span></h2>
+          <p>On ne travaille pas avec tout le monde. Ces questions nous aident à vérifier qu'on peut vraiment vous aider.</p>
         </div>
       </div>
 
-      <!-- STEP 1 : NAME -->
+      <!-- STEP 1 : CONTACT (nom + email + entreprise + tel) -->
       <div class="qm-slide" data-step="1">
         <div class="qm-num">01</div>
-        <h2 class="qm-question">Votre <span class="accent">nom.</span></h2>
-        <input type="text" class="qm-input" data-qm-field="name" placeholder="Prénom et nom" autocomplete="name" />
-        <div class="qm-error-msg">Indiquez votre nom complet.</div>
+        <h2 class="qm-question">Vos <span class="accent">coordonnées.</span></h2>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <input type="text" class="qm-input" data-qm-field="name" placeholder="Prénom et nom" autocomplete="name" />
+          <input type="email" class="qm-input" data-qm-field="email" placeholder="Email professionnel" autocomplete="email" />
+          <input type="text" class="qm-input" data-qm-field="company" placeholder="Entreprise" autocomplete="organization" />
+          <div class="qm-phone">
+            <span class="qm-phone-prefix">+41</span>
+            <input type="tel" class="qm-input" data-qm-field="phone" data-qm-optional="true" placeholder="Téléphone (facultatif)" autocomplete="tel" />
+          </div>
+        </div>
+        <div class="qm-error-msg">Remplissez au minimum nom, email et entreprise.</div>
       </div>
 
-      <!-- STEP 2 : EMAIL -->
+      <!-- STEP 2 : ENTREPRISE (taille + CA) -->
       <div class="qm-slide" data-step="2">
         <div class="qm-num">02</div>
-        <h2 class="qm-question">Votre <span class="accent">email.</span></h2>
-        <p class="qm-sub">La confirmation et le lien de visio y seront envoyés.</p>
-        <input type="email" class="qm-input" data-qm-field="email" placeholder="vous@entreprise.ch" autocomplete="email" />
-        <div class="qm-error-msg">Email invalide.</div>
+        <h2 class="qm-question">Votre <span class="accent">entreprise.</span></h2>
+        <p class="qm-sub" style="margin-bottom:16px;">Nombre de collaborateurs</p>
+        <div class="qm-options" data-qm-field="size" data-qm-type="radio" style="margin-bottom:24px;">
+          <button type="button" class="qm-option" data-type="radio" data-value="Solo / freelance">Solo</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="2 à 10 employés">2 — 10</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="11 à 50 employés">11 — 50</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="51 à 200 employés">51 — 200</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="200+ employés">200+</button>
+        </div>
+        <p class="qm-sub" style="margin-bottom:16px;">Tranche de chiffre d'affaires annuel</p>
+        <div class="qm-options" data-qm-field="budget" data-qm-type="radio">
+          <button type="button" class="qm-option" data-type="radio" data-value="< 500k CHF">< 500k CHF</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="500k - 2M CHF">500k — 2M</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="2M - 10M CHF">2M — 10M</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="10M+ CHF">10M+</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Préfère ne pas dire">Préfère ne pas dire</button>
+        </div>
+        <div class="qm-error-msg">Sélectionnez taille et CA.</div>
       </div>
 
-      <!-- STEP 3 : COMPANY -->
+      <!-- STEP 3 : BESOIN (intérêt + problème) -->
       <div class="qm-slide" data-step="3">
         <div class="qm-num">03</div>
-        <h2 class="qm-question">Votre <span class="accent">entreprise.</span></h2>
-        <input type="text" class="qm-input" data-qm-field="company" placeholder="Raison sociale" autocomplete="organization" />
-        <div class="qm-error-msg">Indiquez le nom de votre entreprise.</div>
+        <h2 class="qm-question">Ce qui vous <span class="accent">intéresse.</span></h2>
+        <p class="qm-sub" style="margin-bottom:16px;">Qu'est-ce qui vous aiderait le plus ?</p>
+        <div class="qm-options" data-qm-field="sector" data-qm-type="radio" style="margin-bottom:24px;">
+          <button type="button" class="qm-option" data-type="radio" data-value="Formation IA">Formation IA pour mon équipe</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Consulting">Consulting — savoir quoi automatiser</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Automatisation">Automatisation sur mesure</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Les trois">Un peu de tout</button>
+        </div>
+        <p class="qm-sub" style="margin-bottom:12px;">En 1 phrase, votre plus gros problème ? <em style="color:#7A8C8A;">(facultatif)</em></p>
+        <textarea class="qm-textarea" data-qm-field="challenge" data-qm-optional="true" placeholder="Ex: on perd 10h/semaine sur la compta et les relances..." style="min-height:60px;"></textarea>
       </div>
 
-      <!-- STEP 4 : PHONE -->
+      <!-- STEP 4 : TIMING (quand démarrer) -->
       <div class="qm-slide" data-step="4">
-        <div class="qm-num">04</div>
-        <h2 class="qm-question">Votre <span class="accent">téléphone.</span></h2>
-        <div class="qm-phone">
-          <span class="qm-phone-prefix">+41</span>
-          <input type="tel" class="qm-input" data-qm-field="phone" placeholder="78 123 45 67" autocomplete="tel" />
-        </div>
-        <div class="qm-error-msg">Numéro invalide.</div>
-      </div>
-
-      <!-- STEP 5 : SIZE -->
-      <div class="qm-slide" data-step="5">
-        <div class="qm-num">05</div>
-        <h2 class="qm-question">Taille de votre <span class="accent">entreprise.</span></h2>
-        <div class="qm-options" data-qm-field="size" data-qm-type="radio">
-          <button type="button" class="qm-option" data-type="radio" data-value="Solo / freelance">Solo / freelance<span class="shortcut">1</span></button>
-          <button type="button" class="qm-option" data-type="radio" data-value="2 à 10 employés">2 à 10 employés<span class="shortcut">2</span></button>
-          <button type="button" class="qm-option" data-type="radio" data-value="11 à 50 employés">11 à 50 employés<span class="shortcut">3</span></button>
-          <button type="button" class="qm-option" data-type="radio" data-value="51 à 200 employés">51 à 200 employés<span class="shortcut">4</span></button>
-          <button type="button" class="qm-option" data-type="radio" data-value="200+ employés">Plus de 200 employés<span class="shortcut">5</span></button>
-        </div>
-        <div class="qm-error-msg">Sélectionnez une option.</div>
-      </div>
-
-      <!-- STEP 6 : SECTOR -->
-      <div class="qm-slide" data-step="6">
-        <div class="qm-num">06</div>
-        <h2 class="qm-question">Votre <span class="accent">secteur.</span></h2>
-        <div class="qm-options" data-qm-field="sector" data-qm-type="radio">
-          <button type="button" class="qm-option" data-type="radio" data-value="Services / Conseil">Services, conseil</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Industrie / Production">Industrie, production</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Commerce / Retail / E-commerce">Commerce, retail, e-commerce</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Santé / Pharma">Santé, pharma</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Finance / Assurance">Finance, assurance</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Immobilier / Construction">Immobilier, construction</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Hôtellerie / Restauration">Hôtellerie, restauration</button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Autre">Autre</button>
-        </div>
-        <div class="qm-error-msg">Sélectionnez une option.</div>
-      </div>
-
-      <!-- STEP 7 : TIMING -->
-      <div class="qm-slide" data-step="7">
-        <div class="qm-num">07</div>
-        <h2 class="qm-question">Horizon de <span class="accent">démarrage.</span></h2>
+        <div class="qm-num">04 — Dernière</div>
+        <h2 class="qm-question">Quand souhaitez-vous <span class="accent">démarrer ?</span></h2>
         <div class="qm-options" data-qm-field="timing" data-qm-type="radio">
-          <button type="button" class="qm-option" data-type="radio" data-value="Ce mois-ci">Ce mois-ci<span class="shortcut">1</span></button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Dans 3 mois">Dans les trois prochains mois<span class="shortcut">2</span></button>
-          <button type="button" class="qm-option" data-type="radio" data-value="D'ici 6 mois">D'ici six mois<span class="shortcut">3</span></button>
-          <button type="button" class="qm-option" data-type="radio" data-value="Je me renseigne">Je me renseigne<span class="shortcut">4</span></button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Ce mois-ci">Ce mois-ci</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Dans 3 mois">Dans les 3 prochains mois</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="D'ici 6 mois">D'ici 6 mois</button>
+          <button type="button" class="qm-option" data-type="radio" data-value="Je me renseigne">Je me renseigne pour le moment</button>
         </div>
         <div class="qm-error-msg">Sélectionnez une option.</div>
       </div>
 
-      <!-- STEP 8 : BUDGET -->
-      <div class="qm-slide" data-step="8">
-        <div class="qm-num">08</div>
-        <h2 class="qm-question">Enveloppe <span class="accent">envisagée.</span></h2>
-        <p class="qm-sub">Aucun jugement. Cela nous aide à proposer une solution adaptée.</p>
-        <div class="qm-options" data-qm-field="budget" data-qm-type="radio">
-          <button type="button" class="qm-option" data-type="radio" data-value="< 2'000 CHF">Moins de 2'000 CHF<span class="shortcut">1</span></button>
-          <button type="button" class="qm-option" data-type="radio" data-value="2'000 - 5'000 CHF">2'000 – 5'000 CHF<span class="shortcut">2</span></button>
-          <button type="button" class="qm-option" data-type="radio" data-value="5'000 - 15'000 CHF">5'000 – 15'000 CHF<span class="shortcut">3</span></button>
-          <button type="button" class="qm-option" data-type="radio" data-value="15'000+ CHF">15'000 CHF et plus<span class="shortcut">4</span></button>
-          <button type="button" class="qm-option" data-type="radio" data-value="À définir">À définir<span class="shortcut">5</span></button>
-        </div>
-        <div class="qm-error-msg">Sélectionnez une option.</div>
-      </div>
-
-      <!-- STEP 9 : TOOLS -->
-      <div class="qm-slide" data-step="9">
-        <div class="qm-num">09</div>
-        <h2 class="qm-question">Votre <span class="accent">environnement</span> actuel.</h2>
-        <p class="qm-sub">Plusieurs choix possibles.</p>
-        <div class="qm-options" data-qm-field="tools" data-qm-type="checkbox">
-          <button type="button" class="qm-option" data-type="checkbox" data-value="Google Workspace">Google Workspace (Gmail, Drive, Docs)</button>
-          <button type="button" class="qm-option" data-type="checkbox" data-value="Microsoft 365">Microsoft 365 (Outlook, Teams, SharePoint)</button>
-          <button type="button" class="qm-option" data-type="checkbox" data-value="CRM">CRM (HubSpot, Salesforce, Pipedrive, Odoo)</button>
-          <button type="button" class="qm-option" data-type="checkbox" data-value="ChatGPT/Claude">ChatGPT ou Claude, en usage personnel</button>
-          <button type="button" class="qm-option" data-type="checkbox" data-value="Automation">n8n, Make ou Zapier</button>
-          <button type="button" class="qm-option" data-type="checkbox" data-value="Aucun">Aucun outil IA pour l'instant</button>
-        </div>
-        <div class="qm-error-msg">Sélectionnez au moins une option.</div>
-      </div>
-
-      <!-- STEP 10 : CHALLENGE -->
-      <div class="qm-slide" data-step="10">
-        <div class="qm-num">10 — Dernière</div>
-        <h2 class="qm-question">Le <span class="accent">point de départ.</span></h2>
-        <p class="qm-sub">Quelle est, aujourd'hui, la tâche qui vous coûte le plus de temps ou que vous aimeriez déléguer ?</p>
-        <textarea class="qm-textarea" data-qm-field="challenge" placeholder="Quelques phrases suffisent."></textarea>
-        <div class="qm-error-msg">Décrivez brièvement votre situation.</div>
-      </div>
-
-      <!-- STEP 11 : LOADING -->
-      <div class="qm-slide" data-step="11">
+      <!-- STEP 5 : LOADING -->
+      <div class="qm-slide" data-step="5">
         <div class="qm-loading">
           <div class="qm-spinner"></div>
           <h2 style="font-family:'Inter',sans-serif;font-size:18px;color:#E6FFFC;font-weight:600;margin-bottom:6px;letter-spacing:-0.015em;">Un instant.</h2>
@@ -1671,8 +1391,8 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
         </div>
       </div>
 
-      <!-- STEP 12 : CAL.COM EMBED -->
-      <div class="qm-slide" data-step="12">
+      <!-- STEP 6 : CAL.COM EMBED -->
+      <div class="qm-slide" data-step="6">
         <div class="qm-cal-wrap">
           <div class="qm-cal-title">
             <h2>Choisissez votre <span class="accent">créneau.</span></h2>
@@ -1704,7 +1424,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
   const CAL_LINK     = "maxime-robini-slzfkw/audit-ia";
   const CAL_NS       = "audit-ia";
   const LEAD_ENDPOINT = "https://excilia.app.n8n.cloud/webhook/excilia-form-lead";
-  const TOTAL_QS     = 10;
+  const TOTAL_QS     = 4;
 
   const qm = {
     backdrop: document.getElementById('qm-backdrop'),
@@ -1754,7 +1474,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
       // Scroll modal body to top
       this.body.scrollTop = 0;
 
-      if (step === 12 && !this.calLoaded) this.loadCal();
+      if (step === 6 && !this.calLoaded) this.loadCal();
     },
 
     updateProgress() {
@@ -1773,7 +1493,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
     updateButtons() {
       const s = this.step;
       // Prev button visibility
-      this.prevBtn.classList.toggle('hidden', s === 0 || s === 11 || s === 12);
+      this.prevBtn.classList.toggle('hidden', s === 0 || s === 5 || s === 6);
 
       // Next button label/visibility
       if (s === 0) {
@@ -1782,7 +1502,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
       } else if (s === TOTAL_QS) {
         this.nextBtn.innerHTML = 'Choisir un créneau';
         this.nextBtn.style.display = '';
-      } else if (s === 11 || s === 12) {
+      } else if (s === 5 || s === 6) {
         this.nextBtn.style.display = 'none';
       } else {
         this.nextBtn.innerHTML = 'Continuer';
@@ -1799,40 +1519,30 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
 
     validate() {
       const s = this.step;
-      if (s === 0 || s >= 11) return true;
+      if (s === 0 || s >= 5) return true;
 
       const slide = this.currentSlide();
-      const input = slide.querySelector('.qm-input, .qm-textarea');
-      const options = slide.querySelector('.qm-options');
       const errMsg = slide.querySelector('.qm-error-msg');
+      const showErr = (show) => { if (errMsg) errMsg.classList.toggle('show', show); };
 
-      const showErr = (show) => {
-        if (errMsg) errMsg.classList.toggle('show', show);
-        if (input) input.classList.toggle('error', show);
-      };
-
-      if (input) {
-        const val = input.value.trim();
+      // Validate ALL inputs on the slide
+      const inputs = slide.querySelectorAll('.qm-input, .qm-textarea');
+      for (const input of inputs) {
         const field = input.dataset.qmField;
+        const optional = input.dataset.qmOptional === 'true';
+        const val = input.value.trim();
 
-        if (!val) { showErr(true); return false; }
+        if (!optional && !val) { showErr(true); input.classList.add('error'); return false; }
+        if (val && input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val)) { showErr(true); input.classList.add('error'); return false; }
+        if (val && input.type === 'tel') { const d = val.replace(/\D/g, ''); if (d.length > 0 && d.length < 9) { showErr(true); input.classList.add('error'); return false; } }
 
-        if (input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val)) {
-          showErr(true); return false;
-        }
-        if (input.type === 'tel') {
-          const digits = val.replace(/\D/g, '');
-          if (digits.length < 9) { showErr(true); return false; }
-        }
-        if (field === 'name' && val.length < 2) { showErr(true); return false; }
-        if (field === 'challenge' && val.length < 10) { showErr(true); return false; }
-
-        this.answers[field] = val;
-        showErr(false);
-        return true;
+        input.classList.remove('error');
+        if (val) this.answers[field] = val;
       }
 
-      if (options) {
+      // Validate ALL option groups on the slide
+      const allOptions = slide.querySelectorAll('.qm-options');
+      for (const options of allOptions) {
         const field = options.dataset.qmField;
         const type = options.dataset.qmType;
         const selected = options.querySelectorAll('.qm-option.selected');
@@ -1842,10 +1552,9 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
         } else {
           this.answers[field] = selected[0].dataset.value;
         }
-        showErr(false);
-        return true;
       }
 
+      showErr(false);
       return true;
     },
 
@@ -1853,16 +1562,16 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
       if (!this.validate()) return;
 
       if (this.step === TOTAL_QS) {
-        this.goto(11);
+        this.goto(5);
         this.submit();
         return;
       }
-      if (this.step >= 12) return;
+      if (this.step >= 6) return;
       this.goto(this.step + 1);
     },
 
     prev() {
-      if (this.step === 0 || this.step >= 11) return;
+      if (this.step === 0 || this.step >= 5) return;
       this.goto(this.step - 1);
     },
 
@@ -1871,7 +1580,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
       this.submitted = true;
 
       const payload = Object.assign({}, this.answers, {
-        source: 'exilia-site',
+        source: 'excilia-site',
         submittedAt: new Date().toISOString(),
         userAgent: navigator.userAgent,
         referrer: document.referrer || 'direct',
@@ -1895,7 +1604,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
       }
 
       // Brief "loading" moment for perceived polish, then Cal.com
-      setTimeout(() => this.goto(12), 900);
+      setTimeout(() => this.goto(6), 900);
     },
 
     loadCal() {
@@ -2065,7 +1774,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
   }
 
   // Expose for debugging / manual trigger
-  window.exiliaQualify = qm;
+  window.exciliaQualify = qm;
 })();
 </script>
 

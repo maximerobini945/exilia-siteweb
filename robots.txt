@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /assets/template-nda.html
+Disallow: /assets/template-devis.html
+Disallow: /assets/template-email-proposition.html
+Disallow: /assets/trame-audit-excilia.html
+Disallow: /dashboards/
+Disallow: /n8n-code/
+
+Sitemap: https://excilia.ch/sitemap.xml

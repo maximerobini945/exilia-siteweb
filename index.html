@@ -36,7 +36,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com" defer></script>
+<script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="/assets/responsive.css" />
 
 <!-- ============== META PIXEL ============== -->
@@ -81,7 +81,7 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
     "@type": "Offer",
     "name": "Atelier IA — demi-journée",
     "priceCurrency": "CHF",
-    "price": "1200",
+    "price": "1500",
     "availability": "https://schema.org/LimitedAvailability"
   }
 }
@@ -98,8 +98,8 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
     },
     {
       "@type": "Question",
-      "name": "Combien coûte un atelier IA ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "L'atelier IA en demi-journée démarre à 1'200 CHF. Il inclut la formation Claude business, des cas concrets adaptés à votre entreprise et une mise en pratique immédiate." }
+      "name": "Combien coûte une formation IA ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Le tarif dépend du sujet, de la durée et du nombre de participants. Chaque formation est sur mesure. Les formations démarrent à partir de 1'500 CHF HT pour une demi-journée (environ 4h), incluant des cas concrets adaptés à votre entreprise et une mise en pratique immédiate." }
     },
     {
       "@type": "Question",
@@ -715,7 +715,19 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
       Faites gagner <span class="text-teal-400" style="-webkit-text-fill-color: #5EEAD4;">10 à 30h/semaine</span> à vos équipes grâce à l'IA<span class="text-teal-400">.</span>
     </h1>
 
-    <p class="text-ink/50 text-[14px] md:text-[16px] mb-10 font-light">Formation sur place · Consulting · Automatisation sur mesure — en Suisse romande</p>
+    <p class="text-ink/50 text-[14px] md:text-[16px] mb-8 font-light">Formation sur place · Consulting · Automatisation sur mesure — en Suisse romande</p>
+
+    <!-- VSL Video (Vimeo) -->
+    <div id="vsl-wrap" class="relative max-w-2xl mx-auto mb-10 rounded-2xl overflow-hidden" style="box-shadow: 0 8px 40px rgba(45,212,191,0.15); border: 1px solid rgba(45,212,191,0.15); background:#000; cursor:pointer;" onclick="this.innerHTML='<div style=\'padding:56.25% 0 0 0;position:relative;\' ><iframe src=\'https://player.vimeo.com/video/1182204799?autoplay=1&badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0\' frameborder=\'0\' allow=\'autoplay; fullscreen; picture-in-picture\' style=\'position:absolute;top:0;left:0;width:100%;height:100%;border-radius:16px;\' ></iframe></div>';this.style.cursor='default';var s=document.createElement('script');s.src='https://player.vimeo.com/api/player.js';document.head.appendChild(s);">
+      <div style="padding:56.25% 0 0 0;position:relative;">
+        <img src="/assets/vsl-thumbnail.jpg" alt="Excilia — Formation, Consulting & Automatisation IA pour PME en Suisse romande" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" loading="lazy" />
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.25);">
+          <div style="width:72px;height:72px;border-radius:50%;background:rgba(45,212,191,0.9);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(45,212,191,0.4);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="#000"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="flex flex-wrap justify-center gap-4 mb-4">
       <a href="#reserver" class="btn-teal">
@@ -1082,14 +1094,13 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
       <details class="corner-card !p-7 cursor-pointer">
         <span class="corner-tl"></span><span class="corner-tr"></span><span class="corner-bl"></span><span class="corner-br"></span>
         <summary class="flex items-center justify-between">
-          <h3 class="font-semibold text-ink text-base md:text-lg">Combien coûte un atelier IA ?</h3>
+          <h3 class="font-semibold text-ink text-base md:text-lg">Combien coûte une formation IA ?</h3>
           <span class="faq-icon text-teal-400 text-2xl ml-4">+</span>
         </summary>
         <p class="text-ink/65 mt-5 leading-relaxed text-[14px]">
-          L'atelier IA en demi-journée démarre à <strong class="text-ink">1'200 CHF</strong>.
-          Il inclut la formation Claude business, des cas concrets adaptés et une mise en pratique
-          immédiate. Possibilité d'aller plus loin avec niveaux avancés, formations spécialisées
-          et accompagnement.
+          Le tarif dépend du sujet, de la durée et du nombre de participants — chaque formation est <strong class="text-ink">100% sur mesure</strong>.
+          Les formations démarrent à partir de <strong class="text-ink">1'500 CHF HT</strong> pour une demi-journée (environ 4h),
+          incluant des cas concrets adaptés à votre entreprise et une mise en pratique immédiate.
         </p>
       </details>
 

@@ -140,7 +140,7 @@ section:not(.hero-section) { padding-top: 3rem !important; padding-bottom: 3rem 
   .headline { font-size: 48px !important; }
 }
 @media (min-width: 1024px) {
-  .headline { font-size: 64px !important; }
+  .headline { font-size: 52px !important; }
   .headline-bold { font-size: 52px !important; }
   h3, .text-2xl, .text-xl { font-size: 24px !important; }
 
@@ -154,8 +154,8 @@ section:not(.hero-section) { padding-top: 3rem !important; padding-bottom: 3rem 
    LARGE DESKTOP (1280px+)
    ═══════════════════════════════════════════ */
 @media (min-width: 1280px) {
-  .headline { font-size: 88px !important; }
-  .headline-bold { font-size: 60px !important; }
+  .headline { font-size: 60px !important; }
+  .headline-bold { font-size: 48px !important; }
 }
 
 /* ═══════════════════════════════════════════

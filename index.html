@@ -1421,6 +1421,8 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
   const CAL_LINK     = "maxime-robini-slzfkw/audit-ia";
   const CAL_NS       = "audit-ia";
   const LEAD_ENDPOINT = "https://excilia.app.n8n.cloud/webhook/excilia-form-lead";
+  const PARTIAL_ENDPOINT = "https://excilia.app.n8n.cloud/webhook/excilia-partial-lead";
+  const PARTIAL_DELAY = 10000; // 10 seconds of inactivity before sending partial lead
   const TOTAL_QS     = 4;
 
   const qm = {
@@ -1434,6 +1436,8 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
     answers:  {},
     calLoaded: false,
     submitted: false,
+    partialSent: false,
+    partialTimer: null,
 
     slides() { return this.body.querySelectorAll('.qm-slide'); },
     currentSlide() { return this.body.querySelector('.qm-slide[data-step="' + this.step + '"]'); },
@@ -1450,6 +1454,19 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
       this.backdrop.classList.remove('open');
       this.backdrop.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      // If user closes modal without completing, capture whatever we have
+      if (!this.submitted && !this.partialSent && this.step >= 1) {
+        // Grab any filled inputs on current slide before closing
+        const slide = this.currentSlide();
+        if (slide) {
+          slide.querySelectorAll('.qm-input, .qm-textarea').forEach(input => {
+            const val = input.value.trim();
+            if (val) this.answers[input.dataset.qmField] = val;
+          });
+        }
+        if (this.answers.email) this.sendPartial();
+      }
+      clearTimeout(this.partialTimer);
     },
 
     reset() {
@@ -1470,6 +1487,8 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
       this.focusCurrent();
       // Scroll modal body to top
       this.body.scrollTop = 0;
+      // Reset partial lead timer on every navigation
+      this.resetPartialTimer();
 
       if (step === 6 && !this.calLoaded) this.loadCal();
     },
@@ -1572,11 +1591,59 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
       this.goto(this.step - 1);
     },
 
+    /* ── Partial Lead Capture ─────────────────────────── */
+    resetPartialTimer() {
+      clearTimeout(this.partialTimer);
+      // Only set timer if we have at least an email and haven't sent partial yet
+      if (this.partialSent || this.submitted) return;
+      const email = this.answers.email;
+      if (!email) return;
+      this.partialTimer = setTimeout(() => this.sendPartial(), PARTIAL_DELAY);
+    },
+
+    async sendPartial() {
+      if (this.partialSent || this.submitted) return;
+      this.partialSent = true;
+
+      const payload = {
+        type: 'partial',
+        lastStep: this.step,
+        totalSteps: TOTAL_QS,
+        name: this.answers.name || '',
+        email: this.answers.email || '',
+        phone: this.answers.phone || '',
+        company: this.answers.company || '',
+        size: this.answers.size || '',
+        budget: this.answers.budget || '',
+        sector: this.answers.sector || '',
+        challenge: this.answers.challenge || '',
+        timing: this.answers.timing || '',
+        submittedAt: new Date().toISOString(),
+        referrer: document.referrer || 'direct',
+        pageUrl: window.location.href
+      };
+
+      try {
+        await fetch(PARTIAL_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+          keepalive: true
+        });
+      } catch (e) {
+        console.warn('[Excilia] partial lead failed:', e);
+      }
+    },
+    /* ── End Partial Lead Capture ──────────────────────── */
+
     async submit() {
       if (this.submitted) return;
       this.submitted = true;
+      clearTimeout(this.partialTimer); // Cancel partial timer since they completed
 
       const payload = Object.assign({}, this.answers, {
+        type: 'complete',
+        partialAlreadySent: this.partialSent,
         source: 'excilia-site',
         submittedAt: new Date().toISOString(),
         userAgent: navigator.userAgent,
@@ -1746,12 +1813,17 @@ src="https://www.facebook.com/tr?id=931730523110635&ev=PageView&noscript=1"
         });
       });
 
-      // Auto-clear input error on typing
+      // Auto-clear input error on typing + capture for partial lead
       this.body.querySelectorAll('.qm-input, .qm-textarea').forEach(input => {
         input.addEventListener('input', () => {
           input.classList.remove('error');
           const errMsg = input.closest('.qm-slide').querySelector('.qm-error-msg');
           if (errMsg) errMsg.classList.remove('show');
+          // Live capture value for partial leads
+          const val = input.value.trim();
+          if (val) this.answers[input.dataset.qmField] = val;
+          // Reset inactivity timer
+          this.resetPartialTimer();
         });
       });
 

@@ -1,0 +1,129 @@
+{
+  "name": "Excilia — Envoi Proposition (Telegram Audio)",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": ["message"]
+      },
+      "name": "Vocal Telegram",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [200, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ 'https://api.telegram.org/bot' + $credentials.telegramApi.accessToken + '/getFile?file_id=' + ($json.message.voice ? $json.message.voice.file_id : '') }}",
+        "options": {}
+      },
+      "name": "Get Audio File Path",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [420, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ 'https://api.telegram.org/file/bot' + $credentials.telegramApi.accessToken + '/' + $json.result.file_path }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "name": "Download Audio",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [640, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "anthropicApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "anthropic-version", "value": "2023-06-01" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'claude-sonnet-4-5', max_tokens: 500, temperature: 0, messages: [{ role: 'user', content: [{ type: 'text', text: 'Transcris cet audio vocal. Puis extrais les infos suivantes en JSON brut (pas de markdown): {\"entreprise\":\"\",\"prenom_client\":\"\",\"prestation\":\"Formation|Consulting|Automatisation\",\"montant\":0,\"description\":\"\"}. Si une info manque, mets null.' }, { type: 'document', source: { type: 'base64', media_type: 'audio/ogg', data: $binary.data ? $binary.data.data : '' } }] }] }) }}",
+        "options": { "timeout": 60000 }
+      },
+      "name": "Claude Transcribe & Parse",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [860, 300]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const r = $input.item.json;\nconst ct = r.content || [];\nlet t = '';\nfor (let i = ct.length - 1; i >= 0; i--) { if (ct[i].type === 'text' && ct[i].text) { t = ct[i].text; break; } }\n\nlet p;\ntry {\n  const m = t.match(/\\{[\\s\\S]*\\}/);\n  p = m ? JSON.parse(m[0]) : {};\n} catch(e) { p = {}; }\n\nconst chatId = $('Vocal Telegram').item.json.message.chat.id;\n\nreturn { json: {\n  entreprise: p.entreprise || 'Inconnu',\n  prenom: p.prenom_client || '',\n  prestation: p.prestation || 'Formation',\n  montant: Number(p.montant) || 0,\n  description: p.description || '',\n  chatId: String(chatId)\n}};"
+      },
+      "name": "Extract Info",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1080, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/databases/f24f2a32b14146378bb310527f4817ce/query",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Notion-Version", "value": "2022-06-28" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ filter: { property: 'Nom entreprise', title: { contains: $json.entreprise } }, page_size: 1 }) }}"
+      },
+      "name": "Find Lead Notion",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [1300, 300]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const ext = $('Extract Info').item.json;\nconst nr = $input.item.json;\nconst lead = (nr.results || [])[0];\nconst props = lead ? lead.properties || {} : {};\n\nconst gt = (p) => {\n  if (!p) return '';\n  if (p.title) return p.title.map(t => t.plain_text || '').join('');\n  if (p.rich_text) return p.rich_text.map(t => t.plain_text || '').join('');\n  if (p.email) return p.email || '';\n  return '';\n};\n\nconst pageId = lead ? lead.id : '';\nconst email = gt(props['Email']);\nconst contact = gt(props['Contact principal']);\nconst societe = gt(props['Nom entreprise']) || ext.entreprise;\nconst tel = gt(props['Téléphone']);\n\n// Generate devis number\nconst now = new Date();\nconst year = now.getFullYear();\nconst num = String(Math.floor(Math.random() * 900) + 100);\nconst devisNum = 'EXC-' + year + '-' + num;\n\nconst tva = Math.round(ext.montant * 0.077);\nconst ttc = ext.montant + tva;\n\nreturn { json: {\n  pageId,\n  email,\n  contact: contact || ext.prenom,\n  prenom: ext.prenom || contact.split(' ')[0] || '',\n  societe,\n  tel,\n  prestation: ext.prestation,\n  montant: ext.montant,\n  tva,\n  ttc,\n  description: ext.description,\n  devisNum,\n  chatId: ext.chatId\n}};"
+      },
+      "name": "Build Proposal Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1520, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chatId }}",
+        "text": "={{ '📋 <b>Proposition prête</b>\\n\\n🏢 ' + $json.societe + '\\n👤 ' + $json.contact + '\\n📧 ' + $json.email + '\\n\\n📦 ' + $json.prestation + '\\n💰 ' + $json.montant + ' CHF HT + TVA = <b>' + $json.ttc + ' CHF TTC</b>\\n📄 Devis N° ' + $json.devisNum + '\\n\\n' + ($json.description ? '📝 ' + $json.description + '\\n\\n' : '') + '✅ Répondre <b>OUI</b> pour envoyer par email au client.' }}",
+        "additionalFields": {
+          "appendAttribution": false,
+          "parse_mode": "HTML"
+        }
+      },
+      "name": "Ask Confirmation",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [1740, 300]
+    }
+  ],
+  "connections": {
+    "Vocal Telegram": { "main": [[{ "node": "Get Audio File Path", "type": "main", "index": 0 }]] },
+    "Get Audio File Path": { "main": [[{ "node": "Download Audio", "type": "main", "index": 0 }]] },
+    "Download Audio": { "main": [[{ "node": "Claude Transcribe & Parse", "type": "main", "index": 0 }]] },
+    "Claude Transcribe & Parse": { "main": [[{ "node": "Extract Info", "type": "main", "index": 0 }]] },
+    "Extract Info": { "main": [[{ "node": "Find Lead Notion", "type": "main", "index": 0 }]] },
+    "Find Lead Notion": { "main": [[{ "node": "Build Proposal Data", "type": "main", "index": 0 }]] },
+    "Build Proposal Data": { "main": [[{ "node": "Ask Confirmation", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" }
+}

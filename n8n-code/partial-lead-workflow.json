@@ -1,0 +1,76 @@
+{
+  "name": "Excilia — Partial Lead → Notion + Telegram",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "excilia-partial-lead",
+        "options": { "allowedOrigins": "*" }
+      },
+      "name": "Partial Lead Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const body = $input.item.json.body || {};\n\nconst sizeMap = {\n  'Solo / freelance': 'Solo',\n  '2 à 10 employés': '2-10',\n  '11 à 50 employés': '11-50',\n  '51 à 200 employés': '51-200',\n  '200+ employés': '200+'\n};\n\nconst sectorMap = {\n  'Services / Conseil': 'Services',\n  'Industrie / Production': 'Industrie',\n  'Commerce / Retail / E-commerce': 'Commerce',\n  'Santé / Pharma': 'Santé',\n  'Finance / Assurance': 'Finance',\n  'Immobilier / Construction': 'Immobilier',\n  'Hôtellerie / Restauration': 'Hôtellerie',\n  'Autre': 'Autre'\n};\n\nconst budgetMap = {\n  \"< 2'000 CHF\": '< 2k',\n  \"2'000 - 5'000 CHF\": '2-5k',\n  \"5'000 - 15'000 CHF\": '5-15k',\n  \"15'000+ CHF\": '15k+',\n  'À définir': 'À définir'\n};\n\nconst timingMap = {\n  'Ce mois-ci': 'Ce mois',\n  'Dans 3 mois': '3 mois',\n  \"D'ici 6 mois\": '6 mois',\n  'Je me renseigne': 'Exploration'\n};\n\nconst name = (body.name || '').trim();\nconst email = (body.email || '').trim().toLowerCase();\nconst phone = (body.phone || '').trim();\nconst company = (body.company || '').trim();\nconst lastStep = body.lastStep || 1;\nconst totalSteps = body.totalSteps || 4;\n\nconst lines = ['⚠️ *LEAD PARTIEL* — Formulaire abandonné', ''];\nif (name) lines.push('👤 ' + name);\nif (email) lines.push('📧 ' + email);\nif (phone) lines.push('📱 +41 ' + phone);\nif (company) lines.push('🏢 ' + company);\n\nconst size = body.size ? (sizeMap[body.size] || body.size) : '';\nconst budget = body.budget ? (budgetMap[body.budget] || body.budget) : '';\nconst sector = body.sector ? (sectorMap[body.sector] || body.sector) : '';\nconst timing = body.timing ? (timingMap[body.timing] || body.timing) : '';\nconst challenge = (body.challenge || '').trim();\n\nif (size) lines.push('👥 ' + size + ' pers.');\nif (budget) lines.push('💰 Budget : ' + budget);\nif (sector) lines.push('🏭 ' + sector);\nif (timing) lines.push('📅 Timing : ' + timing);\nif (challenge) lines.push('💬 \"' + challenge.substring(0, 80) + (challenge.length > 80 ? '...' : '') + '\"');\n\nlines.push('');\nlines.push('⏱ Arrêté à l\\'étape ' + lastStep + '/' + totalSteps);\n\nconst now = new Date(body.submittedAt || Date.now());\nconst h = String(now.getHours()).padStart(2, '0');\nconst m = String(now.getMinutes()).padStart(2, '0');\nconst d = String(now.getDate()).padStart(2, '0');\nconst mo = String(now.getMonth() + 1).padStart(2, '0');\nconst y = now.getFullYear();\nlines.push('🕐 ' + d + '/' + mo + '/' + y + ' à ' + h + ':' + m);\nlines.push('');\nlines.push('→ *À contacter rapidement*');\n\nconst todayISO = new Date().toISOString().split('T')[0];\n\nreturn {\n  json: {\n    telegramMessage: lines.join('\\n'),\n    nomEntreprise: company || 'Lead partiel — ' + (name || email),\n    contactPrincipal: name,\n    email: email,\n    telephone: phone ? '+41 ' + phone : '',\n    taille: size,\n    secteur: sector || 'Autre',\n    timing: timing,\n    budget: budget || 'À définir',\n    enjeuPrincipal: challenge,\n    datePremierContact: todayISO,\n    dateProchaineAction: todayISO,\n    prochaineAction: 'URGENT — Lead partiel à contacter (formulaire abandonné étape ' + lastStep + '/' + totalSteps + ')',\n    notesText: 'LEAD PARTIEL — Formulaire abandonné à l\\'étape ' + lastStep + '/' + totalSteps + '\\nSoumis via : ' + (body.pageUrl || 'excilia.ch') + '\\nDate : ' + (body.submittedAt || new Date().toISOString())\n  }\n};"
+      },
+      "name": "Format Partial Lead",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": { "__rl": true, "mode": "id", "value": "f24f2a32b14146378bb310527f4817ce" },
+        "title": "={{ $json.nomEntreprise }}",
+        "propertiesUi": {
+          "propertyValues": [
+            { "key": "Statut|select", "selectValue": "Partiel" },
+            { "key": "Priorité|select", "selectValue": "Hot" },
+            { "key": "Source|select", "selectValue": "Site Excilia" },
+            { "key": "Date premier contact|date", "includeTime": false, "date": "={{ $json.datePremierContact }}" },
+            { "key": "Prochaine action|rich_text", "textContent": "={{ $json.prochaineAction }}" },
+            { "key": "Date prochaine action|date", "includeTime": false, "date": "={{ $json.dateProchaineAction }}" },
+            { "key": "Contact principal|rich_text", "textContent": "={{ $json.contactPrincipal }}" },
+            { "key": "Email|email", "emailValue": "={{ $json.email }}" },
+            { "key": "Téléphone|phone_number", "phoneValue": "={{ $json.telephone }}" },
+            { "key": "Enjeu principal|rich_text", "textContent": "={{ $json.enjeuPrincipal }}" },
+            { "key": "Notes internes|rich_text", "textContent": "={{ $json.notesText }}" }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Create Notion (Partiel)",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [720, 300],
+      "credentials": { "notionApi": { "id": "REPLACE_WITH_YOUR_NOTION_CREDENTIAL_ID", "name": "Notion" } }
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "sendMessage",
+        "chatId": "REPLACE_WITH_YOUR_TELEGRAM_CHAT_ID",
+        "text": "={{ $('Format Partial Lead').item.json.telegramMessage }}",
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
+      },
+      "name": "Telegram Alert Partiel",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [960, 300],
+      "credentials": { "telegramApi": { "id": "REPLACE_WITH_YOUR_TELEGRAM_CREDENTIAL_ID", "name": "Telegram" } }
+    }
+  ],
+  "connections": {
+    "Partial Lead Webhook": { "main": [[{ "node": "Format Partial Lead", "type": "main", "index": 0 }]] },
+    "Format Partial Lead": { "main": [[{ "node": "Create Notion (Partiel)", "type": "main", "index": 0 }]] },
+    "Create Notion (Partiel)": { "main": [[{ "node": "Telegram Alert Partiel", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" }
+}

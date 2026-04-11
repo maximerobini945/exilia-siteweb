@@ -1,0 +1,25 @@
+={{ (() => {
+  const b = $('Parse').item.json;
+  const lines = [];
+  lines.push('📞 <b>Call terminé — CRM mis à jour</b>');
+  lines.push('');
+  lines.push('🏢 <b>' + b.nom + '</b>');
+  lines.push('👤 ' + b.contact);
+  lines.push('');
+  lines.push('📝 <b>Résumé :</b>');
+  lines.push(b.resumeCall.slice(0, 400));
+  lines.push('');
+  lines.push('🎭 <b>Sentiment :</b> ' + b.sentiment);
+  if (b.actionItemsStr) {
+    lines.push('');
+    lines.push('✅ <b>Action items :</b>');
+    lines.push(b.actionItemsStr);
+  }
+  lines.push('');
+  lines.push('➡️ <b>Next :</b> ' + b.prochaineAction);
+  if (b.dateProchaineAction) lines.push('📅 ' + b.dateProchaineAction);
+  lines.push('📊 <b>Statut :</b> ' + b.statutRecommande);
+  lines.push('');
+  lines.push('🔗 <a href="' + b.notionUrl + '">Ouvrir la fiche Notion →</a>');
+  return lines.join('\n');
+})() }}
